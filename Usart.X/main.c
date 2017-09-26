@@ -51,6 +51,7 @@
 void main(void)
 {
     char x=0;
+    
     // initialize the device
     SYSTEM_Initialize();
    
@@ -69,15 +70,32 @@ void main(void)
 
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
-    printf("merge o pula\n\r");
+    __delay_ms(3000);
+     
+        printf("AT");
+        putch(0x0d);
+        __delay_ms(4000);
+        
+        printf("AT+CPIN=\"1234\"");
+        putch(0x0d);
+        __delay_ms(4000);
+        printf("AT+CMGF=1");
+        putch(0x0d);
+        __delay_ms(4000);
+        printf("AT+CSCS=\"GSM\"");
+        putch(0x0d);
+        __delay_ms(4000);
+         printf("AT+CMGS=\"0757494823\"");
+         putch(0x0d);
+        __delay_ms(4000);
+        printf("sms dela anutza");
+        putch(26);
+        putch(0x0d);
         __delay_ms(500);
-        printf("merge o pula\n\r");
-        __delay_ms(500);
-        printf("merge o pula\n\r");
-        __delay_ms(500);
+       
+    
     while (1)
     {
-        
         
         // Add your application code
     }

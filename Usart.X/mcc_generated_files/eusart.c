@@ -194,6 +194,9 @@ void EUSART_Receive_ISR(void)
 
     // buffer overruns are ignored
     eusartRxBuffer[eusartRxHead++] = RCREG;
+    //if(RCREG=='K')
+     
+        
     if(sizeof(eusartRxBuffer) <= eusartRxHead)
     {
         eusartRxHead = 0;

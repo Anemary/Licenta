@@ -3711,23 +3711,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eusart.c: 196: eusartRxBuffer[eusartRxHead++] = RCREG;
 "196
 [e = *U + &U _eusartRxBuffer * -> ++ _eusartRxHead -> -> 1 `i `uc `ux -> -> # *U &U _eusartRxBuffer `ui `ux _RCREG ]
-[; ;eusart.c: 197: if(sizeof(eusartRxBuffer) <= eusartRxHead)
-"197
-[e $ ! <= -> # _eusartRxBuffer `ui -> _eusartRxHead `ui 397  ]
-[; ;eusart.c: 198: {
-"198
-{
-[; ;eusart.c: 199: eusartRxHead = 0;
-"199
-[e = _eusartRxHead -> -> 0 `i `uc ]
+[; ;eusart.c: 200: if(sizeof(eusartRxBuffer) <= eusartRxHead)
 "200
+[e $ ! <= -> # _eusartRxBuffer `ui -> _eusartRxHead `ui 397  ]
+[; ;eusart.c: 201: {
+"201
+{
+[; ;eusart.c: 202: eusartRxHead = 0;
+"202
+[e = _eusartRxHead -> -> 0 `i `uc ]
+"203
 }
 [e :U 397 ]
-[; ;eusart.c: 200: }
-[; ;eusart.c: 201: eusartRxCount++;
-"201
+[; ;eusart.c: 203: }
+[; ;eusart.c: 204: eusartRxCount++;
+"204
 [e ++ _eusartRxCount -> -> 1 `i `uc ]
-[; ;eusart.c: 202: }
-"202
+[; ;eusart.c: 205: }
+"205
 [e :UE 395 ]
 }

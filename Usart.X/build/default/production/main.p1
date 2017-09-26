@@ -13,12 +13,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S25 . . . ]
 "372
 [v _INTCONbits `VS25 ~T0 @X0 0 e@11 ]
-"195 C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdio.h
-[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
 [v F3491 `(v ~T0 @X0 1 tf1`ul ]
 "152 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic.h
 [v __delay `JF3491 ~T0 @X0 0 e ]
 [p i __delay ]
+"195 C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdio.h
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
+"16 C:\Program Files (x86)\Microchip\xc8\v1.42\include\conio.h
+[v _putch `(v ~T0 @X0 0 ef1`uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -3379,51 +3381,96 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _x `uc ~T0 @X0 1 a ]
 [; ;main.c: 53: char x=0;
 [e = _x -> -> 0 `i `uc ]
-[; ;main.c: 55: SYSTEM_Initialize();
-"55
+[; ;main.c: 56: SYSTEM_Initialize();
+"56
 [e ( _SYSTEM_Initialize ..  ]
-[; ;main.c: 62: (INTCONbits.GIE = 1);
-"62
+[; ;main.c: 63: (INTCONbits.GIE = 1);
+"63
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-[; ;main.c: 65: (INTCONbits.PEIE = 1);
-"65
+[; ;main.c: 66: (INTCONbits.PEIE = 1);
+"66
 [e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
-[; ;main.c: 72: printf("merge o pula\n\r");
-"72
-[e ( _printf :s 1C ]
-[; ;main.c: 73: _delay((unsigned long)((500)*(18432000/4000.0)));
+[; ;main.c: 73: _delay((unsigned long)((3000)*(18432000/4000.0)));
 "73
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
-[; ;main.c: 74: printf("merge o pula\n\r");
-"74
-[e ( _printf :s 2C ]
-[; ;main.c: 75: _delay((unsigned long)((500)*(18432000/4000.0)));
+[e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[; ;main.c: 75: printf("AT");
 "75
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
-[; ;main.c: 76: printf("merge o pula\n\r");
+[e ( _printf :s 1C ]
+[; ;main.c: 76: putch(0x0d);
 "76
-[e ( _printf :s 3C ]
-[; ;main.c: 77: _delay((unsigned long)((500)*(18432000/4000.0)));
+[e ( _putch (1 -> -> 13 `i `uc ]
+[; ;main.c: 77: _delay((unsigned long)((4000)*(18432000/4000.0)));
 "77
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
-[; ;main.c: 78: while (1)
-"78
-[e :U 378 ]
-[; ;main.c: 79: {
+[e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[; ;main.c: 79: printf("AT+CPIN=\"1234\"");
 "79
-{
+[e ( _printf :s 2C ]
+[; ;main.c: 80: putch(0x0d);
+"80
+[e ( _putch (1 -> -> 13 `i `uc ]
+[; ;main.c: 81: _delay((unsigned long)((4000)*(18432000/4000.0)));
+"81
+[e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[; ;main.c: 82: printf("AT+CMGF=1");
+"82
+[e ( _printf :s 3C ]
+[; ;main.c: 83: putch(0x0d);
 "83
+[e ( _putch (1 -> -> 13 `i `uc ]
+[; ;main.c: 84: _delay((unsigned long)((4000)*(18432000/4000.0)));
+"84
+[e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[; ;main.c: 85: printf("AT+CSCS=\"GSM\"");
+"85
+[e ( _printf :s 4C ]
+[; ;main.c: 86: putch(0x0d);
+"86
+[e ( _putch (1 -> -> 13 `i `uc ]
+[; ;main.c: 87: _delay((unsigned long)((4000)*(18432000/4000.0)));
+"87
+[e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[; ;main.c: 88: printf("AT+CMGS=\"0757494823\"");
+"88
+[e ( _printf :s 5C ]
+[; ;main.c: 89: putch(0x0d);
+"89
+[e ( _putch (1 -> -> 13 `i `uc ]
+[; ;main.c: 90: _delay((unsigned long)((4000)*(18432000/4000.0)));
+"90
+[e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[; ;main.c: 91: printf("sms dela anutza");
+"91
+[e ( _printf :s 6C ]
+[; ;main.c: 92: putch(26);
+"92
+[e ( _putch (1 -> -> 26 `i `uc ]
+[; ;main.c: 93: putch(0x0d);
+"93
+[e ( _putch (1 -> -> 13 `i `uc ]
+[; ;main.c: 94: _delay((unsigned long)((500)*(18432000/4000.0)));
+"94
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[; ;main.c: 97: while (1)
+"97
+[e :U 378 ]
+[; ;main.c: 98: {
+"98
+{
+"101
 }
 [e :U 377 ]
-"78
+"97
 [e $U 378  ]
 [e :U 379 ]
-[; ;main.c: 83: }
-[; ;main.c: 84: }
-"84
+[; ;main.c: 101: }
+[; ;main.c: 102: }
+"102
 [e :UE 376 ]
 }
 [p f _printf 8388608 ]
-[a 1C 109 101 114 103 101 32 111 32 112 117 108 97 10 13 0 ]
-[a 2C 109 101 114 103 101 32 111 32 112 117 108 97 10 13 0 ]
-[a 3C 109 101 114 103 101 32 111 32 112 117 108 97 10 13 0 ]
+[a 6C 115 109 115 32 100 101 108 97 32 97 110 117 116 122 97 0 ]
+[a 1C 65 84 0 ]
+[a 3C 65 84 43 67 77 71 70 61 49 0 ]
+[a 4C 65 84 43 67 83 67 83 61 34 71 83 77 34 0 ]
+[a 2C 65 84 43 67 80 73 78 61 34 49 50 51 52 34 0 ]
+[a 5C 65 84 43 67 77 71 83 61 34 48 55 53 55 52 57 52 56 50 51 34 0 ]

@@ -57,7 +57,7 @@ void interrupt INTERRUPT_InterruptManager (void)
     }
     else if(INTCONbits.PEIE == 1 && PIE1bits.RCIE == 1 && PIR1bits.RCIF == 1)
     {
-        LATB=0xAA;
+        
         EUSART_Receive_ISR();
     }
     else

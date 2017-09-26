@@ -4853,6 +4853,9 @@ RCSTAbits.CREN = 1;
 
 
 eusartRxBuffer[eusartRxHead++] = RCREG;
+
+
+
 if(sizeof(eusartRxBuffer) <= eusartRxHead)
 {
 eusartRxHead = 0;

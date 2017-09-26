@@ -6,7 +6,9 @@
             <file>file:/F:/Licenta/Usart.X/mcc_generated_files/interrupt_manager.h</file>
             <file>file:/F:/Licenta/Usart.X/mcc_generated_files/mcc.h</file>
             <file>file:/F:/Licenta/Usart.X/mcc_generated_files/interrupt_manager.c</file>
+            <file>file:/F:/Licenta/Usart.X/mcc_generated_files/eusart.c</file>
             <file>file:/F:/Licenta/Usart.X/main.c</file>
+            <file>file:/F:/Licenta/Usart.X/mcc_generated_files/pin_manager.c</file>
             <file>file:/F:/Licenta/Usart.X/mcc_generated_files/mcc.c</file>
         </group>
     </open-files>
