@@ -4737,30 +4737,14 @@ void OSCILLATOR_Initialize(void);
 # 95
 void WDT_Initialize(void);
 
-# 51 "main.c"
-void main(void)
+# 47 "main.c"
+extern int flag;
+extern char txt_receive[];
+
+# 53
+void sms_text()
 {
-char x=0;
 
-
-SYSTEM_Initialize();
-
-# 63
-(INTCONbits.GIE = 1);
-
-
-(INTCONbits.PEIE = 1);
-
-# 73
-_delay((unsigned long)((3000)*(18432000/4000.0)));
-
-printf("AT");
-putch(0x0d);
-_delay((unsigned long)((4000)*(18432000/4000.0)));
-
-printf("AT+CPIN=\"1234\"");
-putch(0x0d);
-_delay((unsigned long)((4000)*(18432000/4000.0)));
 printf("AT+CMGF=1");
 putch(0x0d);
 _delay((unsigned long)((4000)*(18432000/4000.0)));
@@ -4770,14 +4754,44 @@ _delay((unsigned long)((4000)*(18432000/4000.0)));
 printf("AT+CMGS=\"0757494823\"");
 putch(0x0d);
 _delay((unsigned long)((4000)*(18432000/4000.0)));
-printf("sms dela anutza");
+printf("hello");
 putch(26);
 putch(0x0d);
 _delay((unsigned long)((500)*(18432000/4000.0)));
+}
+void main(void)
+{
+char x=0;
+LATB=0x00;
+
+SYSTEM_Initialize();
+
+# 82
+(INTCONbits.GIE = 1);
+
+
+(INTCONbits.PEIE = 1);
+
+# 92
+_delay((unsigned long)((3000)*(18432000/4000.0)));
+
+printf("AT");
+putch(0x0d);
+_delay((unsigned long)((4000)*(18432000/4000.0)));
+printf("AT+CPIN=\"1234\"");
+putch(0x0d);
+_delay((unsigned long)((4000)*(18432000/4000.0)));
 
 
 while (1)
 {
+if(flag==1)
+{
+
+sms_text();
+flag=0;
+_delay((unsigned long)((200)*(18432000/4000.0)));
+}
 
 
 }

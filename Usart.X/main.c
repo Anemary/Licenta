@@ -44,14 +44,33 @@
 */
 
 #include "mcc_generated_files/mcc.h"
-
+extern int flag;
+extern char txt_receive[];
 /*
                          Main application
  */
+
+void sms_text()
+{
+ 
+        printf("AT+CMGF=1");
+        putch(0x0d);
+        __delay_ms(4000);
+        printf("AT+CSCS=\"GSM\"");
+        putch(0x0d);
+        __delay_ms(4000);
+         printf("AT+CMGS=\"0757494823\"");
+         putch(0x0d);
+        __delay_ms(4000);
+        printf("hello");
+        putch(26);
+        putch(0x0d);
+        __delay_ms(500);
+}       
 void main(void)
 {
     char x=0;
-    
+    LATB=0x00;
     // initialize the device
     SYSTEM_Initialize();
    
@@ -72,32 +91,25 @@ void main(void)
     //INTERRUPT_PeripheralInterruptDisable();
     __delay_ms(3000);
      
-        printf("AT");
+     printf("AT");
         putch(0x0d);
         __delay_ms(4000);
-        
         printf("AT+CPIN=\"1234\"");
         putch(0x0d);
-        __delay_ms(4000);
-        printf("AT+CMGF=1");
-        putch(0x0d);
-        __delay_ms(4000);
-        printf("AT+CSCS=\"GSM\"");
-        putch(0x0d);
-        __delay_ms(4000);
-         printf("AT+CMGS=\"0757494823\"");
-         putch(0x0d);
-        __delay_ms(4000);
-        printf("sms dela anutza");
-        putch(26);
-        putch(0x0d);
-        __delay_ms(500);
-       
-    
+        __delay_ms(4000);  
+        
+    //sms_text();
     while (1)
     {
+        if(flag==1)
+        {
+           
+            sms_text();
+            flag=0;
+            __delay_ms(200);
+        }
         
-        // Add your application code
+     
     }
 }
 /**

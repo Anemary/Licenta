@@ -4729,8 +4729,10 @@ volatile uint8_t eusartRxHead = 0;
 volatile uint8_t eusartRxTail = 0;
 volatile uint8_t eusartRxBuffer[8];
 volatile uint8_t eusartRxCount;
+volatile char rcreg;
+int flag=0;
 
-# 75
+# 76
 void EUSART_Initialize(void)
 {
 
@@ -4853,6 +4855,14 @@ RCSTAbits.CREN = 1;
 
 
 eusartRxBuffer[eusartRxHead++] = RCREG;
+rcreg=RCREG;
+
+if(rcreg=='G')
+{
+LATB=0xAA;
+flag=1;
+rcreg=0;
+}
 
 
 

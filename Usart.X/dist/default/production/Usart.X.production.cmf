@@ -11,35 +11,36 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\Anamaria\AppData\Local\Temp\s8oo.obj
+$C:\Users\Anamaria\AppData\Local\Temp\sdk0.obj
 reset_vec CODE 0 0 0 2 2
 end_init CODE 0 24 24 2 2
 config CONFIG 0 8007 8007 2 2
 $dist/default/production\Usart.X.production.obj
 cinit CODE 0 26 26 D 2
-text1 CODE 0 11C 11C 1D 2
-text2 CODE 0 1EA 1EA 5 2
-text3 CODE 0 D6 D6 23 2
-text4 CODE 0 1CE 1CE C 2
-text5 CODE 0 1F4 1F4 4 2
-text6 CODE 0 F9 F9 23 2
-text7 CODE 0 1EF 1EF 5 2
-text8 CODE 0 156 156 1B 2
-text10 CODE 0 139 139 1D 2
-text11 CODE 0 171 171 1B 2
-nvBANK0 BANK0 1 38 38 1 1
-maintext CODE 0 33 33 A3 2
+text1 CODE 0 33 33 61 2
+text2 CODE 0 164 164 1D 2
+text3 CODE 0 20D 20D 5 2
+text4 CODE 0 11E 11E 23 2
+text5 CODE 0 1EB 1EB C 2
+text6 CODE 0 217 217 4 2
+text7 CODE 0 141 141 23 2
+text8 CODE 0 212 212 5 2
+text9 CODE 0 19E 19E 1B 2
+text11 CODE 0 181 181 1D 2
+text12 CODE 0 F0 F0 2E 2
+nvBANK0 BANK0 1 3D 3D 1 1
+maintext CODE 0 94 94 5C 2
 cstackCOMMON COMMON 1 70 70 A 1
-cstackBANK0 BANK0 1 33 33 5 1
-stringtext1 STRCODE 0 18C 18C 15 2
-stringtext2 STRCODE 0 1A1 1A1 10 2
-stringtext3 STRCODE 0 1B1 1B1 F 2
-stringtext4 STRCODE 0 1C0 1C0 E 2
-stringtext5 STRCODE 0 1DA 1DA A 2
-stringtext6 STRCODE 0 1F8 1F8 3 2
+cstackBANK0 BANK0 1 36 36 7 1
+stringtext1 STRCODE 0 1B9 1B9 15 2
+stringtext2 STRCODE 0 1CE 1CE F 2
+stringtext3 STRCODE 0 1DD 1DD E 2
+stringtext4 STRCODE 0 1F7 1F7 A 2
+stringtext5 STRCODE 0 201 201 6 2
+stringtext6 STRCODE 0 21B 21B 3 2
 intentry CODE 0 4 4 20 2
-bssBANK0 BANK0 1 20 20 13 1
-clrtext CODE 0 1E4 1E4 6 2
+bssBANK0 BANK0 1 20 20 16 1
+clrtext CODE 0 207 207 6 2
 bssCOMMON COMMON 1 7A 7A 2 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -47,14 +48,14 @@ bssCOMMON COMMON 1 7A 7A 2 1
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 39-6F 1
+RAM 3E-6F 1
 RAM A0-EF 1
 RAM 120-16F 1
 RAM 1A0-1EF 1
 RAM 220-26F 1
 RAM 2A0-2EF 1
 RAM 320-32F 1
-BANK0 39-6F 1
+BANK0 3E-6F 1
 BANK1 A0-EF 1
 BANK2 120-16F 1
 BANK3 1A0-1EF 1
@@ -62,9 +63,9 @@ BANK4 220-26F 1
 BANK5 2A0-2EF 1
 BANK6 320-32F 1
 CONST 2-3 2
-CONST 1FB-1FFF 2
+CONST 21E-1FFF 2
 ENTRY 2-3 2
-ENTRY 1FB-1FFF 2
+ENTRY 21E-1FFF 2
 IDLOC 8000-8003 2
 SFR10 500-56F 1
 SFR11 580-5EF 1
@@ -88,9 +89,9 @@ SFR28 E00-E6F 1
 SFR29 E80-EEF 1
 SFR30 F00-F6F 1
 SFR31 F80-FEF 1
-STACK 2019-21EF 1
+STACK 201E-21EF 1
 CODE 2-3 2
-CODE 1FB-1FFF 2
+CODE 21E-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-11F 1
@@ -105,9 +106,9 @@ BIGRAM 2000-21EF 1
 COMMON 7C-7D 1
 EEDATA F000-F0FF 2
 STRCODE 2-3 2
-STRCODE 1FB-1FFF 2
+STRCODE 21E-1FFF 2
 STRING 2-3 2
-STRING 1FB-1FFF 2
+STRING 21E-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -122,20 +123,20 @@ STRING 1FB-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Usart.X.production.obj
-26 cinit CODE >2023:C:\Users\Anamaria\AppData\Local\Temp\s8oo.
-26 cinit CODE >2026:C:\Users\Anamaria\AppData\Local\Temp\s8oo.
-26 cinit CODE >2071:C:\Users\Anamaria\AppData\Local\Temp\s8oo.
-27 cinit CODE >2072:C:\Users\Anamaria\AppData\Local\Temp\s8oo.
-28 cinit CODE >2076:C:\Users\Anamaria\AppData\Local\Temp\s8oo.
-29 cinit CODE >2077:C:\Users\Anamaria\AppData\Local\Temp\s8oo.
-2A cinit CODE >2078:C:\Users\Anamaria\AppData\Local\Temp\s8oo.
-2B cinit CODE >2079:C:\Users\Anamaria\AppData\Local\Temp\s8oo.
-2C cinit CODE >2080:C:\Users\Anamaria\AppData\Local\Temp\s8oo.
-2D cinit CODE >2081:C:\Users\Anamaria\AppData\Local\Temp\s8oo.
-2F cinit CODE >2087:C:\Users\Anamaria\AppData\Local\Temp\s8oo.
-2F cinit CODE >2089:C:\Users\Anamaria\AppData\Local\Temp\s8oo.
-30 cinit CODE >2090:C:\Users\Anamaria\AppData\Local\Temp\s8oo.
-31 cinit CODE >2091:C:\Users\Anamaria\AppData\Local\Temp\s8oo.
+26 cinit CODE >2018:C:\Users\Anamaria\AppData\Local\Temp\sdk0.
+26 cinit CODE >2021:C:\Users\Anamaria\AppData\Local\Temp\sdk0.
+26 cinit CODE >2072:C:\Users\Anamaria\AppData\Local\Temp\sdk0.
+27 cinit CODE >2073:C:\Users\Anamaria\AppData\Local\Temp\sdk0.
+28 cinit CODE >2077:C:\Users\Anamaria\AppData\Local\Temp\sdk0.
+29 cinit CODE >2078:C:\Users\Anamaria\AppData\Local\Temp\sdk0.
+2A cinit CODE >2079:C:\Users\Anamaria\AppData\Local\Temp\sdk0.
+2B cinit CODE >2080:C:\Users\Anamaria\AppData\Local\Temp\sdk0.
+2C cinit CODE >2081:C:\Users\Anamaria\AppData\Local\Temp\sdk0.
+2D cinit CODE >2082:C:\Users\Anamaria\AppData\Local\Temp\sdk0.
+2F cinit CODE >2088:C:\Users\Anamaria\AppData\Local\Temp\sdk0.
+2F cinit CODE >2090:C:\Users\Anamaria\AppData\Local\Temp\sdk0.
+30 cinit CODE >2091:C:\Users\Anamaria\AppData\Local\Temp\sdk0.
+31 cinit CODE >2092:C:\Users\Anamaria\AppData\Local\Temp\sdk0.
 4 intentry CODE >51:F:\Licenta\Usart.X\mcc_generated_files/interrupt_manager.c
 9 intentry CODE >54:F:\Licenta\Usart.X\mcc_generated_files/interrupt_manager.c
 11 intentry CODE >56:F:\Licenta\Usart.X\mcc_generated_files/interrupt_manager.c
@@ -143,128 +144,140 @@ $dist/default/production\Usart.X.production.obj
 15 intentry CODE >58:F:\Licenta\Usart.X\mcc_generated_files/interrupt_manager.c
 1D intentry CODE >61:F:\Licenta\Usart.X\mcc_generated_files/interrupt_manager.c
 1F intentry CODE >67:F:\Licenta\Usart.X\mcc_generated_files/interrupt_manager.c
-171 text11 CODE >184:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-171 text11 CODE >187:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-174 text11 CODE >191:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-175 text11 CODE >192:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-176 text11 CODE >196:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-183 text11 CODE >200:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-186 text11 CODE >202:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-187 text11 CODE >204:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-18B text11 CODE >205:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-139 text10 CODE >165:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-139 text10 CODE >169:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-13E text10 CODE >171:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-149 text10 CODE >172:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-14C text10 CODE >174:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-14D text10 CODE >176:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-152 text10 CODE >177:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-153 text10 CODE >178:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-153 text10 CODE >180:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-156 text8 CODE >75:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-156 text8 CODE >78:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-158 text8 CODE >79:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-159 text8 CODE >84:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-15C text8 CODE >87:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-15E text8 CODE >90:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-160 text8 CODE >93:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-162 text8 CODE >96:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-164 text8 CODE >100:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-165 text8 CODE >101:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-166 text8 CODE >102:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-16B text8 CODE >104:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-16C text8 CODE >105:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-16D text8 CODE >106:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-16E text8 CODE >109:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-170 text8 CODE >110:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-1EF text7 CODE >79:F:\Licenta\Usart.X\mcc_generated_files/mcc.c
-1EF text7 CODE >82:F:\Licenta\Usart.X\mcc_generated_files/mcc.c
-1F2 text7 CODE >84:F:\Licenta\Usart.X\mcc_generated_files/mcc.c
-1F3 text7 CODE >85:F:\Licenta\Usart.X\mcc_generated_files/mcc.c
-F9 text6 CODE >52:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
-F9 text6 CODE >57:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
-FB text6 CODE >58:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
-FC text6 CODE >59:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
-FD text6 CODE >60:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
-FE text6 CODE >61:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
-FF text6 CODE >66:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
-102 text6 CODE >67:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
-104 text6 CODE >68:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
-105 text6 CODE >69:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
-107 text6 CODE >70:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
-109 text6 CODE >75:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
-10C text6 CODE >76:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
-10E text6 CODE >77:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
-110 text6 CODE >78:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
-112 text6 CODE >83:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
-115 text6 CODE >84:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
-117 text6 CODE >85:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
-119 text6 CODE >91:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
-11B text6 CODE >96:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
-1F4 text5 CODE >87:F:\Licenta\Usart.X\mcc_generated_files/mcc.c
-1F4 text5 CODE >90:F:\Licenta\Usart.X\mcc_generated_files/mcc.c
-1F7 text5 CODE >91:F:\Licenta\Usart.X\mcc_generated_files/mcc.c
-1CE text4 CODE >70:F:\Licenta\Usart.X\mcc_generated_files/mcc.c
-1CE text4 CODE >73:F:\Licenta\Usart.X\mcc_generated_files/mcc.c
-1D1 text4 CODE >74:F:\Licenta\Usart.X\mcc_generated_files/mcc.c
-1D4 text4 CODE >75:F:\Licenta\Usart.X\mcc_generated_files/mcc.c
-1D7 text4 CODE >76:F:\Licenta\Usart.X\mcc_generated_files/mcc.c
-1D9 text4 CODE >77:F:\Licenta\Usart.X\mcc_generated_files/mcc.c
-D6 text3 CODE >132:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-D7 text3 CODE >134:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-DB text3 CODE >138:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-DE text3 CODE >140:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-E1 text3 CODE >141:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-E2 text3 CODE >142:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-E2 text3 CODE >144:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-E3 text3 CODE >145:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-EF text3 CODE >146:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-F2 text3 CODE >148:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-F3 text3 CODE >150:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-F6 text3 CODE >152:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-F8 text3 CODE >153:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-1EA text2 CODE >160:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-1EB text2 CODE >162:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-1EE text2 CODE >163:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
-11C text1 CODE >464:C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\doprnt.c
-11C text1 CODE >533:C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\doprnt.c
-121 text1 CODE >536:C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\doprnt.c
-134 text1 CODE >541:C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\doprnt.c
-138 text1 CODE >536:C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\doprnt.c
-33 maintext CODE >51:F:\Licenta\Usart.X\main.c
-33 maintext CODE >53:F:\Licenta\Usart.X\main.c
-35 maintext CODE >56:F:\Licenta\Usart.X\main.c
-38 maintext CODE >63:F:\Licenta\Usart.X\main.c
-39 maintext CODE >66:F:\Licenta\Usart.X\main.c
-3A maintext CODE >73:F:\Licenta\Usart.X\main.c
-47 maintext CODE >75:F:\Licenta\Usart.X\main.c
-4E maintext CODE >76:F:\Licenta\Usart.X\main.c
-52 maintext CODE >77:F:\Licenta\Usart.X\main.c
-5E maintext CODE >79:F:\Licenta\Usart.X\main.c
-65 maintext CODE >80:F:\Licenta\Usart.X\main.c
-69 maintext CODE >81:F:\Licenta\Usart.X\main.c
-75 maintext CODE >82:F:\Licenta\Usart.X\main.c
-7C maintext CODE >83:F:\Licenta\Usart.X\main.c
-80 maintext CODE >84:F:\Licenta\Usart.X\main.c
-8C maintext CODE >85:F:\Licenta\Usart.X\main.c
-93 maintext CODE >86:F:\Licenta\Usart.X\main.c
-97 maintext CODE >87:F:\Licenta\Usart.X\main.c
-A3 maintext CODE >88:F:\Licenta\Usart.X\main.c
-AA maintext CODE >89:F:\Licenta\Usart.X\main.c
-AE maintext CODE >90:F:\Licenta\Usart.X\main.c
-BA maintext CODE >91:F:\Licenta\Usart.X\main.c
-C1 maintext CODE >92:F:\Licenta\Usart.X\main.c
-C5 maintext CODE >93:F:\Licenta\Usart.X\main.c
-C9 maintext CODE >94:F:\Licenta\Usart.X\main.c
-D5 maintext CODE >97:F:\Licenta\Usart.X\main.c
-1E4 clrtext CODE >2060:C:\Users\Anamaria\AppData\Local\Temp\s8oo.
-1E4 clrtext CODE >2061:C:\Users\Anamaria\AppData\Local\Temp\s8oo.
-1E5 clrtext CODE >2062:C:\Users\Anamaria\AppData\Local\Temp\s8oo.
-1E5 clrtext CODE >2063:C:\Users\Anamaria\AppData\Local\Temp\s8oo.
-1E6 clrtext CODE >2064:C:\Users\Anamaria\AppData\Local\Temp\s8oo.
-1E7 clrtext CODE >2065:C:\Users\Anamaria\AppData\Local\Temp\s8oo.
-1E8 clrtext CODE >2066:C:\Users\Anamaria\AppData\Local\Temp\s8oo.
-1E9 clrtext CODE >2067:C:\Users\Anamaria\AppData\Local\Temp\s8oo.
+F0 text12 CODE >185:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+F0 text12 CODE >188:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+F3 text12 CODE >192:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+F4 text12 CODE >193:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+F5 text12 CODE >197:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+102 text12 CODE >198:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+108 text12 CODE >200:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+10C text12 CODE >202:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+10F text12 CODE >203:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+114 text12 CODE >204:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+115 text12 CODE >209:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+118 text12 CODE >211:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+119 text12 CODE >213:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+11D text12 CODE >214:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+181 text11 CODE >166:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+181 text11 CODE >170:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+186 text11 CODE >172:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+191 text11 CODE >173:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+194 text11 CODE >175:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+195 text11 CODE >177:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+19A text11 CODE >178:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+19B text11 CODE >179:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+19B text11 CODE >181:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+19E text9 CODE >76:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+19E text9 CODE >79:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+1A0 text9 CODE >80:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+1A1 text9 CODE >85:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+1A4 text9 CODE >88:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+1A6 text9 CODE >91:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+1A8 text9 CODE >94:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+1AA text9 CODE >97:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+1AC text9 CODE >101:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+1AD text9 CODE >102:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+1AE text9 CODE >103:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+1B3 text9 CODE >105:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+1B4 text9 CODE >106:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+1B5 text9 CODE >107:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+1B6 text9 CODE >110:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+1B8 text9 CODE >111:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+212 text8 CODE >79:F:\Licenta\Usart.X\mcc_generated_files/mcc.c
+212 text8 CODE >82:F:\Licenta\Usart.X\mcc_generated_files/mcc.c
+215 text8 CODE >84:F:\Licenta\Usart.X\mcc_generated_files/mcc.c
+216 text8 CODE >85:F:\Licenta\Usart.X\mcc_generated_files/mcc.c
+141 text7 CODE >52:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
+141 text7 CODE >57:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
+143 text7 CODE >58:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
+144 text7 CODE >59:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
+145 text7 CODE >60:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
+146 text7 CODE >61:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
+147 text7 CODE >66:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
+14A text7 CODE >67:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
+14C text7 CODE >68:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
+14D text7 CODE >69:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
+14F text7 CODE >70:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
+151 text7 CODE >75:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
+154 text7 CODE >76:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
+156 text7 CODE >77:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
+158 text7 CODE >78:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
+15A text7 CODE >83:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
+15D text7 CODE >84:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
+15F text7 CODE >85:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
+161 text7 CODE >91:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
+163 text7 CODE >96:F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
+217 text6 CODE >87:F:\Licenta\Usart.X\mcc_generated_files/mcc.c
+217 text6 CODE >90:F:\Licenta\Usart.X\mcc_generated_files/mcc.c
+21A text6 CODE >91:F:\Licenta\Usart.X\mcc_generated_files/mcc.c
+1EB text5 CODE >70:F:\Licenta\Usart.X\mcc_generated_files/mcc.c
+1EB text5 CODE >73:F:\Licenta\Usart.X\mcc_generated_files/mcc.c
+1EE text5 CODE >74:F:\Licenta\Usart.X\mcc_generated_files/mcc.c
+1F1 text5 CODE >75:F:\Licenta\Usart.X\mcc_generated_files/mcc.c
+1F4 text5 CODE >76:F:\Licenta\Usart.X\mcc_generated_files/mcc.c
+1F6 text5 CODE >77:F:\Licenta\Usart.X\mcc_generated_files/mcc.c
+11E text4 CODE >133:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+11F text4 CODE >135:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+123 text4 CODE >139:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+126 text4 CODE >141:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+129 text4 CODE >142:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+12A text4 CODE >143:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+12A text4 CODE >145:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+12B text4 CODE >146:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+137 text4 CODE >147:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+13A text4 CODE >149:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+13B text4 CODE >151:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+13E text4 CODE >153:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+140 text4 CODE >154:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+20D text3 CODE >161:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+20E text3 CODE >163:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+211 text3 CODE >164:F:\Licenta\Usart.X\mcc_generated_files/eusart.c
+164 text2 CODE >464:C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\doprnt.c
+164 text2 CODE >533:C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\doprnt.c
+169 text2 CODE >536:C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\doprnt.c
+17C text2 CODE >541:C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\doprnt.c
+180 text2 CODE >536:C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\doprnt.c
+33 text1 CODE >53:F:\Licenta\Usart.X\main.c
+33 text1 CODE >56:F:\Licenta\Usart.X\main.c
+3A text1 CODE >57:F:\Licenta\Usart.X\main.c
+3E text1 CODE >58:F:\Licenta\Usart.X\main.c
+4A text1 CODE >59:F:\Licenta\Usart.X\main.c
+51 text1 CODE >60:F:\Licenta\Usart.X\main.c
+55 text1 CODE >61:F:\Licenta\Usart.X\main.c
+61 text1 CODE >62:F:\Licenta\Usart.X\main.c
+68 text1 CODE >63:F:\Licenta\Usart.X\main.c
+6C text1 CODE >64:F:\Licenta\Usart.X\main.c
+78 text1 CODE >65:F:\Licenta\Usart.X\main.c
+7F text1 CODE >66:F:\Licenta\Usart.X\main.c
+83 text1 CODE >67:F:\Licenta\Usart.X\main.c
+87 text1 CODE >68:F:\Licenta\Usart.X\main.c
+93 text1 CODE >69:F:\Licenta\Usart.X\main.c
+94 maintext CODE >70:F:\Licenta\Usart.X\main.c
+94 maintext CODE >72:F:\Licenta\Usart.X\main.c
+96 maintext CODE >73:F:\Licenta\Usart.X\main.c
+98 maintext CODE >75:F:\Licenta\Usart.X\main.c
+9B maintext CODE >82:F:\Licenta\Usart.X\main.c
+9C maintext CODE >85:F:\Licenta\Usart.X\main.c
+9D maintext CODE >92:F:\Licenta\Usart.X\main.c
+AA maintext CODE >94:F:\Licenta\Usart.X\main.c
+B1 maintext CODE >95:F:\Licenta\Usart.X\main.c
+B5 maintext CODE >96:F:\Licenta\Usart.X\main.c
+C1 maintext CODE >97:F:\Licenta\Usart.X\main.c
+C8 maintext CODE >98:F:\Licenta\Usart.X\main.c
+CC maintext CODE >99:F:\Licenta\Usart.X\main.c
+D8 maintext CODE >104:F:\Licenta\Usart.X\main.c
+DD maintext CODE >107:F:\Licenta\Usart.X\main.c
+E0 maintext CODE >108:F:\Licenta\Usart.X\main.c
+E3 maintext CODE >109:F:\Licenta\Usart.X\main.c
+EF maintext CODE >102:F:\Licenta\Usart.X\main.c
+207 clrtext CODE >2061:C:\Users\Anamaria\AppData\Local\Temp\sdk0.
+207 clrtext CODE >2062:C:\Users\Anamaria\AppData\Local\Temp\sdk0.
+208 clrtext CODE >2063:C:\Users\Anamaria\AppData\Local\Temp\sdk0.
+208 clrtext CODE >2064:C:\Users\Anamaria\AppData\Local\Temp\sdk0.
+209 clrtext CODE >2065:C:\Users\Anamaria\AppData\Local\Temp\sdk0.
+20A clrtext CODE >2066:C:\Users\Anamaria\AppData\Local\Temp\sdk0.
+20B clrtext CODE >2067:C:\Users\Anamaria\AppData\Local\Temp\sdk0.
+20C clrtext CODE >2068:C:\Users\Anamaria\AppData\Local\Temp\sdk0.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -282,10 +295,11 @@ __Hspace_0 8009 0 ABS 0 - -
 __Hspace_1 7C 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
+__size_of_sms_text 0 0 ABS 0 - dist/default/production\Usart.X.production.obj
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production\Usart.X.production.obj
-__end_of_WDT_Initialize 3F0 0 CODE 0 text5 dist/default/production\Usart.X.production.obj
-main@x 37 0 BANK0 1 cstackBANK0 dist/default/production\Usart.X.production.obj
+__end_of_WDT_Initialize 436 0 CODE 0 text6 dist/default/production\Usart.X.production.obj
+main@x 3C 0 BANK0 1 cstackBANK0 dist/default/production\Usart.X.production.obj
 __Hstrings 0 0 ABS 0 strings -
 _LATA 10C 0 ABS 0 - dist/default/production\Usart.X.production.obj
 _LATB 10D 0 ABS 0 - dist/default/production\Usart.X.production.obj
@@ -294,31 +308,34 @@ _LATD 10F 0 ABS 0 - dist/default/production\Usart.X.production.obj
 _LATE 110 0 ABS 0 - dist/default/production\Usart.X.production.obj
 _WPUB 20D 0 ABS 0 - dist/default/production\Usart.X.production.obj
 _WPUE 210 0 ABS 0 - dist/default/production\Usart.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\Anamaria\AppData\Local\Temp\s8oo.obj
-_main 66 0 CODE 0 maintext dist/default/production\Usart.X.production.obj
+___sp 0 0 STACK 2 stack C:\Users\Anamaria\AppData\Local\Temp\sdk0.obj
+_flag 30 0 BANK0 1 bssBANK0 dist/default/production\Usart.X.production.obj
+_main 128 0 CODE 0 maintext dist/default/production\Usart.X.production.obj
 btemp 7E 0 ABS 0 - dist/default/production\Usart.X.production.obj
-start 48 0 CODE 0 init C:\Users\Anamaria\AppData\Local\Temp\s8oo.obj
-_EUSART_Write 1AC 0 CODE 0 text3 dist/default/production\Usart.X.production.obj
+start 48 0 CODE 0 init C:\Users\Anamaria\AppData\Local\Temp\sdk0.obj
+_EUSART_Write 23C 0 CODE 0 text4 dist/default/production\Usart.X.production.obj
 __size_of_main 0 0 ABS 0 - dist/default/production\Usart.X.production.obj
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 _OPTION_REGbits 95 0 ABS 0 - dist/default/production\Usart.X.production.obj
-__end_of_EUSART_Initialize 2E2 0 CODE 0 text8 dist/default/production\Usart.X.production.obj
+__end_of_EUSART_Initialize 372 0 CODE 0 text9 dist/default/production\Usart.X.production.obj
 __Hpowerup 0 0 CODE 0 powerup -
-printf@c 34 0 BANK0 1 cstackBANK0 dist/default/production\Usart.X.production.obj
+printf@c 37 0 BANK0 1 cstackBANK0 dist/default/production\Usart.X.production.obj
 printf@f 75 0 COMMON 1 cstackCOMMON dist/default/production\Usart.X.production.obj
 __size_of_SYSTEM_Initialize 0 0 ABS 0 - dist/default/production\Usart.X.production.obj
-intlevel0 0 0 CODE 0 functab C:\Users\Anamaria\AppData\Local\Temp\s8oo.obj
-intlevel1 0 0 CODE 0 functab C:\Users\Anamaria\AppData\Local\Temp\s8oo.obj
-intlevel2 0 0 CODE 0 functab C:\Users\Anamaria\AppData\Local\Temp\s8oo.obj
-intlevel3 0 0 CODE 0 functab C:\Users\Anamaria\AppData\Local\Temp\s8oo.obj
-intlevel4 0 0 CODE 0 functab C:\Users\Anamaria\AppData\Local\Temp\s8oo.obj
-intlevel5 0 0 CODE 0 functab C:\Users\Anamaria\AppData\Local\Temp\s8oo.obj
+intlevel0 0 0 CODE 0 functab C:\Users\Anamaria\AppData\Local\Temp\sdk0.obj
+intlevel1 0 0 CODE 0 functab C:\Users\Anamaria\AppData\Local\Temp\sdk0.obj
+intlevel2 0 0 CODE 0 functab C:\Users\Anamaria\AppData\Local\Temp\sdk0.obj
+intlevel3 0 0 CODE 0 functab C:\Users\Anamaria\AppData\Local\Temp\sdk0.obj
+intlevel4 0 0 CODE 0 functab C:\Users\Anamaria\AppData\Local\Temp\sdk0.obj
+intlevel5 0 0 CODE 0 functab C:\Users\Anamaria\AppData\Local\Temp\sdk0.obj
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 wtemp0 7E 0 ABS 0 - dist/default/production\Usart.X.production.obj
 __Hfunctab 0 0 CODE 0 functab -
+_sms_text 66 0 CODE 0 text1 dist/default/production\Usart.X.production.obj
 __size_of_EUSART_Write 0 0 ABS 0 - dist/default/production\Usart.X.production.obj
-__end_of_EUSART_Transmit_ISR 2AC 0 CODE 0 text10 dist/default/production\Usart.X.production.obj
+__end_of_EUSART_Transmit_ISR 33C 0 CODE 0 text11 dist/default/production\Usart.X.production.obj
 __Hclrtext 0 0 ABS 0 clrtext -
+__end_of_sms_text 128 0 CODE 0 text1 dist/default/production\Usart.X.production.obj
 _eusartTxBuffer 28 0 BANK0 1 bssBANK0 dist/default/production\Usart.X.production.obj
 _ANSELA 18C 0 ABS 0 - dist/default/production\Usart.X.production.obj
 _ANSELB 18D 0 ABS 0 - dist/default/production\Usart.X.production.obj
@@ -326,24 +343,24 @@ _ANSELD 18F 0 ABS 0 - dist/default/production\Usart.X.production.obj
 _ANSELE 190 0 ABS 0 - dist/default/production\Usart.X.production.obj
 _APFCON 11D 0 ABS 0 - dist/default/production\Usart.X.production.obj
 __end_of_INTERRUPT_InterruptManager 48 0 CODE 0 intentry dist/default/production\Usart.X.production.obj
-__end_of_EUSART_Write 1F2 0 CODE 0 text3 dist/default/production\Usart.X.production.obj
+__end_of_EUSART_Write 282 0 CODE 0 text4 dist/default/production\Usart.X.production.obj
 __Lmaintext 0 0 ABS 0 maintext -
 ?_printf 75 0 COMMON 1 cstackCOMMON dist/default/production\Usart.X.production.obj
 __LnvBANK0 0 0 ABS 0 nvBANK0 -
-_EUSART_Initialize 2AC 0 CODE 0 text8 dist/default/production\Usart.X.production.obj
+_EUSART_Initialize 33C 0 CODE 0 text9 dist/default/production\Usart.X.production.obj
 __size_of_putch 0 0 ABS 0 - dist/default/production\Usart.X.production.obj
-_PIN_MANAGER_Initialize 1F2 0 CODE 0 text6 dist/default/production\Usart.X.production.obj
+_PIN_MANAGER_Initialize 282 0 CODE 0 text7 dist/default/production\Usart.X.production.obj
 start_initialization 4C 0 CODE 0 cinit dist/default/production\Usart.X.production.obj
 _OSCCON 99 0 ABS 0 - dist/default/production\Usart.X.production.obj
 _eusartRxBuffer 20 0 BANK0 1 bssBANK0 dist/default/production\Usart.X.production.obj
-__end_of_SYSTEM_Initialize 3B4 0 CODE 0 text4 dist/default/production\Usart.X.production.obj
-clear_ram0 3C8 0 CODE 0 clrtext dist/default/production\Usart.X.production.obj
+__end_of_SYSTEM_Initialize 3EE 0 CODE 0 text5 dist/default/production\Usart.X.production.obj
+clear_ram0 40E 0 CODE 0 clrtext dist/default/production\Usart.X.production.obj
 _SPBRGH 19C 0 ABS 0 - dist/default/production\Usart.X.production.obj
 _SPBRGL 19B 0 ABS 0 - dist/default/production\Usart.X.production.obj
-__pcstackBANK0 33 0 BANK0 1 cstackBANK0 dist/default/production\Usart.X.production.obj
-__end_of_printf 272 0 CODE 0 text1 dist/default/production\Usart.X.production.obj
+__pcstackBANK0 36 0 BANK0 1 cstackBANK0 dist/default/production\Usart.X.production.obj
+__end_of_printf 302 0 CODE 0 text2 dist/default/production\Usart.X.production.obj
 _WDTCON 97 0 ABS 0 - dist/default/production\Usart.X.production.obj
-___int_sp 0 0 STACK 2 stack C:\Users\Anamaria\AppData\Local\Temp\s8oo.obj
+___int_sp 0 0 STACK 2 stack C:\Users\Anamaria\AppData\Local\Temp\sdk0.obj
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -470,14 +487,14 @@ __Lsfr7 0 0 ABS 0 sfr7 -
 __Lsfr8 0 0 ABS 0 sfr8 -
 __Lsfr9 0 0 ABS 0 sfr9 -
 __Ltext 0 0 ABS 0 text -
-__pstringtext1 318 0 STRCODE 0 stringtext1 dist/default/production\Usart.X.production.obj
-__pstringtext2 342 0 STRCODE 0 stringtext2 dist/default/production\Usart.X.production.obj
-__pstringtext3 362 0 STRCODE 0 stringtext3 dist/default/production\Usart.X.production.obj
-__pstringtext4 380 0 STRCODE 0 stringtext4 dist/default/production\Usart.X.production.obj
-__pstringtext5 3B4 0 STRCODE 0 stringtext5 dist/default/production\Usart.X.production.obj
-__pstringtext6 3F0 0 STRCODE 0 stringtext6 dist/default/production\Usart.X.production.obj
+__pstringtext1 372 0 STRCODE 0 stringtext1 dist/default/production\Usart.X.production.obj
+__pstringtext2 39C 0 STRCODE 0 stringtext2 dist/default/production\Usart.X.production.obj
+__pstringtext3 3BA 0 STRCODE 0 stringtext3 dist/default/production\Usart.X.production.obj
+__pstringtext4 3EE 0 STRCODE 0 stringtext4 dist/default/production\Usart.X.production.obj
+__pstringtext5 402 0 STRCODE 0 stringtext5 dist/default/production\Usart.X.production.obj
+__pstringtext6 436 0 STRCODE 0 stringtext6 dist/default/production\Usart.X.production.obj
 __pstringtext7 0 0 STRCODE 0 stringtext7 dist/default/production\Usart.X.production.obj
-__pnvBANK0 38 0 BANK0 1 nvBANK0 dist/default/production\Usart.X.production.obj
+__pnvBANK0 3D 0 BANK0 1 nvBANK0 dist/default/production\Usart.X.production.obj
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 int$flags 7E 0 ABS 0 - dist/default/production\Usart.X.production.obj
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
@@ -487,12 +504,12 @@ __S0 8009 0 ABS 0 - -
 __S1 7C 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
-__end_of_EUSART_Receive_ISR 318 0 CODE 0 text11 dist/default/production\Usart.X.production.obj
-_SYSTEM_Initialize 39C 0 CODE 0 text4 dist/default/production\Usart.X.production.obj
+__end_of_EUSART_Receive_ISR 23C 0 CODE 0 text12 dist/default/production\Usart.X.production.obj
+_SYSTEM_Initialize 3D6 0 CODE 0 text5 dist/default/production\Usart.X.production.obj
 __CFG_BOREN$ON 0 0 ABS 0 - dist/default/production\Usart.X.production.obj
 __HnvBANK0 0 0 ABS 0 nvBANK0 -
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\Anamaria\AppData\Local\Temp\s8oo.obj
+reset_vec 0 0 CODE 0 reset_vec C:\Users\Anamaria\AppData\Local\Temp\sdk0.obj
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 __CFG_FCMEN$ON 0 0 ABS 0 - dist/default/production\Usart.X.production.obj
 __Lstringtext1 0 0 ABS 0 stringtext1 -
@@ -505,10 +522,10 @@ __Lstringtext7 0 0 ABS 0 stringtext7 -
 _INTERRUPT_InterruptManager 8 0 CODE 0 intentry dist/default/production\Usart.X.production.obj
 _RCSTAbits 19D 0 ABS 0 - dist/default/production\Usart.X.production.obj
 _PIE1bits 91 0 ABS 0 - dist/default/production\Usart.X.production.obj
-__ptext10 272 0 CODE 0 text10 dist/default/production\Usart.X.production.obj
-__ptext11 2E2 0 CODE 0 text11 dist/default/production\Usart.X.production.obj
-_EUSART_Receive_ISR 2E2 0 CODE 0 text11 dist/default/production\Usart.X.production.obj
-__end_of_PIN_MANAGER_Initialize 238 0 CODE 0 text6 dist/default/production\Usart.X.production.obj
+__ptext11 302 0 CODE 0 text11 dist/default/production\Usart.X.production.obj
+__ptext12 1E0 0 CODE 0 text12 dist/default/production\Usart.X.production.obj
+_EUSART_Receive_ISR 1E0 0 CODE 0 text12 dist/default/production\Usart.X.production.obj
+__end_of_PIN_MANAGER_Initialize 2C8 0 CODE 0 text7 dist/default/production\Usart.X.production.obj
 _BAUDCON 19F 0 ABS 0 - dist/default/production\Usart.X.production.obj
 __Lbank10 0 0 BANK10 1 bank10 -
 __Lbank11 0 0 BANK11 1 bank11 -
@@ -532,18 +549,18 @@ __Lbank28 0 0 BANK28 1 bank28 -
 __Lbank29 0 0 BANK29 1 bank29 -
 __Lbank30 0 0 BANK30 1 bank30 -
 __Lbank31 0 0 BANK31 1 bank31 -
-__pmaintext 66 0 CODE 0 maintext dist/default/production\Usart.X.production.obj
+__pmaintext 128 0 CODE 0 maintext dist/default/production\Usart.X.production.obj
 __Lbigram 0 0 ABS 0 bigram -
 __CFG_BORV$LO 0 0 ABS 0 - dist/default/production\Usart.X.production.obj
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 1000E 0 CONFIG 0 config -
-_printf 238 0 CODE 0 text1 dist/default/production\Usart.X.production.obj
+_printf 2C8 0 CODE 0 text2 dist/default/production\Usart.X.production.obj
 __CFG_CP$OFF 0 0 ABS 0 - dist/default/production\Usart.X.production.obj
 __CFG_IESO$ON 0 0 ABS 0 - dist/default/production\Usart.X.production.obj
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production\Usart.X.production.obj
 __CFG_VCAPEN$OFF 0 0 ABS 0 - dist/default/production\Usart.X.production.obj
-stackhi 21EF 0 ABS 0 - C:\Users\Anamaria\AppData\Local\Temp\s8oo.obj
-stacklo 2019 0 ABS 0 - C:\Users\Anamaria\AppData\Local\Temp\s8oo.obj
+stackhi 21EF 0 ABS 0 - C:\Users\Anamaria\AppData\Local\Temp\sdk0.obj
+stacklo 201E 0 ABS 0 - C:\Users\Anamaria\AppData\Local\Temp\sdk0.obj
 _OSCTUNE 98 0 ABS 0 - dist/default/production\Usart.X.production.obj
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
@@ -555,7 +572,7 @@ _PIR1bits 11 0 ABS 0 - dist/default/production\Usart.X.production.obj
 __Lend_init 48 0 CODE 0 end_init -
 __CFG_LVP$ON 0 0 ABS 0 - dist/default/production\Usart.X.production.obj
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-printf@ap 33 0 BANK0 1 cstackBANK0 dist/default/production\Usart.X.production.obj
+printf@ap 36 0 BANK0 1 cstackBANK0 dist/default/production\Usart.X.production.obj
 end_of_initialization 5E 0 CODE 0 cinit dist/default/production\Usart.X.production.obj
 __Hintentry 48 0 CODE 0 intentry -
 __CFG_STVREN$ON 0 0 ABS 0 - dist/default/production\Usart.X.production.obj
@@ -563,15 +580,16 @@ __size_of_printf 0 0 ABS 0 - dist/default/production\Usart.X.production.obj
 __Lstrings 0 0 ABS 0 strings -
 __Hreset_vec 4 0 CODE 0 reset_vec -
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
-__ptext1 238 0 CODE 0 text1 dist/default/production\Usart.X.production.obj
-__ptext2 3D4 0 CODE 0 text2 dist/default/production\Usart.X.production.obj
-__ptext3 1AC 0 CODE 0 text3 dist/default/production\Usart.X.production.obj
-__ptext4 39C 0 CODE 0 text4 dist/default/production\Usart.X.production.obj
-__ptext5 3E8 0 CODE 0 text5 dist/default/production\Usart.X.production.obj
-__ptext6 1F2 0 CODE 0 text6 dist/default/production\Usart.X.production.obj
-__ptext7 3DE 0 CODE 0 text7 dist/default/production\Usart.X.production.obj
-__ptext8 2AC 0 CODE 0 text8 dist/default/production\Usart.X.production.obj
-_eusartTxBufferRemaining 38 0 BANK0 1 nvBANK0 dist/default/production\Usart.X.production.obj
+__ptext1 66 0 CODE 0 text1 dist/default/production\Usart.X.production.obj
+__ptext2 2C8 0 CODE 0 text2 dist/default/production\Usart.X.production.obj
+__ptext3 41A 0 CODE 0 text3 dist/default/production\Usart.X.production.obj
+__ptext4 23C 0 CODE 0 text4 dist/default/production\Usart.X.production.obj
+__ptext5 3D6 0 CODE 0 text5 dist/default/production\Usart.X.production.obj
+__ptext6 42E 0 CODE 0 text6 dist/default/production\Usart.X.production.obj
+__ptext7 282 0 CODE 0 text7 dist/default/production\Usart.X.production.obj
+__ptext8 424 0 CODE 0 text8 dist/default/production\Usart.X.production.obj
+__ptext9 33C 0 CODE 0 text9 dist/default/production\Usart.X.production.obj
+_eusartTxBufferRemaining 3D 0 BANK0 1 nvBANK0 dist/default/production\Usart.X.production.obj
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __Lreset_vec 0 0 CODE 0 reset_vec -
@@ -587,7 +605,7 @@ __CFG_CLKOUTEN$OFF 0 0 ABS 0 - dist/default/production\Usart.X.production.obj
 EUSART_Write@txData 73 0 COMMON 1 cstackCOMMON dist/default/production\Usart.X.production.obj
 __end_of__initialization 5E 0 CODE 0 cinit dist/default/production\Usart.X.production.obj
 __Lfunctab 0 0 CODE 0 functab -
-_eusartRxCount 30 0 BANK0 1 bssBANK0 dist/default/production\Usart.X.production.obj
+_eusartRxCount 33 0 BANK0 1 bssBANK0 dist/default/production\Usart.X.production.obj
 __size_of_EUSART_Transmit_ISR 0 0 ABS 0 - dist/default/production\Usart.X.production.obj
 __Lclrtext 0 0 ABS 0 clrtext -
 __CFG_PLLEN$OFF 0 0 ABS 0 - dist/default/production\Usart.X.production.obj
@@ -595,7 +613,7 @@ __size_of_EUSART_Initialize 0 0 ABS 0 - dist/default/production\Usart.X.producti
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\Usart.X.production.obj
 __Hend_init 4C 0 CODE 0 end_init -
 putch@txData 74 0 COMMON 1 cstackCOMMON dist/default/production\Usart.X.production.obj
-__end_of_main 1AC 0 CODE 0 maintext dist/default/production\Usart.X.production.obj
+__end_of_main 1E0 0 CODE 0 maintext dist/default/production\Usart.X.production.obj
 _RCREG 199 0 ABS 0 - dist/default/production\Usart.X.production.obj
 _RCSTA 19D 0 ABS 0 - dist/default/production\Usart.X.production.obj
 _TRISA 8C 0 ABS 0 - dist/default/production\Usart.X.production.obj
@@ -605,26 +623,27 @@ _TRISD 8F 0 ABS 0 - dist/default/production\Usart.X.production.obj
 _TRISE 90 0 ABS 0 - dist/default/production\Usart.X.production.obj
 _TXREG 19A 0 ABS 0 - dist/default/production\Usart.X.production.obj
 _TXSTA 19E 0 ABS 0 - dist/default/production\Usart.X.production.obj
-__end_of_putch 3DE 0 CODE 0 text2 dist/default/production\Usart.X.production.obj
+__end_of_putch 424 0 CODE 0 text3 dist/default/production\Usart.X.production.obj
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
-_putch 3D4 0 CODE 0 text2 dist/default/production\Usart.X.production.obj
+_putch 41A 0 CODE 0 text3 dist/default/production\Usart.X.production.obj
 __CFG_CPD$OFF 0 0 ABS 0 - dist/default/production\Usart.X.production.obj
+_rcreg 32 0 BANK0 1 bssBANK0 dist/default/production\Usart.X.production.obj
 __size_of_PIN_MANAGER_Initialize 0 0 ABS 0 - dist/default/production\Usart.X.production.obj
-_WDT_Initialize 3E8 0 CODE 0 text5 dist/default/production\Usart.X.production.obj
+_WDT_Initialize 42E 0 CODE 0 text6 dist/default/production\Usart.X.production.obj
 __pintentry 8 0 CODE 0 intentry dist/default/production\Usart.X.production.obj
-__end_of_OSCILLATOR_Initialize 3E8 0 CODE 0 text7 dist/default/production\Usart.X.production.obj
+__end_of_OSCILLATOR_Initialize 42E 0 CODE 0 text8 dist/default/production\Usart.X.production.obj
 __initialization 4C 0 CODE 0 cinit dist/default/production\Usart.X.production.obj
 __CFG_PWRTE$OFF 0 0 ABS 0 - dist/default/production\Usart.X.production.obj
 __pbssBANK0 20 0 BANK0 1 bssBANK0 dist/default/production\Usart.X.production.obj
-_EUSART_Transmit_ISR 272 0 CODE 0 text10 dist/default/production\Usart.X.production.obj
+_EUSART_Transmit_ISR 302 0 CODE 0 text11 dist/default/production\Usart.X.production.obj
 __CFG_WRT$OFF 0 0 ABS 0 - dist/default/production\Usart.X.production.obj
-_eusartRxHead 32 0 BANK0 1 bssBANK0 dist/default/production\Usart.X.production.obj
-_eusartRxTail 31 0 BANK0 1 bssBANK0 dist/default/production\Usart.X.production.obj
+_eusartRxHead 35 0 BANK0 1 bssBANK0 dist/default/production\Usart.X.production.obj
+_eusartRxTail 34 0 BANK0 1 bssBANK0 dist/default/production\Usart.X.production.obj
 __size_of_EUSART_Receive_ISR 0 0 ABS 0 - dist/default/production\Usart.X.production.obj
 _eusartTxHead 7B 0 COMMON 1 bssCOMMON dist/default/production\Usart.X.production.obj
 _eusartTxTail 7A 0 COMMON 1 bssCOMMON dist/default/production\Usart.X.production.obj
-_OSCILLATOR_Initialize 3DE 0 CODE 0 text7 dist/default/production\Usart.X.production.obj
+_OSCILLATOR_Initialize 424 0 CODE 0 text8 dist/default/production\Usart.X.production.obj
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -650,13 +669,13 @@ _OSCILLATOR_Initialize 3DE 0 CODE 0 text7 dist/default/production\Usart.X.produc
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-text4 0 1CE 39C C 2
+text5 0 1EB 3D6 C 2
 cstackCOMMON 1 70 70 C 1
-stringtext1 0 18C 318 42 2
-stringtext5 0 1DA 3B4 A 2
-stringtext6 0 1F8 3F0 3 2
-intentry 0 4 8 188 2
+stringtext1 0 1B9 372 32 2
+stringtext4 0 1F7 3EE 10 2
+stringtext6 0 21B 436 3 2
+intentry 0 4 8 1B5 2
 reset_vec 0 0 0 2 2
-bssBANK0 1 20 20 19 1
-clrtext 0 1E4 3C8 14 2
+bssBANK0 1 20 20 1E 1
+clrtext 0 207 40E 14 2
 config 0 8007 1000E 2 2

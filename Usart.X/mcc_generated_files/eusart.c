@@ -67,7 +67,8 @@ volatile uint8_t eusartRxHead = 0;
 volatile uint8_t eusartRxTail = 0;
 volatile uint8_t eusartRxBuffer[EUSART_RX_BUFFER_SIZE];
 volatile uint8_t eusartRxCount;
-
+volatile char rcreg;
+int flag=0;
 /**
   Section: EUSART APIs
 */
@@ -194,7 +195,15 @@ void EUSART_Receive_ISR(void)
 
     // buffer overruns are ignored
     eusartRxBuffer[eusartRxHead++] = RCREG;
-    //if(RCREG=='K')
+    rcreg=RCREG;
+        
+    if(rcreg=='G')
+    {
+        LATB=0xAA;
+        flag=1;
+        rcreg=0;
+    }
+    
      
         
     if(sizeof(eusartRxBuffer) <= eusartRxHead)
