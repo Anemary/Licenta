@@ -3367,11 +3367,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 195: extern int printf(const char *, ...);
 [; ;eusart.h: 77: extern volatile uint8_t eusartTxBufferRemaining;
 [; ;eusart.h: 78: extern volatile uint8_t eusartRxCount;
-[; ;eusart.h: 106: void EUSART_Initialize(void);
-[; ;eusart.h: 155: uint8_t EUSART_Read(void);
-[; ;eusart.h: 180: void EUSART_Write(uint8_t txData);
-[; ;eusart.h: 201: void EUSART_Transmit_ISR(void);
-[; ;eusart.h: 222: void EUSART_Receive_ISR(void);
+[; ;eusart.h: 79: extern int flag_N;
+[; ;eusart.h: 80: extern int flag_G;
+[; ;eusart.h: 107: void EUSART_Initialize(void);
+[; ;eusart.h: 156: uint8_t EUSART_Read(void);
+[; ;eusart.h: 181: void EUSART_Write(uint8_t txData);
+[; ;eusart.h: 202: void EUSART_Transmit_ISR(void);
+[; ;eusart.h: 223: void EUSART_Receive_ISR(void);
 "61 mcc_generated_files/eusart.c
 [v _eusartTxHead `Vuc ~T0 @X0 1 e ]
 [i _eusartTxHead
@@ -3412,11 +3414,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _rcreg `Vuc ~T0 @X0 1 e ]
 [; ;eusart.c: 70: volatile char rcreg;
 "71
-[v _flag `i ~T0 @X0 1 e ]
-[i _flag
+[v _flag_N `i ~T0 @X0 1 e ]
+[i _flag_N
 -> 0 `i
 ]
-[; ;eusart.c: 71: int flag=0;
+[v _flag_G `i ~T0 @X0 1 e ]
+[i _flag_G
+-> 0 `i
+]
+[; ;eusart.c: 71: int flag_N=0, flag_G=0;
 "76
 [v _EUSART_Initialize `(v ~T0 @X0 1 ef ]
 "77
@@ -3725,42 +3731,60 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eusart.c: 198: rcreg=RCREG;
 "198
 [e = _rcreg _RCREG ]
-[; ;eusart.c: 200: if(rcreg=='G')
+[; ;eusart.c: 200: if(rcreg=='X')
 "200
-[e $ ! == -> _rcreg `ui -> 71 `ui 397  ]
+[e $ ! == -> _rcreg `ui -> 88 `ui 397  ]
 [; ;eusart.c: 201: {
 "201
 {
 [; ;eusart.c: 202: LATB=0xAA;
 "202
 [e = _LATB -> -> 170 `i `uc ]
-[; ;eusart.c: 203: flag=1;
+[; ;eusart.c: 203: flag_G=1;
 "203
-[e = _flag -> 1 `i ]
+[e = _flag_G -> 1 `i ]
 [; ;eusart.c: 204: rcreg=0;
 "204
 [e = _rcreg -> -> 0 `i `uc ]
 "205
 }
-[e :U 397 ]
 [; ;eusart.c: 205: }
-[; ;eusart.c: 209: if(sizeof(eusartRxBuffer) <= eusartRxHead)
-"209
-[e $ ! <= -> # _eusartRxBuffer `ui -> _eusartRxHead `ui 398  ]
-[; ;eusart.c: 210: {
-"210
+[e $U 398  ]
+"206
+[e :U 397 ]
+[; ;eusart.c: 206: else if(rcreg=='Y')
+[e $ ! == -> _rcreg `ui -> 89 `ui 399  ]
+[; ;eusart.c: 207: {
+"207
 {
-[; ;eusart.c: 211: eusartRxHead = 0;
-"211
-[e = _eusartRxHead -> -> 0 `i `uc ]
-"212
+[; ;eusart.c: 208: flag_N=1;
+"208
+[e = _flag_N -> 1 `i ]
+[; ;eusart.c: 209: rcreg=0;
+"209
+[e = _rcreg -> -> 0 `i `uc ]
+"210
 }
+[e :U 399 ]
+"215
 [e :U 398 ]
-[; ;eusart.c: 212: }
-[; ;eusart.c: 213: eusartRxCount++;
-"213
+[; ;eusart.c: 210: }
+[; ;eusart.c: 215: if(sizeof(eusartRxBuffer) <= eusartRxHead)
+[e $ ! <= -> # _eusartRxBuffer `ui -> _eusartRxHead `ui 400  ]
+[; ;eusart.c: 216: {
+"216
+{
+[; ;eusart.c: 217: eusartRxHead = 0;
+"217
+[e = _eusartRxHead -> -> 0 `i `uc ]
+"218
+}
+[e :U 400 ]
+[; ;eusart.c: 218: }
+[; ;eusart.c: 219: eusartRxCount++;
+"219
 [e ++ _eusartRxCount -> -> 1 `i `uc ]
-[; ;eusart.c: 214: }
-"214
+[; ;eusart.c: 220: }
+"220
 [e :UE 395 ]
 }

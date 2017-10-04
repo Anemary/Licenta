@@ -23,8 +23,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S25 . . . ]
 "372
 [v _INTCONbits `VS25 ~T0 @X0 0 e@11 ]
-"47 main.c
-[v _flag `i ~T0 @X0 0 e ]
+"79 mcc_generated_files/eusart.h
+[v _flag_N `i ~T0 @X0 0 e ]
+"80
+[v _flag_G `i ~T0 @X0 0 e ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -3364,15 +3366,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 195: extern int printf(const char *, ...);
 [; ;eusart.h: 77: extern volatile uint8_t eusartTxBufferRemaining;
 [; ;eusart.h: 78: extern volatile uint8_t eusartRxCount;
-[; ;eusart.h: 106: void EUSART_Initialize(void);
-[; ;eusart.h: 155: uint8_t EUSART_Read(void);
-[; ;eusart.h: 180: void EUSART_Write(uint8_t txData);
-[; ;eusart.h: 201: void EUSART_Transmit_ISR(void);
-[; ;eusart.h: 222: void EUSART_Receive_ISR(void);
+[; ;eusart.h: 79: extern int flag_N;
+[; ;eusart.h: 80: extern int flag_G;
+[; ;eusart.h: 107: void EUSART_Initialize(void);
+[; ;eusart.h: 156: uint8_t EUSART_Read(void);
+[; ;eusart.h: 181: void EUSART_Write(uint8_t txData);
+[; ;eusart.h: 202: void EUSART_Transmit_ISR(void);
+[; ;eusart.h: 223: void EUSART_Receive_ISR(void);
 [; ;mcc.h: 69: void SYSTEM_Initialize(void);
 [; ;mcc.h: 82: void OSCILLATOR_Initialize(void);
 [; ;mcc.h: 95: void WDT_Initialize(void);
-[; ;main.c: 47: extern int flag;
 [; ;main.c: 48: extern char txt_receive[];
 "53 main.c
 [v _sms_text `(v ~T0 @X0 1 ef ]
@@ -3382,135 +3385,163 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 54: {
 [e :U _sms_text ]
 [f ]
-[; ;main.c: 56: printf("AT+CMGF=1");
-"56
-[e ( _printf :s 1C ]
-[; ;main.c: 57: putch(0x0d);
+[; ;main.c: 57: printf("AT+CSCS=\"GSM\"");
 "57
-[e ( _putch (1 -> -> 13 `i `uc ]
-[; ;main.c: 58: _delay((unsigned long)((4000)*(18432000/4000.0)));
+[e ( _printf :s 1C ]
+[; ;main.c: 58: putch(0x0d);
 "58
-[e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
-[; ;main.c: 59: printf("AT+CSCS=\"GSM\"");
+[e ( _putch (1 -> -> 13 `i `uc ]
+[; ;main.c: 59: _delay((unsigned long)((4000)*(18432000/4000.0)));
 "59
-[e ( _printf :s 2C ]
-[; ;main.c: 60: putch(0x0d);
+[e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[; ;main.c: 60: printf("AT+CMGS=\"0757494823\"");
 "60
-[e ( _putch (1 -> -> 13 `i `uc ]
-[; ;main.c: 61: _delay((unsigned long)((4000)*(18432000/4000.0)));
+[e ( _printf :s 2C ]
+[; ;main.c: 61: putch(0x0d);
 "61
-[e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
-[; ;main.c: 62: printf("AT+CMGS=\"0757494823\"");
+[e ( _putch (1 -> -> 13 `i `uc ]
+[; ;main.c: 62: _delay((unsigned long)((4000)*(18432000/4000.0)));
 "62
-[e ( _printf :s 3C ]
-[; ;main.c: 63: putch(0x0d);
-"63
-[e ( _putch (1 -> -> 13 `i `uc ]
-[; ;main.c: 64: _delay((unsigned long)((4000)*(18432000/4000.0)));
-"64
 [e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
-[; ;main.c: 65: printf("hello");
-"65
-[e ( _printf :s 4C ]
-[; ;main.c: 66: putch(26);
-"66
+[; ;main.c: 63: printf("hello");
+"63
+[e ( _printf :s 3C ]
+[; ;main.c: 64: putch(26);
+"64
 [e ( _putch (1 -> -> 26 `i `uc ]
-[; ;main.c: 67: putch(0x0d);
-"67
+[; ;main.c: 65: putch(0x0d);
+"65
 [e ( _putch (1 -> -> 13 `i `uc ]
-[; ;main.c: 68: _delay((unsigned long)((500)*(18432000/4000.0)));
-"68
+[; ;main.c: 66: _delay((unsigned long)((500)*(18432000/4000.0)));
+"66
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
-[; ;main.c: 69: }
-"69
+[; ;main.c: 67: }
+"67
 [e :UE 376 ]
 }
-[v $root$_main `(v ~T0 @X0 0 e ]
+"69
+[v _int_gsm `(v ~T0 @X0 1 ef ]
 "70
-[v _main `(v ~T0 @X0 1 ef ]
-"71
 {
-[; ;main.c: 70: void main(void)
-[; ;main.c: 71: {
-[e :U _main ]
+[; ;main.c: 69: void int_gsm()
+[; ;main.c: 70: {
+[e :U _int_gsm ]
 [f ]
+[; ;main.c: 71: printf("AT");
+"71
+[e ( _printf :s 4C ]
+[; ;main.c: 72: putch(0x0d);
 "72
-[v _x `uc ~T0 @X0 1 a ]
-[; ;main.c: 72: char x=0;
-[e = _x -> -> 0 `i `uc ]
-[; ;main.c: 73: LATB=0x00;
+[e ( _putch (1 -> -> 13 `i `uc ]
+[; ;main.c: 73: _delay((unsigned long)((4000)*(18432000/4000.0)));
 "73
-[e = _LATB -> -> 0 `i `uc ]
-[; ;main.c: 75: SYSTEM_Initialize();
-"75
-[e ( _SYSTEM_Initialize ..  ]
-[; ;main.c: 82: (INTCONbits.GIE = 1);
-"82
-[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-[; ;main.c: 85: (INTCONbits.PEIE = 1);
-"85
-[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
-[; ;main.c: 92: _delay((unsigned long)((3000)*(18432000/4000.0)));
-"92
-[e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
-[; ;main.c: 94: printf("AT");
-"94
+[e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[; ;main.c: 74: printf("AT+CPIN=\"1234\"");
+"74
 [e ( _printf :s 5C ]
-[; ;main.c: 95: putch(0x0d);
-"95
+[; ;main.c: 75: putch(0x0d);
+"75
 [e ( _putch (1 -> -> 13 `i `uc ]
-[; ;main.c: 96: _delay((unsigned long)((4000)*(18432000/4000.0)));
-"96
+[; ;main.c: 76: _delay((unsigned long)((4000)*(18432000/4000.0)));
+"76
 [e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
-[; ;main.c: 97: printf("AT+CPIN=\"1234\"");
-"97
+[; ;main.c: 77: printf("AT+CMGF=1");
+"77
 [e ( _printf :s 6C ]
-[; ;main.c: 98: putch(0x0d);
-"98
+[; ;main.c: 78: putch(0x0d);
+"78
 [e ( _putch (1 -> -> 13 `i `uc ]
-[; ;main.c: 99: _delay((unsigned long)((4000)*(18432000/4000.0)));
-"99
+[; ;main.c: 79: _delay((unsigned long)((4000)*(18432000/4000.0)));
+"79
 [e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
-[; ;main.c: 102: while (1)
-"102
-[e :U 379 ]
-[; ;main.c: 103: {
-"103
-{
-[; ;main.c: 104: if(flag==1)
-"104
-[e $ ! == _flag -> 1 `i 381  ]
-[; ;main.c: 105: {
-"105
-{
-[; ;main.c: 107: sms_text();
-"107
-[e ( _sms_text ..  ]
-[; ;main.c: 108: flag=0;
-"108
-[e = _flag -> 0 `i ]
-[; ;main.c: 109: _delay((unsigned long)((200)*(18432000/4000.0)));
-"109
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
-"110
-}
-[e :U 381 ]
-"113
-}
-[e :U 378 ]
-"102
-[e $U 379  ]
-[e :U 380 ]
-[; ;main.c: 110: }
-[; ;main.c: 113: }
-[; ;main.c: 114: }
-"114
+[; ;main.c: 80: printf("AT+CNMI=1,2,0,0,0");
+"80
+[e ( _printf :s 7C ]
+[; ;main.c: 81: putch(0x0d);
+"81
+[e ( _putch (1 -> -> 13 `i `uc ]
+[; ;main.c: 82: _delay((unsigned long)((4000)*(18432000/4000.0)));
+"82
+[e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[; ;main.c: 84: }
+"84
 [e :UE 377 ]
 }
+[v $root$_main `(v ~T0 @X0 0 e ]
+"86
+[v _main `(v ~T0 @X0 1 ef ]
+"87
+{
+[; ;main.c: 86: void main(void)
+[; ;main.c: 87: {
+[e :U _main ]
+[f ]
+"88
+[v _x `uc ~T0 @X0 1 a ]
+[; ;main.c: 88: char x=0;
+[e = _x -> -> 0 `i `uc ]
+[; ;main.c: 89: LATB=0x00;
+"89
+[e = _LATB -> -> 0 `i `uc ]
+[; ;main.c: 91: SYSTEM_Initialize();
+"91
+[e ( _SYSTEM_Initialize ..  ]
+[; ;main.c: 98: (INTCONbits.GIE = 1);
+"98
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+[; ;main.c: 101: (INTCONbits.PEIE = 1);
+"101
+[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
+[; ;main.c: 108: _delay((unsigned long)((3000)*(18432000/4000.0)));
+"108
+[e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[; ;main.c: 110: int_gsm();
+"110
+[e ( _int_gsm ..  ]
+[; ;main.c: 114: while (1)
+"114
+[e :U 380 ]
+[; ;main.c: 115: {
+"115
+{
+[; ;main.c: 116: if((flag_N==1)&&(flag_G==1))
+"116
+[e $ ! && == _flag_N -> 1 `i == _flag_G -> 1 `i 382  ]
+[; ;main.c: 117: {
+"117
+{
+[; ;main.c: 119: sms_text();
+"119
+[e ( _sms_text ..  ]
+[; ;main.c: 120: flag_N=0;
+"120
+[e = _flag_N -> 0 `i ]
+[; ;main.c: 121: flag_G=0;
+"121
+[e = _flag_G -> 0 `i ]
+[; ;main.c: 122: _delay((unsigned long)((200)*(18432000/4000.0)));
+"122
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+"123
+}
+[e :U 382 ]
+"126
+}
+[e :U 379 ]
+"114
+[e $U 380  ]
+[e :U 381 ]
+[; ;main.c: 123: }
+[; ;main.c: 126: }
+[; ;main.c: 127: }
+"127
+[e :UE 378 ]
+}
 [p f _printf 8388608 ]
-[a 4C 104 101 108 108 111 0 ]
-[a 5C 65 84 0 ]
-[a 1C 65 84 43 67 77 71 70 61 49 0 ]
-[a 2C 65 84 43 67 83 67 83 61 34 71 83 77 34 0 ]
-[a 6C 65 84 43 67 80 73 78 61 34 49 50 51 52 34 0 ]
-[a 3C 65 84 43 67 77 71 83 61 34 48 55 53 55 52 57 52 56 50 51 34 0 ]
+[a 3C 104 101 108 108 111 0 ]
+[a 4C 65 84 0 ]
+[a 6C 65 84 43 67 77 71 70 61 49 0 ]
+[a 7C 65 84 43 67 78 77 73 61 49 44 50 44 48 44 48 44 48 0 ]
+[a 1C 65 84 43 67 83 67 83 61 34 71 83 77 34 0 ]
+[a 5C 65 84 43 67 80 73 78 61 34 49 50 51 52 34 0 ]
+[a 2C 65 84 43 67 77 71 83 61 34 48 55 53 55 52 57 52 56 50 51 34 0 ]

@@ -15,7 +15,9 @@
 [v _memcpyee memcpyee `(v  1 e 1 0 ]
 "53 F:\Licenta\Usart.X\main.c
 [v _sms_text sms_text `(v  1 e 1 0 ]
-"70
+"69
+[v _int_gsm int_gsm `(v  1 e 1 0 ]
+"86
 [v _main main `(v  1 e 1 0 ]
 "76 F:\Licenta\Usart.X\mcc_generated_files/eusart.c
 [v _EUSART_Initialize EUSART_Initialize `(v  1 e 1 0 ]
@@ -39,7 +41,7 @@
 [v _WDT_Initialize WDT_Initialize `(v  1 e 1 0 ]
 "52 F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
-[s S188 . 1 `uc 1 IOCIF 1 0 :1:0 
+[s S189 . 1 `uc 1 IOCIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 IOCIE 1 0 :1:3 
@@ -49,14 +51,14 @@
 `uc 1 GIE 1 0 :1:7 
 ]
 "372 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1937.h
-[s S197 . 1 `uc 1 . 1 0 :2:0 
+[s S198 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 T0IE 1 0 :1:5 
 ]
-[u S202 . 1 `S188 1 . 1 0 `S197 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES202  1 e 1 @11 ]
-[s S232 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S203 . 1 `S189 1 . 1 0 `S198 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES203  1 e 1 @11 ]
+[s S233 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -66,8 +68,8 @@
 `uc 1 TMR1GIF 1 0 :1:7 
 ]
 "730
-[u S241 . 1 `S232 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES241  1 e 1 @17 ]
+[u S242 . 1 `S233 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES242  1 e 1 @17 ]
 "1305
 [v _TRISA TRISA `VEuc  1 e 1 @140 ]
 "1367
@@ -182,18 +184,24 @@
 "70
 [v _rcreg rcreg `VEuc  1 e 1 0 ]
 "71
-[v _flag flag `i  1 e 2 0 ]
-"70 F:\Licenta\Usart.X\main.c
+[v _flag_N flag_N `i  1 e 2 0 ]
+[v _flag_G flag_G `i  1 e 2 0 ]
+"86 F:\Licenta\Usart.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"72
+"88
 [v main@x x `uc  1 a 1 6 ]
-"114
+"127
 } 0
 "53
 [v _sms_text sms_text `(v  1 e 1 0 ]
 {
+"67
+} 0
 "69
+[v _int_gsm int_gsm `(v  1 e 1 0 ]
+{
+"84
 } 0
 "464 C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\doprnt.c
 [v _printf printf `(i  1 e 2 0 ]
@@ -261,5 +269,5 @@
 "185
 [v _EUSART_Receive_ISR EUSART_Receive_ISR `(v  1 e 1 0 ]
 {
-"214
+"220
 } 0

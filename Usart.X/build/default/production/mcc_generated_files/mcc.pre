@@ -4733,20 +4733,22 @@ extern int printf(const char *, ...);
 # 77 "mcc_generated_files/eusart.h"
 extern volatile uint8_t eusartTxBufferRemaining;
 extern volatile uint8_t eusartRxCount;
+extern int flag_N;
+extern int flag_G;
 
-# 106
+# 107
 void EUSART_Initialize(void);
 
-# 155
+# 156
 uint8_t EUSART_Read(void);
 
-# 180
+# 181
 void EUSART_Write(uint8_t txData);
 
-# 201
+# 202
 void EUSART_Transmit_ISR(void);
 
-# 222
+# 223
 void EUSART_Receive_ISR(void);
 
 # 69 "mcc_generated_files/mcc.h"

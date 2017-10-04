@@ -4703,20 +4703,22 @@ extern int printf(const char *, ...);
 # 77 "mcc_generated_files/eusart.h"
 extern volatile uint8_t eusartTxBufferRemaining;
 extern volatile uint8_t eusartRxCount;
+extern int flag_N;
+extern int flag_G;
 
-# 106
+# 107
 void EUSART_Initialize(void);
 
-# 155
+# 156
 uint8_t EUSART_Read(void);
 
-# 180
+# 181
 void EUSART_Write(uint8_t txData);
 
-# 201
+# 202
 void EUSART_Transmit_ISR(void);
 
-# 222
+# 223
 void EUSART_Receive_ISR(void);
 
 # 61 "mcc_generated_files/eusart.c"
@@ -4730,7 +4732,7 @@ volatile uint8_t eusartRxTail = 0;
 volatile uint8_t eusartRxBuffer[8];
 volatile uint8_t eusartRxCount;
 volatile char rcreg;
-int flag=0;
+int flag_N=0, flag_G=0;
 
 # 76
 void EUSART_Initialize(void)
@@ -4857,12 +4859,18 @@ RCSTAbits.CREN = 1;
 eusartRxBuffer[eusartRxHead++] = RCREG;
 rcreg=RCREG;
 
-if(rcreg=='G')
+if(rcreg=='X')
 {
 LATB=0xAA;
-flag=1;
+flag_G=1;
 rcreg=0;
 }
+else if(rcreg=='Y')
+{
+flag_N=1;
+rcreg=0;
+}
+
 
 
 

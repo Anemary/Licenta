@@ -44,7 +44,7 @@
 */
 
 #include "mcc_generated_files/mcc.h"
-extern int flag;
+//extern int flag;
 extern char txt_receive[];
 /*
                          Main application
@@ -53,9 +53,7 @@ extern char txt_receive[];
 void sms_text()
 {
  
-        printf("AT+CMGF=1");
-        putch(0x0d);
-        __delay_ms(4000);
+        
         printf("AT+CSCS=\"GSM\"");
         putch(0x0d);
         __delay_ms(4000);
@@ -66,7 +64,25 @@ void sms_text()
         putch(26);
         putch(0x0d);
         __delay_ms(500);
-}       
+}   
+
+void int_gsm()
+{
+printf("AT");
+        putch(0x0d);
+        __delay_ms(4000);
+        printf("AT+CPIN=\"1234\"");
+        putch(0x0d);
+        __delay_ms(4000);
+        printf("AT+CMGF=1");
+        putch(0x0d);
+        __delay_ms(4000);
+        printf("AT+CNMI=1,2,0,0,0");
+        putch(0x0d);
+        __delay_ms(4000);
+        
+}
+
 void main(void)
 {
     char x=0;
@@ -77,10 +93,10 @@ void main(void)
 
     // When using interrupts, you need to set the Global and Peripheral Interrupt Enable bits
     // Use the following macros to:
-
-    // Enable the Global Interrupts
+    
+   // Enable the Global Interrupts
     INTERRUPT_GlobalInterruptEnable();
-
+   
     // Enable the Peripheral Interrupts
     INTERRUPT_PeripheralInterruptEnable();
 
@@ -91,21 +107,18 @@ void main(void)
     //INTERRUPT_PeripheralInterruptDisable();
     __delay_ms(3000);
      
-     printf("AT");
-        putch(0x0d);
-        __delay_ms(4000);
-        printf("AT+CPIN=\"1234\"");
-        putch(0x0d);
-        __delay_ms(4000);  
-        
+      int_gsm();
+      
+      
     //sms_text();
     while (1)
     {
-        if(flag==1)
+        if((flag_N==1)&&(flag_G==1))
         {
            
             sms_text();
-            flag=0;
+            flag_N=0;
+            flag_G=0;
             __delay_ms(200);
         }
         

@@ -76,7 +76,8 @@
  */
 extern volatile uint8_t eusartTxBufferRemaining;
 extern volatile uint8_t eusartRxCount;
-
+extern int flag_N;
+extern int flag_G;
 
 /**
   Section: EUSART APIs
