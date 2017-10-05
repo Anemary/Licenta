@@ -1,15 +1,29 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"195 C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdio.h
-[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
-"16 C:\Program Files (x86)\Microchip\xc8\v1.42\include\conio.h
-[v _putch `(v ~T0 @X0 0 ef1`uc ]
+"2479 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1937.h
+[s S118 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S118 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
+"2478
+[u S117 `S118 1 ]
+[n S117 . . ]
+"2490
+[v _LATCbits `VS117 ~T0 @X0 0 e@270 ]
 [v F3491 `(v ~T0 @X0 1 tf1`ul ]
 "152 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic.h
 [v __delay `JF3491 ~T0 @X0 0 e ]
 [p i __delay ]
+"195 C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdio.h
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
+"16 C:\Program Files (x86)\Microchip\xc8\v1.42\include\conio.h
+[v _putch `(v ~T0 @X0 0 ef1`uc ]
 [p mainexit ]
-"2411 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1937.h
-[v _LATB `Vuc ~T0 @X0 0 e@269 ]
+"1435 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1937.h
+[s S74 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S74 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"1434
+[u S73 `S74 1 ]
+[n S73 . . ]
+"1446
+[v _TRISCbits `VS73 ~T0 @X0 0 e@142 ]
 "69 mcc_generated_files/mcc.h
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
 "355 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1937.h
@@ -3376,166 +3390,264 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;mcc.h: 69: void SYSTEM_Initialize(void);
 [; ;mcc.h: 82: void OSCILLATOR_Initialize(void);
 [; ;mcc.h: 95: void WDT_Initialize(void);
-[; ;main.c: 48: extern char txt_receive[];
-"53 main.c
-[v _sms_text `(v ~T0 @X0 1 ef ]
-"54
-{
-[; ;main.c: 53: void sms_text()
-[; ;main.c: 54: {
-[e :U _sms_text ]
-[f ]
-[; ;main.c: 57: printf("AT+CSCS=\"GSM\"");
-"57
-[e ( _printf :s 1C ]
-[; ;main.c: 58: putch(0x0d);
-"58
-[e ( _putch (1 -> -> 13 `i `uc ]
-[; ;main.c: 59: _delay((unsigned long)((4000)*(18432000/4000.0)));
-"59
-[e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
-[; ;main.c: 60: printf("AT+CMGS=\"0757494823\"");
-"60
-[e ( _printf :s 2C ]
-[; ;main.c: 61: putch(0x0d);
-"61
-[e ( _putch (1 -> -> 13 `i `uc ]
-[; ;main.c: 62: _delay((unsigned long)((4000)*(18432000/4000.0)));
-"62
-[e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
-[; ;main.c: 63: printf("hello");
-"63
-[e ( _printf :s 3C ]
-[; ;main.c: 64: putch(26);
+[; ;main.c: 57: extern char txt_receive[];
+"63 main.c
+[v _turn_egs `(v ~T0 @X0 1 ef ]
 "64
-[e ( _putch (1 -> -> 26 `i `uc ]
-[; ;main.c: 65: putch(0x0d);
+{
+[; ;main.c: 63: void turn_egs()
+[; ;main.c: 64: {
+[e :U _turn_egs ]
+[f ]
 "65
-[e ( _putch (1 -> -> 13 `i `uc ]
-[; ;main.c: 66: _delay((unsigned long)((500)*(18432000/4000.0)));
+[v _nr `i ~T0 @X0 1 a ]
+[; ;main.c: 65: int nr=0;
+[e = _nr -> 0 `i ]
+[; ;main.c: 66: if (nr<512)
 "66
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
-[; ;main.c: 67: }
-"67
-[e :UE 376 ]
-}
-"69
-[v _int_gsm `(v ~T0 @X0 1 ef ]
+[e $ ! < _nr -> 512 `i 377  ]
+[; ;main.c: 70: {
 "70
 {
-[; ;main.c: 69: void int_gsm()
-[; ;main.c: 70: {
+[; ;main.c: 71: nr++;
+"71
+[e ++ _nr -> 1 `i ]
+[; ;main.c: 72: LATCbits.LATC5=1;
+"72
+[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
+[; ;main.c: 73: LATCbits.LATC4=0;
+"73
+[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
+[; ;main.c: 74: LATCbits.LATC3=0;
+"74
+[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
+[; ;main.c: 75: LATCbits.LATC0=1;
+"75
+[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
+[; ;main.c: 76: _delay((unsigned long)((5)*(18432000/4000.0)));
+"76
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[; ;main.c: 77: LATCbits.LATC5=1;
+"77
+[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
+[; ;main.c: 78: LATCbits.LATC4=1;
+"78
+[e = . . _LATCbits 0 4 -> -> 1 `i `uc ]
+[; ;main.c: 79: LATCbits.LATC3=0;
+"79
+[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
+[; ;main.c: 80: LATCbits.LATC0=0;
+"80
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 81: _delay((unsigned long)((5)*(18432000/4000.0)));
+"81
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[; ;main.c: 82: LATCbits.LATC5=0;
+"82
+[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+[; ;main.c: 83: LATCbits.LATC4=1;
+"83
+[e = . . _LATCbits 0 4 -> -> 1 `i `uc ]
+[; ;main.c: 84: LATCbits.LATC3=1;
+"84
+[e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
+[; ;main.c: 85: LATCbits.LATC0=0;
+"85
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 86: _delay((unsigned long)((5)*(18432000/4000.0)));
+"86
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[; ;main.c: 87: LATCbits.LATC5=0;
+"87
+[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+[; ;main.c: 88: LATCbits.LATC4=0;
+"88
+[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
+[; ;main.c: 89: LATCbits.LATC3=1;
+"89
+[e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
+[; ;main.c: 90: LATCbits.LATC0=1;
+"90
+[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
+[; ;main.c: 91: _delay((unsigned long)((5)*(18432000/4000.0)));
+"91
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+"94
+}
+[e :U 377 ]
+[; ;main.c: 94: }
+[; ;main.c: 95: }
+"95
+[e :UE 376 ]
+}
+"96
+[v _sms_text `(v ~T0 @X0 1 ef ]
+"97
+{
+[; ;main.c: 96: void sms_text()
+[; ;main.c: 97: {
+[e :U _sms_text ]
+[f ]
+[; ;main.c: 100: printf("AT+CSCS=\"GSM\"");
+"100
+[e ( _printf :s 1C ]
+[; ;main.c: 101: putch(0x0d);
+"101
+[e ( _putch (1 -> -> 13 `i `uc ]
+[; ;main.c: 102: _delay((unsigned long)((4000)*(18432000/4000.0)));
+"102
+[e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[; ;main.c: 103: printf("AT+CMGS=\"0757494823\"");
+"103
+[e ( _printf :s 2C ]
+[; ;main.c: 104: putch(0x0d);
+"104
+[e ( _putch (1 -> -> 13 `i `uc ]
+[; ;main.c: 105: _delay((unsigned long)((4000)*(18432000/4000.0)));
+"105
+[e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[; ;main.c: 106: printf("hello");
+"106
+[e ( _printf :s 3C ]
+[; ;main.c: 107: putch(26);
+"107
+[e ( _putch (1 -> -> 26 `i `uc ]
+[; ;main.c: 108: putch(0x0d);
+"108
+[e ( _putch (1 -> -> 13 `i `uc ]
+[; ;main.c: 109: _delay((unsigned long)((500)*(18432000/4000.0)));
+"109
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[; ;main.c: 110: }
+"110
+[e :UE 378 ]
+}
+"112
+[v _int_gsm `(v ~T0 @X0 1 ef ]
+"113
+{
+[; ;main.c: 112: void int_gsm()
+[; ;main.c: 113: {
 [e :U _int_gsm ]
 [f ]
-[; ;main.c: 71: printf("AT");
-"71
+[; ;main.c: 114: printf("AT");
+"114
 [e ( _printf :s 4C ]
-[; ;main.c: 72: putch(0x0d);
-"72
-[e ( _putch (1 -> -> 13 `i `uc ]
-[; ;main.c: 73: _delay((unsigned long)((4000)*(18432000/4000.0)));
-"73
-[e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
-[; ;main.c: 74: printf("AT+CPIN=\"1234\"");
-"74
-[e ( _printf :s 5C ]
-[; ;main.c: 75: putch(0x0d);
-"75
-[e ( _putch (1 -> -> 13 `i `uc ]
-[; ;main.c: 76: _delay((unsigned long)((4000)*(18432000/4000.0)));
-"76
-[e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
-[; ;main.c: 77: printf("AT+CMGF=1");
-"77
-[e ( _printf :s 6C ]
-[; ;main.c: 78: putch(0x0d);
-"78
-[e ( _putch (1 -> -> 13 `i `uc ]
-[; ;main.c: 79: _delay((unsigned long)((4000)*(18432000/4000.0)));
-"79
-[e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
-[; ;main.c: 80: printf("AT+CNMI=1,2,0,0,0");
-"80
-[e ( _printf :s 7C ]
-[; ;main.c: 81: putch(0x0d);
-"81
-[e ( _putch (1 -> -> 13 `i `uc ]
-[; ;main.c: 82: _delay((unsigned long)((4000)*(18432000/4000.0)));
-"82
-[e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
-[; ;main.c: 84: }
-"84
-[e :UE 377 ]
-}
-[v $root$_main `(v ~T0 @X0 0 e ]
-"86
-[v _main `(v ~T0 @X0 1 ef ]
-"87
-{
-[; ;main.c: 86: void main(void)
-[; ;main.c: 87: {
-[e :U _main ]
-[f ]
-"88
-[v _x `uc ~T0 @X0 1 a ]
-[; ;main.c: 88: char x=0;
-[e = _x -> -> 0 `i `uc ]
-[; ;main.c: 89: LATB=0x00;
-"89
-[e = _LATB -> -> 0 `i `uc ]
-[; ;main.c: 91: SYSTEM_Initialize();
-"91
-[e ( _SYSTEM_Initialize ..  ]
-[; ;main.c: 98: (INTCONbits.GIE = 1);
-"98
-[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-[; ;main.c: 101: (INTCONbits.PEIE = 1);
-"101
-[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
-[; ;main.c: 108: _delay((unsigned long)((3000)*(18432000/4000.0)));
-"108
-[e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
-[; ;main.c: 110: int_gsm();
-"110
-[e ( _int_gsm ..  ]
-[; ;main.c: 114: while (1)
-"114
-[e :U 380 ]
-[; ;main.c: 115: {
+[; ;main.c: 115: putch(0x0d);
 "115
-{
-[; ;main.c: 116: if((flag_N==1)&&(flag_G==1))
+[e ( _putch (1 -> -> 13 `i `uc ]
+[; ;main.c: 116: _delay((unsigned long)((4000)*(18432000/4000.0)));
 "116
-[e $ ! && == _flag_N -> 1 `i == _flag_G -> 1 `i 382  ]
-[; ;main.c: 117: {
+[e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[; ;main.c: 117: printf("AT+CPIN=\"1234\"");
 "117
-{
-[; ;main.c: 119: sms_text();
+[e ( _printf :s 5C ]
+[; ;main.c: 118: putch(0x0d);
+"118
+[e ( _putch (1 -> -> 13 `i `uc ]
+[; ;main.c: 119: _delay((unsigned long)((4000)*(18432000/4000.0)));
 "119
-[e ( _sms_text ..  ]
-[; ;main.c: 120: flag_N=0;
+[e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[; ;main.c: 120: printf("AT+CMGF=1");
 "120
-[e = _flag_N -> 0 `i ]
-[; ;main.c: 121: flag_G=0;
+[e ( _printf :s 6C ]
+[; ;main.c: 121: putch(0x0d);
 "121
-[e = _flag_G -> 0 `i ]
-[; ;main.c: 122: _delay((unsigned long)((200)*(18432000/4000.0)));
+[e ( _putch (1 -> -> 13 `i `uc ]
+[; ;main.c: 122: _delay((unsigned long)((4000)*(18432000/4000.0)));
 "122
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[; ;main.c: 123: printf("AT+CNMI=1,2,0,0,0");
 "123
-}
-[e :U 382 ]
-"126
-}
-[e :U 379 ]
-"114
-[e $U 380  ]
-[e :U 381 ]
-[; ;main.c: 123: }
-[; ;main.c: 126: }
+[e ( _printf :s 7C ]
+[; ;main.c: 124: putch(0x0d);
+"124
+[e ( _putch (1 -> -> 13 `i `uc ]
+[; ;main.c: 125: _delay((unsigned long)((4000)*(18432000/4000.0)));
+"125
+[e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
 [; ;main.c: 127: }
 "127
-[e :UE 378 ]
+[e :UE 379 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"129
+[v _main `(v ~T0 @X0 1 ef ]
+"130
+{
+[; ;main.c: 129: void main(void)
+[; ;main.c: 130: {
+[e :U _main ]
+[f ]
+"131
+[v _x `uc ~T0 @X0 1 a ]
+[; ;main.c: 131: char x=0;
+[e = _x -> -> 0 `i `uc ]
+[; ;main.c: 132: TRISCbits.TRISC0=0;
+"132
+[e = . . _TRISCbits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 133: TRISCbits.TRISC3=0;
+"133
+[e = . . _TRISCbits 0 3 -> -> 0 `i `uc ]
+[; ;main.c: 134: TRISCbits.TRISC4=0;
+"134
+[e = . . _TRISCbits 0 4 -> -> 0 `i `uc ]
+[; ;main.c: 135: TRISCbits.TRISC5=0;
+"135
+[e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
+[; ;main.c: 137: SYSTEM_Initialize();
+"137
+[e ( _SYSTEM_Initialize ..  ]
+[; ;main.c: 144: (INTCONbits.GIE = 1);
+"144
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+[; ;main.c: 147: (INTCONbits.PEIE = 1);
+"147
+[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
+[; ;main.c: 154: _delay((unsigned long)((3000)*(18432000/4000.0)));
+"154
+[e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[; ;main.c: 156: int_gsm();
+"156
+[e ( _int_gsm ..  ]
+[; ;main.c: 160: while (1)
+"160
+[e :U 382 ]
+[; ;main.c: 161: {
+"161
+{
+[; ;main.c: 162: if((flag_N==1)&&(flag_G==1))
+"162
+[e $ ! && == _flag_N -> 1 `i == _flag_G -> 1 `i 384  ]
+[; ;main.c: 163: {
+"163
+{
+[; ;main.c: 164: turn_egs();
+"164
+[e ( _turn_egs ..  ]
+[; ;main.c: 166: flag_N=0;
+"166
+[e = _flag_N -> 0 `i ]
+[; ;main.c: 167: flag_G=0;
+"167
+[e = _flag_G -> 0 `i ]
+[; ;main.c: 168: _delay((unsigned long)((200)*(18432000/4000.0)));
+"168
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+"169
+}
+[e :U 384 ]
+"172
+}
+[e :U 381 ]
+"160
+[e $U 382  ]
+[e :U 383 ]
+[; ;main.c: 169: }
+[; ;main.c: 172: }
+[; ;main.c: 173: }
+"173
+[e :UE 380 ]
 }
 [p f _printf 8388608 ]
 [a 3C 104 101 108 108 111 0 ]

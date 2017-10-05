@@ -44,12 +44,55 @@
 */
 
 #include "mcc_generated_files/mcc.h"
+
+#define PIN1 LATCbits.LATC0
+#define PIN2 LATCbits.LATC3
+#define PIN3 LATCbits.LATC4
+#define PIN4 LATCbits.LATC5
+#define PIN1_direction TRISCbits.TRISC0
+#define PIN2_direction TRISCbits.TRISC3
+#define PIN3_direction TRISCbits.TRISC4
+#define PIN4_direction TRISCbits.TRISC5
 //extern int flag;
 extern char txt_receive[];
 /*
                          Main application
  */
 
+
+void turn_egs()
+{
+    int nr=0;
+   if (nr<512)   //in functie de valoarea pusa v-om sti cat se
+                      //roteste motorul 
+                      //steps = Number of steps in One Revolution  * Gear ratio  
+                      //steps= (360°/5.625°)*64"Gear ratio" = 64 * 64 =4096 
+       {
+         nr++;
+        PIN4=1;//pin0
+        PIN3=0;//pin3
+        PIN2=0; //pin4
+        PIN1=1;  ///pin5
+        __delay_ms(5);
+        PIN4=1;
+        PIN3=1;
+        PIN2=0;
+        PIN1=0;
+        __delay_ms(5);
+        PIN4=0;
+        PIN3=1;
+        PIN2=1;
+        PIN1=0;
+        __delay_ms(5);
+        PIN4=0;
+        PIN3=0;
+        PIN2=1;
+        PIN1=1;
+        __delay_ms(5);
+          
+        
+        }     
+}
 void sms_text()
 {
  
@@ -86,7 +129,10 @@ printf("AT");
 void main(void)
 {
     char x=0;
-    LATB=0x00;
+    PIN1_direction=0;  //pini folositi pentru control
+    PIN2_direction=0;
+    PIN3_direction=0;
+    PIN4_direction=0;
     // initialize the device
     SYSTEM_Initialize();
    
@@ -115,8 +161,8 @@ void main(void)
     {
         if((flag_N==1)&&(flag_G==1))
         {
-           
-            sms_text();
+           turn_egs();
+            //sms_text();
             flag_N=0;
             flag_G=0;
             __delay_ms(200);

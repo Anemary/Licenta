@@ -4739,10 +4739,43 @@ void OSCILLATOR_Initialize(void);
 # 95
 void WDT_Initialize(void);
 
-# 48 "main.c"
+# 57 "main.c"
 extern char txt_receive[];
 
-# 53
+# 63
+void turn_egs()
+{
+int nr=0;
+if (nr<512)
+
+
+
+{
+nr++;
+LATCbits.LATC5=1;
+LATCbits.LATC4=0;
+LATCbits.LATC3=0;
+LATCbits.LATC0=1;
+_delay((unsigned long)((5)*(18432000/4000.0)));
+LATCbits.LATC5=1;
+LATCbits.LATC4=1;
+LATCbits.LATC3=0;
+LATCbits.LATC0=0;
+_delay((unsigned long)((5)*(18432000/4000.0)));
+LATCbits.LATC5=0;
+LATCbits.LATC4=1;
+LATCbits.LATC3=1;
+LATCbits.LATC0=0;
+_delay((unsigned long)((5)*(18432000/4000.0)));
+LATCbits.LATC5=0;
+LATCbits.LATC4=0;
+LATCbits.LATC3=1;
+LATCbits.LATC0=1;
+_delay((unsigned long)((5)*(18432000/4000.0)));
+
+
+}
+}
 void sms_text()
 {
 
@@ -4779,17 +4812,20 @@ _delay((unsigned long)((4000)*(18432000/4000.0)));
 void main(void)
 {
 char x=0;
-LATB=0x00;
+TRISCbits.TRISC0=0;
+TRISCbits.TRISC3=0;
+TRISCbits.TRISC4=0;
+TRISCbits.TRISC5=0;
 
 SYSTEM_Initialize();
 
-# 98
+# 144
 (INTCONbits.GIE = 1);
 
 
 (INTCONbits.PEIE = 1);
 
-# 108
+# 154
 _delay((unsigned long)((3000)*(18432000/4000.0)));
 
 int_gsm();
@@ -4800,8 +4836,8 @@ while (1)
 {
 if((flag_N==1)&&(flag_G==1))
 {
+turn_egs();
 
-sms_text();
 flag_N=0;
 flag_G=0;
 _delay((unsigned long)((200)*(18432000/4000.0)));
