@@ -3463,78 +3463,84 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 82: _delay((unsigned long)((4000)*(18432000/4000.0)));
 "82
 [e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
-[; ;main.c: 84: }
+[; ;main.c: 83: printf("AT+CSCS=\"GSM\"");
+"83
+[e ( _printf :s 8C ]
+[; ;main.c: 84: putch(0x0d);
 "84
+[e ( _putch (1 -> -> 13 `i `uc ]
+[; ;main.c: 87: }
+"87
 [e :UE 377 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"86
+"89
 [v _main `(v ~T0 @X0 1 ef ]
-"87
+"90
 {
-[; ;main.c: 86: void main(void)
-[; ;main.c: 87: {
+[; ;main.c: 89: void main(void)
+[; ;main.c: 90: {
 [e :U _main ]
 [f ]
-"88
-[v _x `uc ~T0 @X0 1 a ]
-[; ;main.c: 88: char x=0;
-[e = _x -> -> 0 `i `uc ]
-[; ;main.c: 89: LATB=0x00;
-"89
-[e = _LATB -> -> 0 `i `uc ]
-[; ;main.c: 91: SYSTEM_Initialize();
 "91
+[v _x `uc ~T0 @X0 1 a ]
+[; ;main.c: 91: char x=0;
+[e = _x -> -> 0 `i `uc ]
+[; ;main.c: 92: LATB=0x00;
+"92
+[e = _LATB -> -> 0 `i `uc ]
+[; ;main.c: 94: SYSTEM_Initialize();
+"94
 [e ( _SYSTEM_Initialize ..  ]
-[; ;main.c: 98: (INTCONbits.GIE = 1);
-"98
-[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-[; ;main.c: 101: (INTCONbits.PEIE = 1);
+[; ;main.c: 101: (INTCONbits.GIE = 1);
 "101
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+[; ;main.c: 104: (INTCONbits.PEIE = 1);
+"104
 [e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
-[; ;main.c: 108: _delay((unsigned long)((3000)*(18432000/4000.0)));
-"108
+[; ;main.c: 111: _delay((unsigned long)((3000)*(18432000/4000.0)));
+"111
 [e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
-[; ;main.c: 110: int_gsm();
-"110
+[; ;main.c: 113: int_gsm();
+"113
 [e ( _int_gsm ..  ]
-[; ;main.c: 114: while (1)
-"114
-[e :U 380 ]
-[; ;main.c: 115: {
-"115
-{
-[; ;main.c: 116: if((flag_N==1)&&(flag_G==1))
-"116
-[e $ ! && == _flag_N -> 1 `i == _flag_G -> 1 `i 382  ]
-[; ;main.c: 117: {
+[; ;main.c: 117: while (1)
 "117
+[e :U 380 ]
+[; ;main.c: 118: {
+"118
 {
-[; ;main.c: 119: sms_text();
+[; ;main.c: 119: if((flag_N==1)&&(flag_G==1))
 "119
-[e ( _sms_text ..  ]
-[; ;main.c: 120: flag_N=0;
+[e $ ! && == _flag_N -> 1 `i == _flag_G -> 1 `i 382  ]
+[; ;main.c: 120: {
 "120
-[e = _flag_N -> 0 `i ]
-[; ;main.c: 121: flag_G=0;
-"121
-[e = _flag_G -> 0 `i ]
-[; ;main.c: 122: _delay((unsigned long)((200)*(18432000/4000.0)));
+{
+[; ;main.c: 122: sms_text();
 "122
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[e ( _sms_text ..  ]
+[; ;main.c: 123: flag_N=0;
 "123
-}
-[e :U 382 ]
+[e = _flag_N -> 0 `i ]
+[; ;main.c: 124: flag_G=0;
+"124
+[e = _flag_G -> 0 `i ]
+[; ;main.c: 125: _delay((unsigned long)((200)*(18432000/4000.0)));
+"125
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
 "126
 }
+[e :U 382 ]
+"129
+}
 [e :U 379 ]
-"114
+"117
 [e $U 380  ]
 [e :U 381 ]
-[; ;main.c: 123: }
 [; ;main.c: 126: }
-[; ;main.c: 127: }
-"127
+[; ;main.c: 129: }
+[; ;main.c: 130: }
+"130
 [e :UE 378 ]
 }
 [p f _printf 8388608 ]
@@ -3543,5 +3549,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [a 6C 65 84 43 67 77 71 70 61 49 0 ]
 [a 7C 65 84 43 67 78 77 73 61 49 44 50 44 48 44 48 44 48 0 ]
 [a 1C 65 84 43 67 83 67 83 61 34 71 83 77 34 0 ]
+[a 8C 65 84 43 67 83 67 83 61 34 71 83 77 34 0 ]
 [a 5C 65 84 43 67 80 73 78 61 34 49 50 51 52 34 0 ]
 [a 2C 65 84 43 67 77 71 83 61 34 48 55 53 55 52 57 52 56 50 51 34 0 ]

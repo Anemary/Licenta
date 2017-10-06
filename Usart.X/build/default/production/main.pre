@@ -4773,6 +4773,9 @@ _delay((unsigned long)((4000)*(18432000/4000.0)));
 printf("AT+CNMI=1,2,0,0,0");
 putch(0x0d);
 _delay((unsigned long)((4000)*(18432000/4000.0)));
+printf("AT+CSCS=\"GSM\"");
+putch(0x0d);
+
 
 }
 
@@ -4783,13 +4786,13 @@ LATB=0x00;
 
 SYSTEM_Initialize();
 
-# 98
+# 101
 (INTCONbits.GIE = 1);
 
 
 (INTCONbits.PEIE = 1);
 
-# 108
+# 111
 _delay((unsigned long)((3000)*(18432000/4000.0)));
 
 int_gsm();

@@ -80,6 +80,9 @@ printf("AT");
         printf("AT+CNMI=1,2,0,0,0");
         putch(0x0d);
         __delay_ms(4000);
+        printf("AT+CSCS=\"GSM\"");
+        putch(0x0d);
+        
         
 }
 
