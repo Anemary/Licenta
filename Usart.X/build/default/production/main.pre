@@ -4646,6 +4646,48 @@ typedef unsigned char bool;
 # 110 "mcc_generated_files/interrupt_manager.h"
 void interrupt INTERRUPT_InterruptManager(void);
 
+# 63 "mcc_generated_files/tmr1.h"
+extern int flag_10_ms, flag_100_ms, flag_500_ms,flag_1000_ms,flag_4000_ms;
+
+# 100
+void TMR1_Initialize(void);
+
+# 129
+void TMR1_StartTimer(void);
+
+# 161
+void TMR1_StopTimer(void);
+
+# 196
+uint16_t TMR1_ReadTimer(void);
+
+# 235
+void TMR1_WriteTimer(uint16_t timerVal);
+
+# 271
+void TMR1_Reload(void);
+
+# 310
+void TMR1_StartSinglePulseAcquisition(void);
+
+# 349
+uint8_t TMR1_CheckGateValueStatus(void);
+
+# 367
+void TMR1_ISR(void);
+
+# 384
+void TMR1_CallBack(void);
+
+# 402
+void TMR1_SetInterruptHandler(void (* InterruptHandler)(void));
+
+# 420
+extern void (*TMR1_InterruptHandler)(void);
+
+# 438
+void TMR1_DefaultInterruptHandler(void);
+
 # 4 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\__size_t.h"
 typedef unsigned size_t;
 
@@ -4730,51 +4772,205 @@ void EUSART_Transmit_ISR(void);
 # 223
 void EUSART_Receive_ISR(void);
 
-# 69 "mcc_generated_files/mcc.h"
+# 70 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
 
-# 82
+# 83
 void OSCILLATOR_Initialize(void);
 
-# 95
+# 96
 void WDT_Initialize(void);
 
 # 48 "main.c"
+int flag_directie;
+
+# 58
 extern char txt_receive[];
 
-# 53
+# 64
+void turn_egs()
+{
+static unsigned char step_index;
+static unsigned int step_nr=1;
+
+# 74
+if((step_nr<300)&&(flag_10_ms==1))
+{
+if(flag_directie==1)
+{
+step_nr++;
+if(step_index==0)
+{
+step_index++;
+LATCbits.LATC0=1;
+LATCbits.LATC3=0;
+LATCbits.LATC4=0;
+LATCbits.LATC5=0;
+}
+else if(step_index==1)
+{
+step_index++;
+LATCbits.LATC0=0;
+LATCbits.LATC3=1;
+LATCbits.LATC4=0;
+LATCbits.LATC5=0;
+}
+else if(step_index==2)
+{
+step_index++;
+LATCbits.LATC0=0;
+LATCbits.LATC3=0;
+LATCbits.LATC4=1;
+LATCbits.LATC5=0;
+}
+else if(step_index==3)
+{
+step_index++;
+LATCbits.LATC0=0;
+LATCbits.LATC3=0;
+LATCbits.LATC4=0;
+LATCbits.LATC5=1;
+}
+else if(step_index==4)
+{
+step_index=0;
+}
+
+flag_10_ms=0;
+}
+else if(flag_directie==0)
+{
+step_nr++;
+if(step_index==0)
+{
+step_index++;
+LATCbits.LATC5=1;
+LATCbits.LATC4=0;
+LATCbits.LATC3=0;
+LATCbits.LATC0=0;
+}
+else if(step_index==1)
+{
+step_index++;
+LATCbits.LATC5=0;
+LATCbits.LATC4=1;
+LATCbits.LATC3=0;
+LATCbits.LATC0=0;
+}
+else if(step_index==2)
+{
+step_index++;
+LATCbits.LATC5=0;
+LATCbits.LATC4=0;
+LATCbits.LATC3=1;
+LATCbits.LATC0=0;
+}
+else if(step_index==3)
+{
+step_index++;
+LATCbits.LATC5=0;
+LATCbits.LATC4=0;
+LATCbits.LATC3=0;
+LATCbits.LATC0=1;
+}
+else if(step_index==4)
+{
+step_index=0;
+}
+
+flag_10_ms=0;
+}
+}
+else if(step_nr==300)
+{
+flag_N=0;
+flag_G=0;
+step_nr=0;
+if(flag_directie==1)
+{
+flag_directie=0;
+}
+else if(flag_directie==0)
+{
+flag_directie=1;
+}
+step_index=0;
+
+}
+
+}
+
+
 void sms_text()
 {
-
-
+int sms_index=0;
+if (flag_4000_ms==1)
+{
+if (sms_index==0)
+{
 printf("AT+CSCS=\"GSM\"");
 putch(0x0d);
-_delay((unsigned long)((4000)*(18432000/4000.0)));
+sms_index++;
+}
+else if (sms_index==1)
+{
 printf("AT+CMGS=\"0757494823\"");
 putch(0x0d);
-_delay((unsigned long)((4000)*(18432000/4000.0)));
-printf("hello");
+sms_index++;
+}
+else if (sms_index==2)
+{
+printf("pulicica mica");
 putch(26);
 putch(0x0d);
-_delay((unsigned long)((500)*(18432000/4000.0)));
+sms_index++;
+}
+else if (sms_index==3)
+{
+sms_index=0;
+}
+flag_4000_ms==0;
+}
+
 }
 
 void int_gsm()
 {
+static int sms1_index;
+if (flag_4000_ms==1)
+{
+if (sms1_index==0)
+{
 printf("AT");
 putch(0x0d);
-_delay((unsigned long)((4000)*(18432000/4000.0)));
+sms1_index++;
+}
+else if (sms1_index==1)
+{
 printf("AT+CPIN=\"1234\"");
 putch(0x0d);
-_delay((unsigned long)((4000)*(18432000/4000.0)));
+sms1_index++;
+}
+else if (sms1_index==2)
+{
 printf("AT+CMGF=1");
 putch(0x0d);
-_delay((unsigned long)((4000)*(18432000/4000.0)));
+sms1_index++;
+}
+else if (sms1_index==3)
+{
 printf("AT+CNMI=1,2,0,0,0");
 putch(0x0d);
-_delay((unsigned long)((4000)*(18432000/4000.0)));
+sms1_index++;
+}
+else if (sms1_index==4)
+{
 printf("AT+CSCS=\"GSM\"");
 putch(0x0d);
+sms1_index++;
+}
+flag_4000_ms=0;
+}
 
 
 }
@@ -4782,35 +4978,44 @@ putch(0x0d);
 void main(void)
 {
 char x=0;
-LATB=0x00;
+
 
 SYSTEM_Initialize();
+TRISCbits.TRISC0=0;
+TRISCbits.TRISC3=0;
+TRISCbits.TRISC4=0;
+TRISCbits.TRISC5=0;
 
-# 101
+# 270
 (INTCONbits.GIE = 1);
 
 
 (INTCONbits.PEIE = 1);
 
-# 111
+# 280
 _delay((unsigned long)((3000)*(18432000/4000.0)));
 
-int_gsm();
 
 
+flag_directie=1;
 
 while (1)
 {
-if((flag_N==1)&&(flag_G==1))
+int_gsm();
+
+# 312
+if (flag_G==1)
+{
+if (flag_N==1)
 {
 
-sms_text();
-flag_N=0;
-flag_G=0;
-_delay((unsigned long)((200)*(18432000/4000.0)));
-}
+turn_egs();
 
 
 }
+
+}
+}
+
 }
 

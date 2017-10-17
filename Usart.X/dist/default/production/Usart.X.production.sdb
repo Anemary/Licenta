@@ -13,11 +13,11 @@
 [v _eecpymem eecpymem `(v  1 e 1 0 ]
 "39
 [v _memcpyee memcpyee `(v  1 e 1 0 ]
-"53 F:\Licenta\Usart.X\main.c
-[v _sms_text sms_text `(v  1 e 1 0 ]
-"69
+"64 F:\Licenta\Usart.X\main.c
+[v _turn_egs turn_egs `(v  1 e 1 0 ]
+"214
 [v _int_gsm int_gsm `(v  1 e 1 0 ]
-"89
+"255
 [v _main main `(v  1 e 1 0 ]
 "76 F:\Licenta\Usart.X\mcc_generated_files/eusart.c
 [v _EUSART_Initialize EUSART_Initialize `(v  1 e 1 0 ]
@@ -33,15 +33,27 @@
 [v _EUSART_Receive_ISR EUSART_Receive_ISR `(v  1 e 1 0 ]
 "51 F:\Licenta\Usart.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
-"70 F:\Licenta\Usart.X\mcc_generated_files/mcc.c
+"71 F:\Licenta\Usart.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
-"79
+"81
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
-"87
+"89
 [v _WDT_Initialize WDT_Initialize `(v  1 e 1 0 ]
 "52 F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
-[s S189 . 1 `uc 1 IOCIF 1 0 :1:0 
+"64 F:\Licenta\Usart.X\mcc_generated_files/tmr1.c
+[v _TMR1_Initialize TMR1_Initialize `(v  1 e 1 0 ]
+"96
+[v _TMR1_StartTimer TMR1_StartTimer `(v  1 e 1 0 ]
+"161
+[v _TMR1_ISR TMR1_ISR `(v  1 e 1 0 ]
+"182
+[v _TMR1_CallBack TMR1_CallBack `(v  1 e 1 0 ]
+"217
+[v _TMR1_SetInterruptHandler TMR1_SetInterruptHandler `(v  1 e 1 0 ]
+"221
+[v _TMR1_DefaultInterruptHandler TMR1_DefaultInterruptHandler `(v  1 e 1 0 ]
+[s S193 . 1 `uc 1 IOCIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 IOCIE 1 0 :1:3 
@@ -51,14 +63,14 @@
 `uc 1 GIE 1 0 :1:7 
 ]
 "372 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1937.h
-[s S198 . 1 `uc 1 . 1 0 :2:0 
+[s S202 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 T0IE 1 0 :1:5 
 ]
-[u S203 . 1 `S189 1 . 1 0 `S198 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES203  1 e 1 @11 ]
-[s S233 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S207 . 1 `S193 1 . 1 0 `S202 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES207  1 e 1 @11 ]
+[s S237 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -68,19 +80,71 @@
 `uc 1 TMR1GIF 1 0 :1:7 
 ]
 "730
-[u S242 . 1 `S233 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES242  1 e 1 @17 ]
+[u S246 . 1 `S237 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES246  1 e 1 @17 ]
+"905
+[v _TMR1L TMR1L `VEuc  1 e 1 @22 ]
+"925
+[v _TMR1H TMR1H `VEuc  1 e 1 @23 ]
+"945
+[v _T1CON T1CON `VEuc  1 e 1 @24 ]
+[s S331 . 1 `uc 1 TMR1ON 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 nT1SYNC 1 0 :1:2 
+`uc 1 T1OSCEN 1 0 :1:3 
+`uc 1 T1CKPS0 1 0 :1:4 
+`uc 1 T1CKPS1 1 0 :1:5 
+`uc 1 TMR1CS0 1 0 :1:6 
+`uc 1 TMR1CS1 1 0 :1:7 
+]
+"967
+[s S340 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 T1CKPS 1 0 :2:4 
+`uc 1 TMR1CS 1 0 :2:6 
+]
+[u S344 . 1 `S331 1 . 1 0 `S340 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES344  1 e 1 @24 ]
+"1017
+[v _T1GCON T1GCON `VEuc  1 e 1 @25 ]
+[s S361 . 1 `uc 1 T1GSS0 1 0 :1:0 
+`uc 1 T1GSS1 1 0 :1:1 
+`uc 1 T1GVAL 1 0 :1:2 
+`uc 1 T1GGO_nDONE 1 0 :1:3 
+`uc 1 T1GSPM 1 0 :1:4 
+`uc 1 T1GTM 1 0 :1:5 
+`uc 1 T1GPOL 1 0 :1:6 
+`uc 1 TMR1GE 1 0 :1:7 
+]
+"1039
+[s S370 . 1 `uc 1 T1GSS 1 0 :2:0 
+`uc 1 . 1 0 :1:2 
+`uc 1 T1GGO 1 0 :1:3 
+]
+[u S374 . 1 `S361 1 . 1 0 `S370 1 . 1 0 ]
+[v _T1GCONbits T1GCONbits `VES374  1 e 1 @25 ]
 "1305
 [v _TRISA TRISA `VEuc  1 e 1 @140 ]
 "1367
 [v _TRISB TRISB `VEuc  1 e 1 @141 ]
 "1429
 [v _TRISC TRISC `VEuc  1 e 1 @142 ]
+[s S481 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"1446
+[u S490 . 1 `S481 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES490  1 e 1 @142 ]
 "1491
 [v _TRISD TRISD `VEuc  1 e 1 @143 ]
 "1553
 [v _TRISE TRISE `VEuc  1 e 1 @144 ]
-[s S100 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[s S104 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -90,9 +154,9 @@
 `uc 1 TMR1GIE 1 0 :1:7 
 ]
 "1608
-[u S109 . 1 `S100 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES109  1 e 1 @145 ]
-[s S57 . 1 `uc 1 PS0 1 0 :1:0 
+[u S113 . 1 `S104 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES113  1 e 1 @145 ]
+[s S61 . 1 `uc 1 PS0 1 0 :1:0 
 `uc 1 PS1 1 0 :1:1 
 `uc 1 PS2 1 0 :1:2 
 `uc 1 PSA 1 0 :1:3 
@@ -102,13 +166,13 @@
 `uc 1 nWPUEN 1 0 :1:7 
 ]
 "1779
-[s S66 . 1 `uc 1 PS 1 0 :3:0 
+[s S70 . 1 `uc 1 PS 1 0 :3:0 
 `uc 1 . 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
 ]
-[u S71 . 1 `S57 1 . 1 0 `S66 1 . 1 0 ]
-[v _OPTION_REGbits OPTION_REGbits `VES71  1 e 1 @149 ]
+[u S75 . 1 `S61 1 . 1 0 `S70 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES75  1 e 1 @149 ]
 "1890
 [v _WDTCON WDTCON `VEuc  1 e 1 @151 ]
 "1949
@@ -121,6 +185,18 @@
 [v _LATB LATB `VEuc  1 e 1 @269 ]
 "2473
 [v _LATC LATC `VEuc  1 e 1 @270 ]
+[s S450 . 1 `uc 1 LATC0 1 0 :1:0 
+`uc 1 LATC1 1 0 :1:1 
+`uc 1 LATC2 1 0 :1:2 
+`uc 1 LATC3 1 0 :1:3 
+`uc 1 LATC4 1 0 :1:4 
+`uc 1 LATC5 1 0 :1:5 
+`uc 1 LATC6 1 0 :1:6 
+`uc 1 LATC7 1 0 :1:7 
+]
+"2490
+[u S459 . 1 `S450 1 . 1 0 ]
+[v _LATCbits LATCbits `VES459  1 e 1 @270 ]
 "2535
 [v _LATD LATD `VEuc  1 e 1 @271 ]
 "2605
@@ -145,7 +221,7 @@
 [v _SPBRGH SPBRGH `VEuc  1 e 1 @412 ]
 "3879
 [v _RCSTA RCSTA `VEuc  1 e 1 @413 ]
-[s S127 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S131 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -155,8 +231,8 @@
 `uc 1 SPEN 1 0 :1:7 
 ]
 "3896
-[u S136 . 1 `S127 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES136  1 e 1 @413 ]
+[u S140 . 1 `S131 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES140  1 e 1 @413 ]
 "3941
 [v _TXSTA TXSTA `VEuc  1 e 1 @414 ]
 "4003
@@ -165,6 +241,8 @@
 [v _WPUB WPUB `VEuc  1 e 1 @525 ]
 "4125
 [v _WPUE WPUE `VEuc  1 e 1 @528 ]
+"48 F:\Licenta\Usart.X\main.c
+[v _flag_directie flag_directie `i  1 e 2 0 ]
 "61 F:\Licenta\Usart.X\mcc_generated_files/eusart.c
 [v _eusartTxHead eusartTxHead `VEuc  1 e 1 0 ]
 "62
@@ -186,22 +264,43 @@
 "71
 [v _flag_N flag_N `i  1 e 2 0 ]
 [v _flag_G flag_G `i  1 e 2 0 ]
-"89 F:\Licenta\Usart.X\main.c
+"52 F:\Licenta\Usart.X\mcc_generated_files/tmr1.c
+[v _flag_10_ms flag_10_ms `i  1 e 2 0 ]
+[v _flag_100_ms flag_100_ms `i  1 e 2 0 ]
+[v _flag_500_ms flag_500_ms `i  1 e 2 0 ]
+[v _flag_1000_ms flag_1000_ms `i  1 e 2 0 ]
+[v _flag_4000_ms flag_4000_ms `i  1 e 2 0 ]
+"53
+[v _count_100_ms count_100_ms `i  1 e 2 0 ]
+[v _count_500_ms count_500_ms `i  1 e 2 0 ]
+[v _count_1000_ms count_1000_ms `i  1 e 2 0 ]
+[v _count_4000_ms count_4000_ms `i  1 e 2 0 ]
+"57
+[v _timer1ReloadVal timer1ReloadVal `VEui  1 e 2 0 ]
+"58
+[v _TMR1_InterruptHandler TMR1_InterruptHandler `*.37(v  1 e 2 0 ]
+"255 F:\Licenta\Usart.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"91
-[v main@x x `uc  1 a 1 6 ]
-"130
+"257
+[v main@x x `uc  1 a 1 4 ]
+"325
 } 0
-"53
-[v _sms_text sms_text `(v  1 e 1 0 ]
+"64
+[v _turn_egs turn_egs `(v  1 e 1 0 ]
 {
+"66
+[v turn_egs@step_index step_index `uc  1 s 1 step_index ]
 "67
+[v turn_egs@step_nr step_nr `ui  1 s 2 step_nr ]
+"178
 } 0
-"69
+"214
 [v _int_gsm int_gsm `(v  1 e 1 0 ]
 {
-"87
+"216
+[v int_gsm@sms1_index sms1_index `i  1 s 2 sms1_index ]
+"253
 } 0
 "464 C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\doprnt.c
 [v _printf printf `(i  1 e 2 0 ]
@@ -231,25 +330,41 @@
 [v EUSART_Write@txData txData `uc  1 a 1 3 ]
 "154
 } 0
-"70 F:\Licenta\Usart.X\mcc_generated_files/mcc.c
+"71 F:\Licenta\Usart.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
 {
-"77
+"79
 } 0
-"87
+"89
 [v _WDT_Initialize WDT_Initialize `(v  1 e 1 0 ]
 {
-"91
+"93
+} 0
+"64 F:\Licenta\Usart.X\mcc_generated_files/tmr1.c
+[v _TMR1_Initialize TMR1_Initialize `(v  1 e 1 0 ]
+{
+"94
+} 0
+"96
+[v _TMR1_StartTimer TMR1_StartTimer `(v  1 e 1 0 ]
+{
+"100
+} 0
+"217
+[v _TMR1_SetInterruptHandler TMR1_SetInterruptHandler `(v  1 e 1 0 ]
+{
+[v TMR1_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 2 ]
+"219
 } 0
 "52 F:\Licenta\Usart.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
 {
 "96
 } 0
-"79 F:\Licenta\Usart.X\mcc_generated_files/mcc.c
+"81 F:\Licenta\Usart.X\mcc_generated_files/mcc.c
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
 {
-"85
+"87
 } 0
 "76 F:\Licenta\Usart.X\mcc_generated_files/eusart.c
 [v _EUSART_Initialize EUSART_Initialize `(v  1 e 1 0 ]
@@ -259,7 +374,24 @@
 "51 F:\Licenta\Usart.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
 {
-"67
+"70
+} 0
+"161 F:\Licenta\Usart.X\mcc_generated_files/tmr1.c
+[v _TMR1_ISR TMR1_ISR `(v  1 e 1 0 ]
+{
+"163
+[v TMR1_ISR@CountCallBack CountCallBack `VEui  1 s 2 CountCallBack ]
+"180
+} 0
+"182
+[v _TMR1_CallBack TMR1_CallBack `(v  1 e 1 0 ]
+{
+"215
+} 0
+"221
+[v _TMR1_DefaultInterruptHandler TMR1_DefaultInterruptHandler `(v  1 e 1 0 ]
+{
+"224
 } 0
 "166 F:\Licenta\Usart.X\mcc_generated_files/eusart.c
 [v _EUSART_Transmit_ISR EUSART_Transmit_ISR `(v  1 e 1 0 ]
