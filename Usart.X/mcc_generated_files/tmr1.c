@@ -49,7 +49,7 @@
 
 #include <xc.h>
 #include "tmr1.h"
-int flag_10_ms=0, flag_100_ms=0, flag_500_ms=0,flag_1000_ms=0,flag_4000_ms;
+int flag_1_ms=0,flag_10_ms=0, flag_100_ms=0, flag_500_ms=0,flag_1000_ms=0,flag_4000_ms;
 int count_100_ms=0,count_500_ms=0,count_1000_ms=0,count_4000_ms;
 /**
   Section: Global Variables Definitions
@@ -161,13 +161,13 @@ uint8_t TMR1_CheckGateValueStatus(void)
 void TMR1_ISR(void)
 {
     static volatile unsigned int CountCallBack = 0;
-
+    
     // Clear the TMR1 interrupt flag
     PIR1bits.TMR1IF = 0;
 
     TMR1H = (timer1ReloadVal >> 8);
     TMR1L = timer1ReloadVal;
-
+    flag_1_ms=1;
     // callback function - called every 10th pass
     if (++CountCallBack >= TMR1_INTERRUPT_TICKER_FACTOR)
     {

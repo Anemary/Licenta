@@ -59,6 +59,20 @@
 #define PULL_UP_ENABLED      1
 #define PULL_UP_DISABLED     0
 
+// get/set channel_AN0 aliases
+#define channel_AN0_TRIS               TRISAbits.TRISA0
+#define channel_AN0_LAT                LATAbits.LATA0
+#define channel_AN0_PORT               PORTAbits.RA0
+#define channel_AN0_ANS                ANSELAbits.ANSA0
+#define channel_AN0_SetHigh()            do { LATAbits.LATA0 = 1; } while(0)
+#define channel_AN0_SetLow()             do { LATAbits.LATA0 = 0; } while(0)
+#define channel_AN0_Toggle()             do { LATAbits.LATA0 = ~LATAbits.LATA0; } while(0)
+#define channel_AN0_GetValue()           PORTAbits.RA0
+#define channel_AN0_SetDigitalInput()    do { TRISAbits.TRISA0 = 1; } while(0)
+#define channel_AN0_SetDigitalOutput()   do { TRISAbits.TRISA0 = 0; } while(0)
+#define channel_AN0_SetAnalogMode()  do { ANSELAbits.ANSA0 = 1; } while(0)
+#define channel_AN0_SetDigitalMode() do { ANSELAbits.ANSA0 = 0; } while(0)
+
 // get/set IO_RB0 aliases
 #define IO_RB0_TRIS               TRISBbits.TRISB0
 #define IO_RB0_LAT                LATBbits.LATB0

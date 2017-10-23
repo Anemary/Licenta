@@ -60,7 +60,7 @@
 #endif
 
 #define TMR1_INTERRUPT_TICKER_FACTOR    10
-extern int flag_10_ms, flag_100_ms, flag_500_ms,flag_1000_ms,flag_4000_ms;
+extern int flag_1_ms, flag_10_ms, flag_100_ms, flag_500_ms,flag_1000_ms,flag_4000_ms;
 /**
   Section: TMR1 APIs
 */

@@ -67,7 +67,6 @@
 
 #include "mcc.h"
 
-
 void SYSTEM_Initialize(void)
 {
 
@@ -75,6 +74,7 @@ void SYSTEM_Initialize(void)
     OSCILLATOR_Initialize();
     WDT_Initialize();
     TMR1_Initialize();
+    ADC_Initialize();
     EUSART_Initialize();
 }
 
