@@ -76,7 +76,7 @@
  */
 extern volatile uint8_t eusartTxBufferRemaining;
 extern volatile uint8_t eusartRxCount;
-extern int flag_N;
+extern int flag_N,flag_A,flag_B;
 extern int flag_G;
 
 /**

@@ -73,7 +73,15 @@ char line2[]=  "merge   "; //used for temperature
 void send_nibble(unsigned char nibble);
 void send_command_byte(unsigned char byte);
 void send_data_byte(unsigned char byte);
-
+enum State_machine{
+                  rot_eggs,
+                  display_lcd,
+                  read_hum,
+                  read_temp,
+                  send_sms,
+                  set_heater,
+                  none
+                  };
 
  void init_lcd()
 {
@@ -148,7 +156,7 @@ void turn_egs()
                       //steps= (360°/5.625°)*64"Gear ratio" = 64 * 64 =4096 
        //{
         
-        if((step_nr<300)&&(flag_500_ms==1))
+        if((step_nr<300)&&(flag_10_ms==1))
          {
             if(flag_directie==1)
             {
@@ -190,7 +198,7 @@ void turn_egs()
                     step_index=0;
                 }
 
-                flag_500_ms=0;
+                flag_10_ms=0;
             }
             else if(flag_directie==0)
             {
@@ -232,7 +240,7 @@ void turn_egs()
                 step_index=0;
             }
 
-            flag_500_ms=0;
+            flag_10_ms=0;
             }
         }
         else if(step_nr==300)
@@ -257,11 +265,12 @@ void turn_egs()
 
 void sms_text()
 {
-    int sms_index=0;
+   static int sms_index=0;
     if (flag_4000_ms==1)
     {
         if (sms_index==0)
         {
+          
         printf("AT+CSCS=\"GSM\"");
         putch(0x0d);
         sms_index++;
@@ -282,6 +291,8 @@ void sms_text()
         else if  (sms_index==3)
         {
             sms_index=0;
+            flag_A=0;
+            flag_B=0;
         }
         flag_4000_ms==0;
         }
@@ -301,7 +312,7 @@ void int_gsm()
         }
         else if (sms1_index==1)
         {
-        printf("AT+CPIN=\"1234\"");
+        printf("AT+CPIN=\"0000\"");
         putch(0x0d);
         sms1_index++;
         }
@@ -390,7 +401,7 @@ void main(void)
 
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
-    
+    char incubator_state=none;
     init_lcd();
     comand_lcd();
     flag_directie=1;
@@ -400,7 +411,32 @@ void main(void)
     while (1)
     {
         
+         int_gsm();
         
+        if (flag_G==1)
+        {
+           if (flag_N==1)
+            {
+         
+            turn_egs();
+            
+             }
+               
+        }
+        
+        if (flag_A==1)
+        {
+           if (flag_B==1)
+            {
+               
+               sms_text();
+            
+     
+             }
+               
+        }
+         
+         
         if (flag_500_ms==1)
         {
        // volt=(rez_conversie*4.882)/1.614;
@@ -411,7 +447,8 @@ void main(void)
         
         
         
-        int_gsm();
+       
+        /*
         send_command_byte(0x80); // Go to start of line 1
         __delay_ms(10);
         
@@ -421,19 +458,11 @@ void main(void)
         sprintf(line1," Temper=%d      ", temp);
         for (int n=0 ; line1[n]!=0; n++) send_data_byte(line1[n]);
         __delay_ms(10);
-         
+      */   
         
-        if (flag_G==1)
-        {
-           if (flag_N==1)
-            {
-               
-            turn_egs();
-            //flag_G=0;
-            //flag_N=0;
-             }
-               
-        }
+        
+        
+        
     }
        // turn_egs();
 }

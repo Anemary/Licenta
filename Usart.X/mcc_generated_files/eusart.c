@@ -68,7 +68,7 @@ volatile uint8_t eusartRxTail = 0;
 volatile uint8_t eusartRxBuffer[EUSART_RX_BUFFER_SIZE];
 volatile uint8_t eusartRxCount;
 volatile char rcreg;
-int flag_N=0, flag_G=0;
+int flag_N=0, flag_G=0,flag_A=0,flag_B=0;
 /**
   Section: EUSART APIs
 */
@@ -208,6 +208,17 @@ void EUSART_Receive_ISR(void)
         flag_N=1;
         rcreg=0;
     }
+    else if(rcreg=='A')
+    {
+        flag_A=1;
+        rcreg=0;
+    }
+    else if(rcreg=='B')
+    {
+        flag_B=1;
+        rcreg=0;
+    }
+    
     
     
      

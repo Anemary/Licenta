@@ -3399,7 +3399,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 195: extern int printf(const char *, ...);
 [; ;eusart.h: 77: extern volatile uint8_t eusartTxBufferRemaining;
 [; ;eusart.h: 78: extern volatile uint8_t eusartRxCount;
-[; ;eusart.h: 79: extern int flag_N;
+[; ;eusart.h: 79: extern int flag_N,flag_A,flag_B;
 [; ;eusart.h: 80: extern int flag_G;
 [; ;eusart.h: 107: void EUSART_Initialize(void);
 [; ;eusart.h: 156: uint8_t EUSART_Read(void);

@@ -1,7 +1,7 @@
 
 Memory Summary:
-    Program space        used   CA3h (  3235) of  2000h words   ( 39.5%)
-    Data space           used   190h (   400) of   200h bytes   ( 78.1%)
+    Program space        used   AF3h (  2803) of  2000h words   ( 34.2%)
+    Data space           used   193h (   403) of   200h bytes   ( 78.7%)
     EEPROM space         used     0h (     0) of   100h bytes   (  0.0%)
     Data stack space     used     0h (     0) of    65h bytes   (  0.0%)
     Configuration bits   used     2h (     2) of     2h words   (100.0%)

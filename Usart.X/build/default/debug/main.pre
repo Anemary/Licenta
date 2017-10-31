@@ -4754,7 +4754,7 @@ extern int printf(const char *, ...);
 # 77 "mcc_generated_files/eusart.h"
 extern volatile uint8_t eusartTxBufferRemaining;
 extern volatile uint8_t eusartRxCount;
-extern int flag_N;
+extern int flag_N,flag_A,flag_B;
 extern int flag_G;
 
 # 107
@@ -4828,14 +4828,25 @@ int flag_directie;
 
 # 64
 extern char txt_receive[];
-char line1[] = "haha   ";
-char line2[]= "merge   ";
+char line1[] = "";
+char line2[]= "";
 
-# 73
+# 72
+unsigned char Check, T_byte1, T_byte2,
+RH_byte1, RH_byte2, Ch ;
+unsigned char Temp, RH, Sum ;
 void send_nibble(unsigned char nibble);
 void send_command_byte(unsigned char byte);
 void send_data_byte(unsigned char byte);
-
+enum State_machine{
+rot_eggs,
+display_lcd,
+read_hum,
+read_temp,
+send_sms,
+set_heater,
+none
+};
 
 void init_lcd()
 {
@@ -4905,7 +4916,7 @@ void turn_egs()
 static unsigned char step_index;
 static unsigned int step_nr=1;
 
-# 151
+# 161
 if((step_nr<300)&&(flag_10_ms==1))
 {
 if(flag_directie==1)
@@ -5015,11 +5026,12 @@ step_index=0;
 
 void sms_text()
 {
-int sms_index=0;
+static int sms_index=0;
 if (flag_4000_ms==1)
 {
 if (sms_index==0)
 {
+
 printf("AT+CSCS=\"GSM\"");
 putch(0x0d);
 sms_index++;
@@ -5040,6 +5052,8 @@ sms_index++;
 else if (sms_index==3)
 {
 sms_index=0;
+flag_A=0;
+flag_B=0;
 }
 flag_4000_ms==0;
 }
@@ -5059,7 +5073,7 @@ sms1_index++;
 }
 else if (sms1_index==1)
 {
-printf("AT+CPIN=\"1234\"");
+printf("AT+CPIN=\"0000\"");
 putch(0x0d);
 sms1_index++;
 }
@@ -5118,6 +5132,57 @@ break;
 return result;
 }
 
+void StartSignal()
+{
+TRISDbits.TRISD2 = 0;
+PORTDbits.RD2 = 0;
+_delay((unsigned long)((18)*(18432000/4000.0)));
+PORTDbits.RD2 = 1;
+_delay((unsigned long)((30)*(18432000/4000000.0)));
+TRISDbits.TRISD2 = 1;
+}
+
+void CheckResponse()
+{
+Check = 0;
+_delay((unsigned long)((40)*(18432000/4000000.0)));
+if (PORTDbits.RD2 == 0){
+_delay((unsigned long)((80)*(18432000/4000000.0)));
+if (PORTDbits.RD2 == 1) Check = 1; _delay((unsigned long)((40)*(18432000/4000000.0)));}
+}
+char ReadData()
+{
+char i, j;
+for(j = 0; j < 8; j++){
+while(!PORTDbits.RD2 );
+_delay((unsigned long)((30)*(18432000/4000000.0)));
+if(PORTDbits.RD2 == 0)
+i&= ~(1<<(7 - j));
+else {i|= (1 << (7 - j));
+while(PORTDbits.RD2 );}
+}
+return i;
+}
+
+
+void DHT_result()
+{
+
+RH_byte1 = ReadData();
+RH_byte2 = ReadData();
+T_byte1 = ReadData();
+T_byte2 = ReadData();
+Sum = ReadData();
+
+if(Sum == ((RH_byte1+RH_byte2+T_byte1+T_byte2) & 0XFF))
+{
+Temp = T_byte1;
+RH = RH_byte1;
+}
+sprintf(line2," Umid=%d        ",RH_byte1);
+
+}
+
 
 
 void main(void)
@@ -5134,16 +5199,16 @@ TRISCbits.TRISC5=0;
 TRISB = 0b00000000;
 TRISD = 0x00;
 ANSELD=ANSELD & 0b11100000;
+TRISDbits.TRISD2 = 1;
 
-
-
-
+# 449
 (INTCONbits.GIE = 1);
 
 
 (INTCONbits.PEIE = 1);
 
-# 394
+# 459
+char incubator_state=none;
 init_lcd();
 comand_lcd();
 flag_directie=1;
@@ -5153,40 +5218,17 @@ int temp;
 while (1)
 {
 
-
-if (flag_500_ms==1)
+StartSignal();
+CheckResponse();
+if(Check == 1)
 {
-
-volt=(rez_conversie*4.882)/1.533;
-temp=comparare(volt);
-flag_500_ms=0;
+DHT_result();
 }
-
-
-
-int_gsm();
 send_command_byte(0x80);
 _delay((unsigned long)((10)*(18432000/4000.0)));
-
 for (int n=0 ; line2[n]!=0 ; n++) send_data_byte(line2[n]);
-send_command_byte(0xC0);
-_delay((unsigned long)((10)*(18432000/4000.0)));
-sprintf(line1," Temper=%d      ", temp);
-for (int n=0 ; line1[n]!=0; n++) send_data_byte(line1[n]);
-_delay((unsigned long)((10)*(18432000/4000.0)));
 
-
-if (flag_G==1)
-{
-if (flag_N==1)
-{
-
-turn_egs();
-
-
-}
-
-}
+# 531
 }
 
 }

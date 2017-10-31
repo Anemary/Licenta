@@ -3395,7 +3395,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 0 `i
 ]
 [v _flag_4000_ms `i ~T0 @X0 1 e ]
-[; ;tmr1.c: 52: int flag_1_ms=0,flag_10_ms=0, flag_100_ms=0, flag_500_ms=0,flag_1000_ms=0,flag_4000_ms;
+[i _flag_4000_ms
+-> 0 `i
+]
+[; ;tmr1.c: 52: int flag_1_ms=0,flag_10_ms=0, flag_100_ms=0, flag_500_ms=0,flag_1000_ms=0,flag_4000_ms=0;
 "53
 [v _count_100_ms `i ~T0 @X0 1 e ]
 [i _count_100_ms

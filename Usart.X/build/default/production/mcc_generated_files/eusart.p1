@@ -3367,7 +3367,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 195: extern int printf(const char *, ...);
 [; ;eusart.h: 77: extern volatile uint8_t eusartTxBufferRemaining;
 [; ;eusart.h: 78: extern volatile uint8_t eusartRxCount;
-[; ;eusart.h: 79: extern int flag_N;
+[; ;eusart.h: 79: extern int flag_N,flag_A,flag_B;
 [; ;eusart.h: 80: extern int flag_G;
 [; ;eusart.h: 107: void EUSART_Initialize(void);
 [; ;eusart.h: 156: uint8_t EUSART_Read(void);
@@ -3422,7 +3422,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [i _flag_G
 -> 0 `i
 ]
-[; ;eusart.c: 71: int flag_N=0, flag_G=0;
+[v _flag_A `i ~T0 @X0 1 e ]
+[i _flag_A
+-> 0 `i
+]
+[v _flag_B `i ~T0 @X0 1 e ]
+[i _flag_B
+-> 0 `i
+]
+[; ;eusart.c: 71: int flag_N=0, flag_G=0,flag_A=0,flag_B=0;
 "76
 [v _EUSART_Initialize `(v ~T0 @X0 1 ef ]
 "77
@@ -3765,26 +3773,62 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _rcreg -> -> 0 `i `uc ]
 "210
 }
-[e :U 399 ]
-"215
-[e :U 398 ]
 [; ;eusart.c: 210: }
-[; ;eusart.c: 215: if(sizeof(eusartRxBuffer) <= eusartRxHead)
-[e $ ! <= -> # _eusartRxBuffer `ui -> _eusartRxHead `ui 400  ]
-[; ;eusart.c: 216: {
-"216
+[e $U 400  ]
+"211
+[e :U 399 ]
+[; ;eusart.c: 211: else if(rcreg=='A')
+[e $ ! == -> _rcreg `ui -> 65 `ui 401  ]
+[; ;eusart.c: 212: {
+"212
 {
-[; ;eusart.c: 217: eusartRxHead = 0;
-"217
-[e = _eusartRxHead -> -> 0 `i `uc ]
-"218
+[; ;eusart.c: 213: flag_A=1;
+"213
+[e = _flag_A -> 1 `i ]
+[; ;eusart.c: 214: rcreg=0;
+"214
+[e = _rcreg -> -> 0 `i `uc ]
+"215
 }
-[e :U 400 ]
-[; ;eusart.c: 218: }
-[; ;eusart.c: 219: eusartRxCount++;
+[; ;eusart.c: 215: }
+[e $U 402  ]
+"216
+[e :U 401 ]
+[; ;eusart.c: 216: else if(rcreg=='B')
+[e $ ! == -> _rcreg `ui -> 66 `ui 403  ]
+[; ;eusart.c: 217: {
+"217
+{
+[; ;eusart.c: 218: flag_B=1;
+"218
+[e = _flag_B -> 1 `i ]
+[; ;eusart.c: 219: rcreg=0;
 "219
-[e ++ _eusartRxCount -> -> 1 `i `uc ]
-[; ;eusart.c: 220: }
+[e = _rcreg -> -> 0 `i `uc ]
 "220
+}
+[e :U 403 ]
+"226
+[e :U 402 ]
+[e :U 400 ]
+[e :U 398 ]
+[; ;eusart.c: 220: }
+[; ;eusart.c: 226: if(sizeof(eusartRxBuffer) <= eusartRxHead)
+[e $ ! <= -> # _eusartRxBuffer `ui -> _eusartRxHead `ui 404  ]
+[; ;eusart.c: 227: {
+"227
+{
+[; ;eusart.c: 228: eusartRxHead = 0;
+"228
+[e = _eusartRxHead -> -> 0 `i `uc ]
+"229
+}
+[e :U 404 ]
+[; ;eusart.c: 229: }
+[; ;eusart.c: 230: eusartRxCount++;
+"230
+[e ++ _eusartRxCount -> -> 1 `i `uc ]
+[; ;eusart.c: 231: }
+"231
 [e :UE 395 ]
 }

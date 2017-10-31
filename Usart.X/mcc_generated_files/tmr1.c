@@ -49,7 +49,7 @@
 
 #include <xc.h>
 #include "tmr1.h"
-int flag_1_ms=0,flag_10_ms=0, flag_100_ms=0, flag_500_ms=0,flag_1000_ms=0,flag_4000_ms;
+int flag_1_ms=0,flag_10_ms=0, flag_100_ms=0, flag_500_ms=0,flag_1000_ms=0,flag_4000_ms=0;
 int count_100_ms=0,count_500_ms=0,count_1000_ms=0,count_4000_ms;
 /**
   Section: Global Variables Definitions

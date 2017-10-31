@@ -4703,7 +4703,7 @@ extern int printf(const char *, ...);
 # 77 "mcc_generated_files/eusart.h"
 extern volatile uint8_t eusartTxBufferRemaining;
 extern volatile uint8_t eusartRxCount;
-extern int flag_N;
+extern int flag_N,flag_A,flag_B;
 extern int flag_G;
 
 # 107
@@ -4732,7 +4732,7 @@ volatile uint8_t eusartRxTail = 0;
 volatile uint8_t eusartRxBuffer[8];
 volatile uint8_t eusartRxCount;
 volatile char rcreg;
-int flag_N=0, flag_G=0;
+int flag_N=0, flag_G=0,flag_A=0,flag_B=0;
 
 # 76
 void EUSART_Initialize(void)
@@ -4870,10 +4870,18 @@ else if(rcreg=='Y')
 flag_N=1;
 rcreg=0;
 }
+else if(rcreg=='A')
+{
+flag_A=1;
+rcreg=0;
+}
+else if(rcreg=='B')
+{
+flag_B=1;
+rcreg=0;
+}
 
-
-
-
+# 226
 if(sizeof(eusartRxBuffer) <= eusartRxHead)
 {
 eusartRxHead = 0;
