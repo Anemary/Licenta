@@ -138,7 +138,7 @@ void ADC_ISR(void)
     // Clear the ADC interrupt flag
     PIR1bits.ADIF = 0;
     rez_conversie=ADC_GetConversionResult();
-    ADC_StartConversion();
+  //  ADC_StartConversion();
 }
 
 

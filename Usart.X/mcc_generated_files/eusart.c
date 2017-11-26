@@ -199,7 +199,7 @@ void EUSART_Receive_ISR(void)
         
     if(rcreg=='X')
     {
-        LATB=0xAA;
+        //LATB=0xAA;
         flag_G=1;
         rcreg=0;
     }

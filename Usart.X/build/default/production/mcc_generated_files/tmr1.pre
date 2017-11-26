@@ -4679,6 +4679,10 @@ extern void (*TMR1_InterruptHandler)(void);
 # 438
 void TMR1_DefaultInterruptHandler(void);
 
+# 450
+void TMR1_enable(void);
+void TMR1_disable(void);
+
 # 52 "mcc_generated_files/tmr1.c"
 int flag_1_ms=0,flag_10_ms=0, flag_100_ms=0, flag_500_ms=0,flag_1000_ms=0,flag_4000_ms=0;
 int count_100_ms=0,count_500_ms=0,count_1000_ms=0,count_4000_ms;
@@ -4688,6 +4692,16 @@ volatile uint16_t timer1ReloadVal;
 void (*TMR1_InterruptHandler)(void);
 
 # 64
+void TMR1_disable(void)
+{
+PIE1bits.TMR1IE = 0;
+}
+
+void TMR1_enable(void)
+{
+PIE1bits.TMR1IE = 1;
+}
+
 void TMR1_Initialize(void)
 {
 

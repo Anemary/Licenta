@@ -3377,8 +3377,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.h: 258: adc_result_t ADC_GetConversionResult(void);
 [; ;adc.h: 288: adc_result_t ADC_GetConversion(adc_channel_t channel);
 [; ;adc.h: 305: void ADC_ISR(void);
-[; ;pin_manager.h: 232: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 244: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 274: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 286: void PIN_MANAGER_IOC(void);
 [; ;interrupt_manager.h: 110: void interrupt INTERRUPT_InterruptManager(void);
 [; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;stdarg.h: 7: typedef void * va_list[1];
@@ -3433,9 +3433,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr1.h: 402: void TMR1_SetInterruptHandler(void (* InterruptHandler)(void));
 [; ;tmr1.h: 420: extern void (*TMR1_InterruptHandler)(void);
 [; ;tmr1.h: 438: void TMR1_DefaultInterruptHandler(void);
-[; ;mcc.h: 71: void SYSTEM_Initialize(void);
-[; ;mcc.h: 84: void OSCILLATOR_Initialize(void);
-[; ;mcc.h: 97: void WDT_Initialize(void);
+[; ;tmr1.h: 450: void TMR1_enable(void);
+[; ;tmr1.h: 451: void TMR1_disable(void);
+[; ;lcd_hd44780_pic16.h: 78: void LCDInit(uint8_t style);
+[; ;lcd_hd44780_pic16.h: 79: void LCDWriteString(const char *msg);
+[; ;lcd_hd44780_pic16.h: 80: void LCDWriteInt(int val,int8_t field_length);
+[; ;lcd_hd44780_pic16.h: 81: void LCDGotoXY(uint8_t x,uint8_t y);
+[; ;lcd_hd44780_pic16.h: 84: void LCDByte(uint8_t,uint8_t);
+[; ;lcd_hd44780_pic16.h: 88: void LCDBusyLoop();
+[; ;mcc.h: 72: void SYSTEM_Initialize(void);
+[; ;mcc.h: 85: void OSCILLATOR_Initialize(void);
+[; ;mcc.h: 98: void WDT_Initialize(void);
 [; ;adc.c: 63: uint16_t rez_conversie;
 "64 mcc_generated_files/adc.c
 [v _ADC_Initialize `(v ~T0 @X0 1 ef ]
@@ -3591,9 +3599,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.c: 140: rez_conversie=ADC_GetConversionResult();
 "140
 [e = _rez_conversie ( _ADC_GetConversionResult ..  ]
-[; ;adc.c: 141: ADC_StartConversion();
-"141
-[e ( _ADC_StartConversion ..  ]
 [; ;adc.c: 142: }
 "142
 [e :UE 386 ]

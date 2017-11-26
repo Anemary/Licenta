@@ -447,3 +447,5 @@ void TMR1_DefaultInterruptHandler(void);
 /**
  End of File
 */
+void TMR1_enable(void);
+void TMR1_disable(void);

@@ -47,9 +47,6 @@
 //extern int flag;
 int flag_directie;
 
-#define PIN_RS LATDbits.LATD3 // USE FOR LCD
-#define PIN_RW LATDbits.LATD1
-#define PIN_E LATDbits.LATD0
 #define releu LATDbits.LATD4
 
 
@@ -62,17 +59,20 @@ int flag_directie;
 #define PIN3_direction TRISCbits.TRISC4
 #define PIN4_direction TRISCbits.TRISC5
 extern char txt_receive[];
-char line1[] = "haha   ";  //use for umiditi
-char line2[]=  "merge   "; //used for temperature
+char line1[] = " ";  //use for umiditi
+char line2[]=  " "; //used for temperature
+
+unsigned char  Check, T_byte1, T_byte2,
+                RH_byte1, RH_byte2, Ch ;
+ unsigned char  Temp, RH, Sum ; 
+ int temp;
+ int umiditate;
 /*
                          Main application
  */
 
 //FUNCTII PENTRU LCD
 
-void send_nibble(unsigned char nibble);
-void send_command_byte(unsigned char byte);
-void send_data_byte(unsigned char byte);
 enum State_machine{
                   rot_eggs,
                   display_lcd,
@@ -83,69 +83,6 @@ enum State_machine{
                   none
                   };
 
- void init_lcd()
-{
-    PIN_RW = 0;
-    PIN_RS = 0;
-    PIN_E = 1;
-    
-//  initializare LCD;
-      __delay_ms(16); // must be more than 15ms
-    send_nibble(0b0011);
-    __delay_ms(5); // must be more than 4.1ms
-    send_nibble(0b0011);
-    __delay_ms(1); // must be more than 100us
-    send_nibble(0b0011);
-    __delay_ms(5); // must be more than 4.1ms
-    send_nibble(0b0010); // select 4-bit mode
-    
-}
- 
- void comand_lcd()
-{
-    send_command_byte(0b00101000); // N=0 : 2 lines (half lines!), F=0 : 5x7 font
-    send_command_byte(0b00001000); // Display: display off, cursor off, blink off
-    send_command_byte(0b00000001); // Clear display
-    send_command_byte(0b00000110); // Set entry mode: ID=1, S=0
-   // send_command_byte(0b00001111); // Display: display on, cursor on, blink on
-    send_command_byte(0x0C); // Display: display on, cursor off
-}
- 
- void send_nibble(unsigned char nibble)
-{
-   
-     //Set RB0-3 without affecting RB4-7
-    
-    //nibble=nibble<<4;
-     LATB = (LATB & 0xF0)+nibble;
-   // LATB= nibble;
-    
-    __delay_ms(1);
-    // Note: data is latched on falling edge of pin E
-    PIN_E = 0;
-    __delay_ms(1);
-    PIN_E = 1;
-    
-    __delay_ms(2); // Enough time even for slowest command
-}
- 
- 
- // Send a command byte (i.e. with pin RS low)
-void send_command_byte(unsigned char byte)
-{
-    PIN_RS = 0;
-    send_nibble(byte >> 4);
-    send_nibble(byte & 0x0F);
-    __delay_ms(1);
-}
-  
-// Send a data byte (i.e. with pin RS high)
-void send_data_byte(unsigned char byte)
-{
-    PIN_RS = 1;
-    send_nibble(byte >> 4);
-    send_nibble(byte & 0xF);
-}
 void turn_egs()
 {
     static unsigned char step_index;
@@ -156,7 +93,7 @@ void turn_egs()
                       //steps= (360°/5.625°)*64"Gear ratio" = 64 * 64 =4096 
        //{
         
-        if((step_nr<300)&&(flag_10_ms==1))
+        if((step_nr<1000)&&(flag_10_ms==1))
          {
             if(flag_directie==1)
             {
@@ -243,7 +180,7 @@ void turn_egs()
             flag_10_ms=0;
             }
         }
-        else if(step_nr==300)
+        else if(step_nr==1000)
         { 
             flag_N=0;
             flag_G=0;
@@ -261,10 +198,38 @@ void turn_egs()
         }
         
 }
+     void sms_text()
+{
+    char smstext[]="";
+    char umid[]="";
+   static int sms_index=0;
+    
+        printf("AT+CSCS=\"GSM\"");
+        putch(0x0d);
+       __delay_ms(200);
+         printf("AT+CMGS=\"0757494823\"");
+         putch(0x0d);
+        __delay_ms(600);
         
-
+        sprintf(smstext," Temper=%d      ", temp);
+         printf(smstext);
+         
+        sprintf(umid," Umid=%d        ",RH_byte1);
+        printf(umid);
+        __delay_ms(400);
+        putch(26);
+        putch(0x0d);
+       
+            sms_index=0;
+            flag_A=0;
+            flag_B=0;
+        
+}      
+/*
 void sms_text()
 {
+    char smstext[]="";
+    char umid[]="";
    static int sms_index=0;
     if (flag_4000_ms==1)
     {
@@ -283,7 +248,10 @@ void sms_text()
         }
         else if (sms_index==2)
         {
-        printf("iupii merge");
+        sprintf(smstext," Temper=%d      ", temp);
+         printf(smstext);
+        sprintf(umid," Umid=%d        ",RH_byte1);
+        printf(umid);
         putch(26);
         putch(0x0d);
         sms_index++;
@@ -294,59 +262,63 @@ void sms_text()
             flag_A=0;
             flag_B=0;
         }
-        flag_4000_ms==0;
+       
         }
-        
+        flag_4000_ms==0;
 }   
-
+*/
 void int_gsm()
 {
+    
    static int sms1_index;
-    if (flag_4000_ms==1)
-    {
-        if (sms1_index==0)
+   while(sms1_index<5)
+   {
+        if (flag_4000_ms==1)
         {
-        printf("AT");
-        putch(0x0d);
-        sms1_index++;
+            if (sms1_index==0)
+            {
+            printf("AT");
+            putch(0x0d);
+            sms1_index++;
+            }
+            else if (sms1_index==1)
+            {
+            printf("AT+CPIN=\"1234\"");
+            putch(0x0d);
+            sms1_index++;
+            }
+            else if (sms1_index==2)
+            {
+            printf("AT+CMGF=1");
+            putch(0x0d);
+            sms1_index++;
+            }
+            else if (sms1_index==3)
+            {
+            printf("AT+CNMI=1,2,0,0,0");
+            putch(0x0d);
+             sms1_index++;
+            }
+             else if (sms1_index==4)
+            {
+            printf("AT+CSCS=\"GSM\"");
+            putch(0x0d);
+            sms1_index++;
+            }
+          flag_4000_ms=0;
         }
-        else if (sms1_index==1)
-        {
-        printf("AT+CPIN=\"0000\"");
-        putch(0x0d);
-        sms1_index++;
-        }
-        else if (sms1_index==2)
-        {
-        printf("AT+CMGF=1");
-        putch(0x0d);
-        sms1_index++;
-        }
-        else if (sms1_index==3)
-        {
-        printf("AT+CNMI=1,2,0,0,0");
-        putch(0x0d);
-         sms1_index++;
-        }
-         else if (sms1_index==4)
-        {
-        printf("AT+CSCS=\"GSM\"");
-        putch(0x0d);
-        sms1_index++;
-        }
-        flag_4000_ms=0;
-    }
+   }
      
         
 }
 
 int comparare(int resistor_value)
 {
-	unsigned int res[]={3002,2689,2377,2186,1895,1707,1520,1374,1228,1114,1000,908,817,745,673,615,557,496,463,425,387};
+	unsigned int res[]={3002,2689,2377,2136,1895,1707,1520,1374,1228,1114,1000,908,817,745,673,615,557,510,463,423,383};
 	int result=1000;
-float dif=0,step=0;
+    float dif=0,step=0;
 	float table[25]={};
-	for(int i=0;i<19;i++)
+	for(int i=0;i<21;i++)
 	{
 		if((resistor_value<=res[i])&(resistor_value>=res[i+1]))	
 		{
@@ -372,24 +344,78 @@ float dif=0,step=0;
 }
 
 
+void StartSignal()
+{
+ TRISDbits.TRISD2 = 0;    //Configure RD0 as output
+ PORTDbits.RD2 = 0;    //RD0 sends 0 to the sensor
+ __delay_ms(18);
+ PORTDbits.RD2 = 1;    //RD0 sends 1 to the sensor
+ __delay_us(30);
+ TRISDbits.TRISD2 = 1;    //Configure RD0 as input
+  }
 
+void CheckResponse()
+ {
+ Check = 0;
+ __delay_us(40);
+ if (PORTDbits.RD2  == 0){
+ __delay_us(80);
+ if (PORTDbits.RD2  == 1)   Check = 1;   __delay_us(40);}
+ }
+ 
+ 
+ char ReadData()           //used for DHT11
+ {
+ char i, j;
+ for(j = 0; j < 8; j++){
+ while(!PORTDbits.RD2 ); //Wait until PORTD.F0 goes HIGH
+ __delay_us(30);
+ if(PORTDbits.RD2  == 0)
+       i&= ~(1<<(7 - j));  //Clear bit (7-b)
+ else {i|= (1 << (7 - j));  //Set bit (7-b)
+ while(PORTDbits.RD2 );}  //Wait until PORTD.F0 goes LOW
+ }
+ return i;
+ }
+ 
+ void DHT_result()
+{
+  RH_byte1 = ReadData();
+            RH_byte2 = ReadData();
+            T_byte1 = ReadData();
+            T_byte2 = ReadData();
+            Sum = ReadData();
+           // LATB=T_byte1;
+                if(Sum == ((RH_byte1+RH_byte2+T_byte1+T_byte2) & 0XFF))
+                          {
+                          Temp = T_byte1;
+                          RH = RH_byte1;
+                          }
+            int x=RH_byte1;
+            umiditate=RH_byte1;
+            sprintf(line2,"Um=%d",x);
+            
+}
+ 
+ 
 void main(void)
 {
     char x=0;
     
     // initialize the device
     SYSTEM_Initialize();
+    TRISCbits.TRISC2=0; // set as output for the sourse of heater
     ADC_StartConversion();
     PIN1_direction=0;  //pini folositi pentru control motorului pentru intoarcerea oualor
     PIN2_direction=0;
     PIN3_direction=0;
     PIN4_direction=0;
-    TRISB = 0b00000000; // Set RB0-7 as digital output
-    TRISD = 0x00;   //set as output
+    //TRISB = 0b00000000; // Set RB0-7 as digital output
+    //TRISD = 0x00;   //set as output
     ANSELD=ANSELD & 0b11100000; //RD0-RD4 setam ca pini digitali folositi pentru LCD si senzorul digital DHT11
     // When using interrupts, you need to set the Global and Peripheral Interrupt Enable bits
     // Use the following macros to:
-    
+   // LATDbits.LATD1=0;
    // Enable the Global Interrupts
     INTERRUPT_GlobalInterruptEnable();
    
@@ -397,21 +423,65 @@ void main(void)
     INTERRUPT_PeripheralInterruptEnable();
 
     // Disable the Global Interrupts
-    //INTERRUPT_GlobalInterruptDisable();
+  // INTERRUPT_GlobalInterruptDisable();
 
     // Disable the Peripheral Interrupts
-    //INTERRUPT_PeripheralInterruptDisable();
+   // INTERRUPT_PeripheralInterruptDisable();
+    
     char incubator_state=none;
-    init_lcd();
-    comand_lcd();
+    TRISDbits.TRISD2 = 1;   //for the senzor dht11
+   
     flag_directie=1;
-    //sms_text();
+    int_gsm();
+    
+    //TRISB=0;
+    //TRISD=0;
+    //ANSELB=0;
+    //ANSELD=0;
     float volt;
-    int temp;
+    LCDInit(1);
+    
+    LCDClear();
+    
     while (1)
     {
+       // __delay_ms(300);
+         if (flag_1000_ms==1)
+        {
+         TMR1_disable();
+         StartSignal();
+         CheckResponse();
+        if(Check == 1)
+        {
+            DHT_result();
+        //    send_command_byte(0x01); // Clear display
+            ;
+        }
+         ADC_StartConversion();
+        volt=(rez_conversie*4.887)/1.492;
+       // volt=(rez_conversie*4.7461)/1.533;
+       temp=comparare(volt);//conversie rezistenta->temperatura
+       if (temp<300)
         
-         int_gsm();
+            LATCbits.LATC2=1;
+        else 
+            LATCbits.LATC2=0;
+        LCDClear();
+        LCDCmd(0xB0);
+        LCDWriteString("Temper=  ");
+       // LCDGotoXY(9,1);
+        LCDWriteInt(temp,3);
+        LCDCmd(0xC0);
+        LCDWriteString("Umid=  ");
+       // LCDGotoXY(9,2);
+        LCDWriteInt(umiditate,3);
+         
+        flag_1000_ms=0;
+        TMR1_enable(); 
+        
+        }
+        
+        
         
         if (flag_G==1)
         {
@@ -435,36 +505,17 @@ void main(void)
              }
                
         }
-         
-         
-        if (flag_500_ms==1)
-        {
-       // volt=(rez_conversie*4.882)/1.614;
-        volt=(rez_conversie*4.7461)/1.533;
-        temp=comparare(volt);//conversie rezistenta->temperatura
-        flag_500_ms=0;
-        }
-        
         
         
        
-        /*
-        send_command_byte(0x80); // Go to start of line 1
-        __delay_ms(10);
+       
         
-        for (int n=0 ; line2[n]!=0 ; n++) send_data_byte(line2[n]);
-        send_command_byte(0xC0); // Go to start of line 2
-        __delay_ms(10);
-        sprintf(line1," Temper=%d      ", temp);
-        for (int n=0 ; line1[n]!=0; n++) send_data_byte(line1[n]);
-        __delay_ms(10);
-      */   
-        
-        
-        
+       
         
     }
-       // turn_egs();
+      
+    
+        return;
 }
 
 /**

@@ -3316,8 +3316,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 192: extern unsigned char __resetbits;
 [; ;pic.h: 193: extern __bit __powerdown;
 [; ;pic.h: 194: extern __bit __timeout;
-[; ;pin_manager.h: 232: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 244: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 274: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 286: void PIN_MANAGER_IOC(void);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 38: typedef signed long int int32_t;
@@ -3341,32 +3341,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 222: typedef int16_t intptr_t;
 [; ;stdint.h: 227: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;adc.h: 71: typedef uint16_t adc_result_t;
-[; ;adc.h: 76: typedef struct
-[; ;adc.h: 77: {
-[; ;adc.h: 78: adc_result_t adcResult1;
-[; ;adc.h: 79: adc_result_t adcResult2;
-[; ;adc.h: 80: } adc_sync_double_result_t;
-[; ;adc.h: 94: typedef enum
-[; ;adc.h: 95: {
-[; ;adc.h: 96: channel_AN0 = 0x0,
-[; ;adc.h: 97: channel_Temp = 0x1D,
-[; ;adc.h: 98: channel_DAC = 0x1E,
-[; ;adc.h: 99: channel_FVR = 0x1F
-[; ;adc.h: 100: } adc_channel_t;
-"102 mcc_generated_files/adc.h
-[v _rez_conversie `ui ~T0 @X0 1 e ]
-[i _rez_conversie
--> -> 0 `i `ui
-]
-[; ;adc.h: 102: extern uint16_t rez_conversie=0;
-[; ;adc.h: 136: void ADC_Initialize(void);
-[; ;adc.h: 166: void ADC_SelectChannel(adc_channel_t channel);
-[; ;adc.h: 193: void ADC_StartConversion();
-[; ;adc.h: 225: bool ADC_IsConversionDone();
-[; ;adc.h: 258: adc_result_t ADC_GetConversionResult(void);
-[; ;adc.h: 288: adc_result_t ADC_GetConversion(adc_channel_t channel);
-[; ;adc.h: 305: void ADC_ISR(void);
 [; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
@@ -3406,6 +3380,32 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eusart.h: 181: void EUSART_Write(uint8_t txData);
 [; ;eusart.h: 202: void EUSART_Transmit_ISR(void);
 [; ;eusart.h: 223: void EUSART_Receive_ISR(void);
+[; ;adc.h: 71: typedef uint16_t adc_result_t;
+[; ;adc.h: 76: typedef struct
+[; ;adc.h: 77: {
+[; ;adc.h: 78: adc_result_t adcResult1;
+[; ;adc.h: 79: adc_result_t adcResult2;
+[; ;adc.h: 80: } adc_sync_double_result_t;
+[; ;adc.h: 94: typedef enum
+[; ;adc.h: 95: {
+[; ;adc.h: 96: channel_AN0 = 0x0,
+[; ;adc.h: 97: channel_Temp = 0x1D,
+[; ;adc.h: 98: channel_DAC = 0x1E,
+[; ;adc.h: 99: channel_FVR = 0x1F
+[; ;adc.h: 100: } adc_channel_t;
+"102 mcc_generated_files/adc.h
+[v _rez_conversie `ui ~T0 @X0 1 e ]
+[i _rez_conversie
+-> -> 0 `i `ui
+]
+[; ;adc.h: 102: extern uint16_t rez_conversie=0;
+[; ;adc.h: 136: void ADC_Initialize(void);
+[; ;adc.h: 166: void ADC_SelectChannel(adc_channel_t channel);
+[; ;adc.h: 193: void ADC_StartConversion();
+[; ;adc.h: 225: bool ADC_IsConversionDone();
+[; ;adc.h: 258: adc_result_t ADC_GetConversionResult(void);
+[; ;adc.h: 288: adc_result_t ADC_GetConversion(adc_channel_t channel);
+[; ;adc.h: 305: void ADC_ISR(void);
 [; ;tmr1.h: 63: extern int flag_1_ms, flag_10_ms, flag_100_ms, flag_500_ms,flag_1000_ms,flag_4000_ms;
 [; ;tmr1.h: 100: void TMR1_Initialize(void);
 [; ;tmr1.h: 129: void TMR1_StartTimer(void);
@@ -3420,9 +3420,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr1.h: 402: void TMR1_SetInterruptHandler(void (* InterruptHandler)(void));
 [; ;tmr1.h: 420: extern void (*TMR1_InterruptHandler)(void);
 [; ;tmr1.h: 438: void TMR1_DefaultInterruptHandler(void);
-[; ;mcc.h: 71: void SYSTEM_Initialize(void);
-[; ;mcc.h: 84: void OSCILLATOR_Initialize(void);
-[; ;mcc.h: 97: void WDT_Initialize(void);
+[; ;tmr1.h: 450: void TMR1_enable(void);
+[; ;tmr1.h: 451: void TMR1_disable(void);
+[; ;lcd_hd44780_pic16.h: 78: void LCDInit(uint8_t style);
+[; ;lcd_hd44780_pic16.h: 79: void LCDWriteString(const char *msg);
+[; ;lcd_hd44780_pic16.h: 80: void LCDWriteInt(int val,int8_t field_length);
+[; ;lcd_hd44780_pic16.h: 81: void LCDGotoXY(uint8_t x,uint8_t y);
+[; ;lcd_hd44780_pic16.h: 84: void LCDByte(uint8_t,uint8_t);
+[; ;lcd_hd44780_pic16.h: 88: void LCDBusyLoop();
+[; ;mcc.h: 72: void SYSTEM_Initialize(void);
+[; ;mcc.h: 85: void OSCILLATOR_Initialize(void);
+[; ;mcc.h: 98: void WDT_Initialize(void);
 [v $root$_INTERRUPT_InterruptManager `(v ~T0 @X0 0 e ]
 [v F3 `(v ~T0 @X0 1 tf ]
 "51 mcc_generated_files/interrupt_manager.c

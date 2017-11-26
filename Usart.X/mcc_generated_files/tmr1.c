@@ -61,6 +61,16 @@ void (*TMR1_InterruptHandler)(void);
   Section: TMR1 APIs
 */
 
+void TMR1_disable(void)
+{
+PIE1bits.TMR1IE = 0;
+}
+
+void TMR1_enable(void)
+{
+PIE1bits.TMR1IE = 1;
+}
+
 void TMR1_Initialize(void)
 {
     //Set the Timer to the options selected in the GUI

@@ -29,8 +29,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _RCSTAbits `VS194 ~T0 @X0 0 e@413 ]
 "3740
 [v _RCREG `Vuc ~T0 @X0 0 e@409 ]
-"2411
-[v _LATB `Vuc ~T0 @X0 0 e@269 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -3745,9 +3743,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eusart.c: 201: {
 "201
 {
-[; ;eusart.c: 202: LATB=0xAA;
-"202
-[e = _LATB -> -> 170 `i `uc ]
 [; ;eusart.c: 203: flag_G=1;
 "203
 [e = _flag_G -> 1 `i ]

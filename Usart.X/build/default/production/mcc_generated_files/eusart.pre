@@ -4861,7 +4861,7 @@ rcreg=RCREG;
 
 if(rcreg=='X')
 {
-LATB=0xAA;
+
 flag_G=1;
 rcreg=0;
 }
