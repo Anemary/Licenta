@@ -45,7 +45,7 @@ me@avinashgupta.com
 
 #include "lcd_hd44780_pic16.h"
 #include "myutils.h"
-#include "custom_char.h"
+
 
 #define LCD_DATA_PORT 	PORT(LCD_DATA)
 #define LCD_DATA_TRIS 	TRIS(LCD_DATA)
@@ -132,64 +132,6 @@ __delay_ms(1);
 //LCDBusyLoop();
 }
 
-void LCDBusyLoop()
-{
-	//This function waits till lcd is BUSY
-
-	uint8_t busy,status=0x00,temp;
-
-	//Change Port to input type because we are reading data
-	LCD_DATA_TRIS|=(0x0f<<LCD_DATA_POS);
-
-	//change LCD mode
-	SET_RW();		//Read mode
-	CLEAR_RS();		//Read status
-
-	//Let the RW/RS lines stabilize
-
-	__delay_us(0.5);		//tAS
-
-
-	do
-	{
-
-		SET_E();
-
-		//Wait tDA for data to become available
-		__delay_us(0.5);
-
-		status=(LCD_DATA_PORT>>LCD_DATA_POS);
-		status=status<<4;
-
-		__delay_us(0.5);
-
-		//Pull E low
-		CLEAR_E();
-		__delay_us(1);	//tEL
-
-		SET_E();
-		__delay_us(0.5);
-
-		temp=(LCD_DATA_PORT>>LCD_DATA_POS);
-		temp&=0x0F;
-
-		status=status|temp;
-
-		busy=status & 0b10000000;
-
-		__delay_us(0.5);
-
-                CLEAR_E();
-		__delay_us(1);	//tEL
-	}while(busy);
-
-	CLEAR_RW();		//write mode
-
-        //Change Port to output
-	LCD_DATA_TRIS&=(~(0x0F<<LCD_DATA_POS));
-
-}
-
 void LCDInit(uint8_t style)
 {
 	/*****************************************************************
@@ -241,11 +183,10 @@ void LCDInit(uint8_t style)
 
 	/* Custom Char */
         LCDCmd(0b01000000);
-
-	uint8_t __i;
-	for(__i=0;__i<sizeof(__cgram);__i++)
-		LCDData(__cgram[__i]);
-
+LCDClear();
+	//uint8_t __i;
+	//for(__i=0;__i<sizeof(__cgram);__i++)
+	//	LCDData(__cgram[__i]);
 
 }
 void LCDWriteString(const char *msg)

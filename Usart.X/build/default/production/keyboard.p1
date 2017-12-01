@@ -1,57 +1,19 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"23 mcc_generated_files/../keyboard.h
-[s S377 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S377 strKey_Pressed_ btnOK btnUP btnDOWN ]
+"23 keyboard.h
+[s S375 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S375 strKey_Pressed_ btnOK btnUP btnDOWN ]
 "28
-[s S378 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S378 strKey_Released_ btnOK btnUP btnDOWN ]
+[s S376 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S376 strKey_Released_ btnOK btnUP btnDOWN ]
 "34
-[s S379 :2 `uc 1 :2 `uc 1 :2 `uc 1 ]
-[n S379 strKey_Counts_ btnOK btnUP btnDOWN ]
-"8617 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1937.h
-[v _RD3 `Vb ~T0 @X0 0 e@123 ]
-[v F3513 `(v ~T0 @X0 1 tf1`ul ]
-"152 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic.h
-[v __delay `JF3513 ~T0 @X0 0 e ]
-[p i __delay ]
-"8611 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1937.h
-[v _RD0 `Vb ~T0 @X0 0 e@120 ]
-"489
-[v _PORTB `Vuc ~T0 @X0 0 e@13 ]
-"1367
-[v _TRISB `Vuc ~T0 @X0 0 e@141 ]
-"1497
-[s S76 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S76 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
-"1496
-[u S75 `S76 1 ]
-[n S75 . . ]
-"1508
-[v _TRISDbits `VS75 ~T0 @X0 0 e@143 ]
-"8613
-[v _RD1 `Vb ~T0 @X0 0 e@121 ]
-[; ;stdint.h: 13: typedef signed char int8_t;
-[; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 38: typedef signed long int int32_t;
-[; ;stdint.h: 45: typedef unsigned char uint8_t;
-[; ;stdint.h: 51: typedef unsigned int uint16_t;
-[; ;stdint.h: 67: typedef unsigned long int uint32_t;
-[; ;stdint.h: 75: typedef signed char int_least8_t;
-[; ;stdint.h: 82: typedef signed int int_least16_t;
-[; ;stdint.h: 104: typedef signed long int int_least32_t;
-[; ;stdint.h: 111: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 117: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 136: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 145: typedef signed char int_fast8_t;
-[; ;stdint.h: 152: typedef signed int int_fast16_t;
-[; ;stdint.h: 174: typedef signed long int int_fast32_t;
-[; ;stdint.h: 181: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 187: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 206: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 212: typedef int32_t intmax_t;
-[; ;stdint.h: 217: typedef uint32_t uintmax_t;
-[; ;stdint.h: 222: typedef int16_t intptr_t;
-[; ;stdint.h: 227: typedef uint16_t uintptr_t;
+[s S377 :2 `uc 1 :2 `uc 1 :2 `uc 1 ]
+[n S377 strKey_Counts_ btnOK btnUP btnDOWN ]
+"44
+[v _Check_KeyPressed `(v ~T0 @X0 0 ef ]
+"45
+[v _Check_KeyReleased `(v ~T0 @X0 0 ef ]
+"613 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1937.h
+[v _PORTD `Vuc ~T0 @X0 0 e@15 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -3333,100 +3295,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 192: extern unsigned char __resetbits;
 [; ;pic.h: 193: extern __bit __powerdown;
 [; ;pic.h: 194: extern __bit __timeout;
-[; ;pin_manager.h: 316: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 328: void PIN_MANAGER_IOC(void);
-[; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;interrupt_manager.h: 110: void interrupt INTERRUPT_InterruptManager(void);
-[; ;tmr1.h: 63: extern int flag_1_ms, flag_10_ms, flag_100_ms, flag_500_ms,flag_1000_ms,flag_4000_ms;
-[; ;tmr1.h: 100: void TMR1_Initialize(void);
-[; ;tmr1.h: 129: void TMR1_StartTimer(void);
-[; ;tmr1.h: 161: void TMR1_StopTimer(void);
-[; ;tmr1.h: 196: uint16_t TMR1_ReadTimer(void);
-[; ;tmr1.h: 235: void TMR1_WriteTimer(uint16_t timerVal);
-[; ;tmr1.h: 271: void TMR1_Reload(void);
-[; ;tmr1.h: 310: void TMR1_StartSinglePulseAcquisition(void);
-[; ;tmr1.h: 349: uint8_t TMR1_CheckGateValueStatus(void);
-[; ;tmr1.h: 367: void TMR1_ISR(void);
-[; ;tmr1.h: 384: void TMR1_CallBack(void);
-[; ;tmr1.h: 402: void TMR1_SetInterruptHandler(void (* InterruptHandler)(void));
-[; ;tmr1.h: 420: extern void (*TMR1_InterruptHandler)(void);
-[; ;tmr1.h: 438: void TMR1_DefaultInterruptHandler(void);
-[; ;tmr1.h: 450: void TMR1_enable(void);
-[; ;tmr1.h: 451: void TMR1_disable(void);
-[; ;adc.h: 71: typedef uint16_t adc_result_t;
-[; ;adc.h: 76: typedef struct
-[; ;adc.h: 77: {
-[; ;adc.h: 78: adc_result_t adcResult1;
-[; ;adc.h: 79: adc_result_t adcResult2;
-[; ;adc.h: 80: } adc_sync_double_result_t;
-[; ;adc.h: 94: typedef enum
-[; ;adc.h: 95: {
-[; ;adc.h: 96: channel_AN0 = 0x0,
-[; ;adc.h: 97: channel_Temp = 0x1D,
-[; ;adc.h: 98: channel_DAC = 0x1E,
-[; ;adc.h: 99: channel_FVR = 0x1F
-[; ;adc.h: 100: } adc_channel_t;
-"102 mcc_generated_files/adc.h
-[v _rez_conversie `ui ~T0 @X0 1 e ]
-[i _rez_conversie
--> -> 0 `i `ui
-]
-[; ;adc.h: 102: extern uint16_t rez_conversie=0;
-[; ;adc.h: 136: void ADC_Initialize(void);
-[; ;adc.h: 166: void ADC_SelectChannel(adc_channel_t channel);
-[; ;adc.h: 193: void ADC_StartConversion();
-[; ;adc.h: 225: bool ADC_IsConversionDone();
-[; ;adc.h: 258: adc_result_t ADC_GetConversionResult(void);
-[; ;adc.h: 288: adc_result_t ADC_GetConversion(adc_channel_t channel);
-[; ;adc.h: 305: void ADC_ISR(void);
-[; ;__size_t.h: 4: typedef unsigned size_t;
-[; ;stdarg.h: 7: typedef void * va_list[1];
-[; ;stdarg.h: 10: extern void * __va_start(void);
-[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
-[; ;stdio.h: 43: struct __prbuf
-[; ;stdio.h: 44: {
-[; ;stdio.h: 45: char * ptr;
-[; ;stdio.h: 46: void (* func)(char);
-[; ;stdio.h: 47: };
-[; ;errno.h: 29: extern int errno;
-[; ;conio.h: 12: extern void init_uart(void);
-[; ;conio.h: 14: extern char getch(void);
-[; ;conio.h: 15: extern char getche(void);
-[; ;conio.h: 16: extern void putch(char);
-[; ;conio.h: 17: extern void ungetch(char);
-[; ;conio.h: 19: extern __bit kbhit(void);
-[; ;conio.h: 23: extern char * cgets(char *);
-[; ;conio.h: 24: extern void cputs(const char *);
-[; ;stdio.h: 88: extern int cprintf(char *, ...);
-[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-[; ;stdio.h: 183: extern char * gets(char *);
-[; ;stdio.h: 184: extern int puts(const char *);
-[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
-[; ;stdio.h: 195: extern int printf(const char *, ...);
-[; ;eusart.h: 77: extern volatile uint8_t eusartTxBufferRemaining;
-[; ;eusart.h: 78: extern volatile uint8_t eusartRxCount;
-[; ;eusart.h: 79: extern int flag_N,flag_A,flag_B;
-[; ;eusart.h: 80: extern int flag_G;
-[; ;eusart.h: 107: void EUSART_Initialize(void);
-[; ;eusart.h: 156: uint8_t EUSART_Read(void);
-[; ;eusart.h: 181: void EUSART_Write(uint8_t txData);
-[; ;eusart.h: 202: void EUSART_Transmit_ISR(void);
-[; ;eusart.h: 223: void EUSART_Receive_ISR(void);
-"27 mcc_generated_files/../keyboard.h
-[v _strKey_Pressed `VS377 ~T0 @X0 1 e ]
+"27 keyboard.h
+[v _strKey_Pressed `VS375 ~T0 @X0 1 e ]
 [; ;keyboard.h: 23: volatile struct strKey_Pressed_{
 [; ;keyboard.h: 24: unsigned char btnOK:1;
 [; ;keyboard.h: 25: unsigned char btnUP:1;
 [; ;keyboard.h: 26: unsigned char btnDOWN:1;
 [; ;keyboard.h: 27: }strKey_Pressed;
 "33
-[v _strKey_Released `VS378 ~T0 @X0 1 e ]
+[v _strKey_Released `VS376 ~T0 @X0 1 e ]
 [; ;keyboard.h: 28: volatile struct strKey_Released_
 [; ;keyboard.h: 29: {
 [; ;keyboard.h: 30: unsigned char btnOK:1;
@@ -3434,7 +3311,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;keyboard.h: 32: unsigned char btnDOWN:1;
 [; ;keyboard.h: 33: }strKey_Released;
 "39
-[v _strKey_Counts `VS379 ~T0 @X0 1 e ]
+[v _strKey_Counts `VS377 ~T0 @X0 1 e ]
 [; ;keyboard.h: 34: volatile struct strKey_Counts_
 [; ;keyboard.h: 35: {
 [; ;keyboard.h: 36: unsigned char btnOK:2;
@@ -3445,458 +3322,272 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;keyboard.h: 45: void Check_KeyReleased(void);
 [; ;keyboard.h: 46: void Keyboard_Manager(void);
 [; ;keyboard.h: 47: unsigned char Check_key(unsigned char btn_mask);
-[; ;mcc.h: 73: void SYSTEM_Initialize(void);
-[; ;mcc.h: 86: void OSCILLATOR_Initialize(void);
-[; ;mcc.h: 99: void WDT_Initialize(void);
-[; ;lcd_hd44780_pic16.h: 78: void LCDInit(uint8_t style);
-[; ;lcd_hd44780_pic16.h: 79: void LCDWriteString(const char *msg);
-[; ;lcd_hd44780_pic16.h: 80: void LCDWriteInt(int val,int8_t field_length);
-[; ;lcd_hd44780_pic16.h: 81: void LCDGotoXY(uint8_t x,uint8_t y);
-[; ;lcd_hd44780_pic16.h: 84: void LCDByte(uint8_t,uint8_t);
-[; ;lcd_hd44780_pic16.h: 88: void LCDBusyLoop();
-"80 lcd_hd44780_pic16.c
-[v _LCDByte `(v ~T0 @X0 1 ef2`uc`uc ]
-"81
+"9 keyboard.c
+[v _Keyboard_Manager `(v ~T0 @X0 1 ef ]
+"10
 {
-[; ;lcd_hd44780_pic16.c: 80: void LCDByte(uint8_t c,uint8_t isdata)
-[; ;lcd_hd44780_pic16.c: 81: {
-[e :U _LCDByte ]
-"80
-[v _c `uc ~T0 @X0 1 r1 ]
-[v _isdata `uc ~T0 @X0 1 r2 ]
-"81
+[; ;keyboard.c: 9: void Keyboard_Manager(void)
+[; ;keyboard.c: 10: {
+[e :U _Keyboard_Manager ]
 [f ]
-"89
-[v _hn `uc ~T0 @X0 1 a ]
-[v _ln `uc ~T0 @X0 1 a ]
-"90
-[v _temp `uc ~T0 @X0 1 a ]
-[; ;lcd_hd44780_pic16.c: 89: uint8_t hn,ln;
-[; ;lcd_hd44780_pic16.c: 90: uint8_t temp;
-[; ;lcd_hd44780_pic16.c: 92: hn=c>>4;
-"92
-[e = _hn -> >> -> _c `i -> 4 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 93: ln=(c & 0x0F);
-"93
-[e = _ln -> & -> _c `i -> 15 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 95: if(isdata==0)
-"95
-[e $ ! == -> _isdata `i -> 0 `i 381  ]
-[; ;lcd_hd44780_pic16.c: 96: (RD3=0);
-"96
-[e = _RD3 -> -> 0 `i `b ]
-[e $U 382  ]
-"97
+[; ;keyboard.c: 11: Check_KeyPressed();
+"11
+[e ( _Check_KeyPressed ..  ]
+[; ;keyboard.c: 12: Check_KeyReleased();
+"12
+[e ( _Check_KeyReleased ..  ]
+[; ;keyboard.c: 13: }
+"13
+[e :UE 378 ]
+}
+"15
+[v _Check_KeyPressed `(v ~T0 @X0 1 ef ]
+"16
+{
+[; ;keyboard.c: 15: void Check_KeyPressed(void)
+[; ;keyboard.c: 16: {
+[e :U _Check_KeyPressed ]
+[f ]
+[; ;keyboard.c: 21: if((PORTD & 0b01000000)==0)
+"21
+[e $ ! == & -> _PORTD `i -> 64 `i -> 0 `i 380  ]
+[; ;keyboard.c: 22: {
+"22
+{
+[; ;keyboard.c: 23: if(strKey_Counts.btnOK<3)
+"23
+[e $ ! < -> . _strKey_Counts 0 `i -> 3 `i 381  ]
+[; ;keyboard.c: 24: strKey_Counts.btnOK++;
+"24
+[e ++ . _strKey_Counts 0 -> -> 1 `i `uc ]
 [e :U 381 ]
-[; ;lcd_hd44780_pic16.c: 97: else
-[; ;lcd_hd44780_pic16.c: 98: (RD3=1);
-"98
-[e = _RD3 -> -> 1 `i `b ]
+"25
+}
+[; ;keyboard.c: 25: }
+[e $U 382  ]
+"26
+[e :U 380 ]
+[; ;keyboard.c: 26: else if(((PORTD & 0b01000000)!=0)&&(strKey_Counts.btnOK<3))
+[e $ ! && != & -> _PORTD `i -> 64 `i -> 0 `i < -> . _strKey_Counts 0 `i -> 3 `i 383  ]
+[; ;keyboard.c: 27: {
+"27
+{
+[; ;keyboard.c: 28: strKey_Counts.btnOK=0;
+"28
+[e = . _strKey_Counts 0 -> -> 0 `i `uc ]
+"29
+}
+[e :U 383 ]
+"32
 [e :U 382 ]
-[; ;lcd_hd44780_pic16.c: 100: _delay((unsigned long)((0.5)*(18432000/4000000.0)));
-"100
-[e ( __delay (1 -> * .0.5 / -> -> 18432000 `l `d .4000000.0 `ul ]
-[; ;lcd_hd44780_pic16.c: 102: (RD0=1);
-"102
-[e = _RD0 -> -> 1 `i `b ]
-[; ;lcd_hd44780_pic16.c: 106: temp=(PORTB & (~(0X0F<<0)))|((hn<<0));
-"106
-[e = _temp -> | & -> _PORTB `i ~ << -> 15 `i -> 0 `i << -> _hn `i -> 0 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 107: PORTB=temp;
-"107
-[e = _PORTB _temp ]
-[; ;lcd_hd44780_pic16.c: 109: _delay((unsigned long)((1)*(18432000/4000000.0)));
-"109
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 18432000 `l `d .4000000.0 `ul ]
-[; ;lcd_hd44780_pic16.c: 113: (RD0=0);
-"113
-[e = _RD0 -> -> 0 `i `b ]
-[; ;lcd_hd44780_pic16.c: 115: _delay((unsigned long)((1)*(18432000/4000000.0)));
-"115
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 18432000 `l `d .4000000.0 `ul ]
-[; ;lcd_hd44780_pic16.c: 118: (RD0=1);
-"118
-[e = _RD0 -> -> 1 `i `b ]
-[; ;lcd_hd44780_pic16.c: 120: temp=(PORTB & (~(0X0F<<0)))|((ln<<0));
-"120
-[e = _temp -> | & -> _PORTB `i ~ << -> 15 `i -> 0 `i << -> _ln `i -> 0 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 122: PORTB=temp;
-"122
-[e = _PORTB _temp ]
-[; ;lcd_hd44780_pic16.c: 124: _delay((unsigned long)((1)*(18432000/4000000.0)));
-"124
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 18432000 `l `d .4000000.0 `ul ]
-[; ;lcd_hd44780_pic16.c: 128: (RD0=0);
-"128
-[e = _RD0 -> -> 0 `i `b ]
-[; ;lcd_hd44780_pic16.c: 130: _delay((unsigned long)((1)*(18432000/4000000.0)));
-"130
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 18432000 `l `d .4000000.0 `ul ]
-[; ;lcd_hd44780_pic16.c: 131: _delay((unsigned long)((1)*(18432000/4000.0)));
-"131
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
-[; ;lcd_hd44780_pic16.c: 133: }
-"133
-[e :UE 380 ]
-}
-"135
-[v _LCDInit `(v ~T0 @X0 1 ef1`uc ]
-"136
+[; ;keyboard.c: 29: }
+[; ;keyboard.c: 32: if((PORTD & 0b10000000)==0)
+[e $ ! == & -> _PORTD `i -> 128 `i -> 0 `i 384  ]
+[; ;keyboard.c: 33: {
+"33
 {
-[; ;lcd_hd44780_pic16.c: 135: void LCDInit(uint8_t style)
-[; ;lcd_hd44780_pic16.c: 136: {
-[e :U _LCDInit ]
-"135
-[v _style `uc ~T0 @X0 1 r1 ]
-"136
-[f ]
-[; ;lcd_hd44780_pic16.c: 151: _delay((unsigned long)((30)*(18432000/4000.0)));
-"151
-[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
-[; ;lcd_hd44780_pic16.c: 154: TRISB&=(~(0x0F<<0));
-"154
-[e =& _TRISB -> ~ << -> 15 `i -> 0 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 156: TRISDbits.TRISD0=0;
-"156
-[e = . . _TRISDbits 0 0 -> -> 0 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 157: TRISDbits.TRISD3=0;
-"157
-[e = . . _TRISDbits 0 3 -> -> 0 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 158: TRISDbits.TRISD1=0;
-"158
-[e = . . _TRISDbits 0 1 -> -> 0 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 160: PORTB&=(~(0x0F<<0));
-"160
-[e =& _PORTB -> ~ << -> 15 `i -> 0 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 162: (RD0=0);
-"162
-[e = _RD0 -> -> 0 `i `b ]
-[; ;lcd_hd44780_pic16.c: 163: (RD1=0);
-"163
-[e = _RD1 -> -> 0 `i `b ]
-[; ;lcd_hd44780_pic16.c: 164: (RD3=0);
-"164
-[e = _RD3 -> -> 0 `i `b ]
-[; ;lcd_hd44780_pic16.c: 167: _delay((unsigned long)((0.5)*(18432000/4000000.0)));
-"167
-[e ( __delay (1 -> * .0.5 / -> -> 18432000 `l `d .4000000.0 `ul ]
-[; ;lcd_hd44780_pic16.c: 169: (RD0=1);
-"169
-[e = _RD0 -> -> 1 `i `b ]
-[; ;lcd_hd44780_pic16.c: 170: PORTB|=((0b00000010)<<0);
-"170
-[e =| _PORTB -> << -> 2 `i -> 0 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 171: _delay((unsigned long)((1)*(18432000/4000000.0)));
-"171
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 18432000 `l `d .4000000.0 `ul ]
-[; ;lcd_hd44780_pic16.c: 172: (RD0=0);
-"172
-[e = _RD0 -> -> 0 `i `b ]
-[; ;lcd_hd44780_pic16.c: 173: _delay((unsigned long)((1)*(18432000/4000000.0)));
-"173
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 18432000 `l `d .4000000.0 `ul ]
-[; ;lcd_hd44780_pic16.c: 177: _delay((unsigned long)((1)*(18432000/4000.0)));
-"177
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
-[; ;lcd_hd44780_pic16.c: 181: (LCDByte(0b00101000,0));
-"181
-[e ( _LCDByte (2 , -> -> 40 `i `uc -> -> 0 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 182: (LCDByte(0b00001100|style,0));
-"182
-[e ( _LCDByte (2 , -> | -> 12 `i -> _style `i `uc -> -> 0 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 185: (LCDByte(0b01000000,0));
-"185
-[e ( _LCDByte (2 , -> -> 64 `i `uc -> -> 0 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 186: (LCDByte(0b00000001,0));
-"186
-[e ( _LCDByte (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 191: }
-"191
-[e :UE 383 ]
+[; ;keyboard.c: 34: if(strKey_Counts.btnUP<3)
+"34
+[e $ ! < -> . _strKey_Counts 1 `i -> 3 `i 385  ]
+[; ;keyboard.c: 35: strKey_Counts.btnUP++;
+"35
+[e ++ . _strKey_Counts 1 -> -> 1 `i `uc ]
+[e :U 385 ]
+"36
 }
-"192
-[v _LCDWriteString `(v ~T0 @X0 1 ef1`*Cuc ]
-"193
+[; ;keyboard.c: 36: }
+[e $U 386  ]
+"37
+[e :U 384 ]
+[; ;keyboard.c: 37: else if(((PORTD & 0b10000000)!=0)&&(strKey_Counts.btnUP<3))
+[e $ ! && != & -> _PORTD `i -> 128 `i -> 0 `i < -> . _strKey_Counts 1 `i -> 3 `i 387  ]
+[; ;keyboard.c: 38: {
+"38
 {
-[; ;lcd_hd44780_pic16.c: 192: void LCDWriteString(const char *msg)
-[; ;lcd_hd44780_pic16.c: 193: {
-[e :U _LCDWriteString ]
-"192
-[v _msg `*Cuc ~T0 @X0 1 r1 ]
-"193
-[f ]
-[; ;lcd_hd44780_pic16.c: 222: while(*msg!='\0')
-"222
-[e $U 385  ]
+[; ;keyboard.c: 39: strKey_Counts.btnUP=0;
+"39
+[e = . _strKey_Counts 1 -> -> 0 `i `uc ]
+"40
+}
+[e :U 387 ]
+"43
 [e :U 386 ]
-[; ;lcd_hd44780_pic16.c: 223: {
-"223
+[; ;keyboard.c: 40: }
+[; ;keyboard.c: 43: if((PORTD & 0b00100000)==0)
+[e $ ! == & -> _PORTD `i -> 32 `i -> 0 `i 388  ]
+[; ;keyboard.c: 44: {
+"44
 {
-[; ;lcd_hd44780_pic16.c: 225: if(*msg=='%')
-"225
-[e $ ! == -> *U _msg `ui -> 37 `ui 388  ]
-[; ;lcd_hd44780_pic16.c: 226: {
-"226
-{
-[; ;lcd_hd44780_pic16.c: 227: msg++;
-"227
-[e ++ _msg * -> -> 1 `i `x -> -> # *U _msg `i `x ]
-"228
-[v _cc `c ~T0 @X0 1 a ]
-[; ;lcd_hd44780_pic16.c: 228: int8_t cc=*msg-'0';
-[e = _cc -> - -> *U _msg `ui -> 48 `ui `c ]
-[; ;lcd_hd44780_pic16.c: 230: if(cc>=0 && cc<=7)
-"230
-[e $ ! && >= -> _cc `i -> 0 `i <= -> _cc `i -> 7 `i 389  ]
-[; ;lcd_hd44780_pic16.c: 231: {
-"231
-{
-[; ;lcd_hd44780_pic16.c: 232: (LCDByte(cc,1));
-"232
-[e ( _LCDByte (2 , -> _cc `uc -> -> 1 `i `uc ]
-"233
-}
-[; ;lcd_hd44780_pic16.c: 233: }
-[e $U 390  ]
-"234
+[; ;keyboard.c: 45: if(strKey_Counts.btnDOWN<3)
+"45
+[e $ ! < -> . _strKey_Counts 2 `i -> 3 `i 389  ]
+[; ;keyboard.c: 46: strKey_Counts.btnDOWN++;
+"46
+[e ++ . _strKey_Counts 2 -> -> 1 `i `uc ]
 [e :U 389 ]
-[; ;lcd_hd44780_pic16.c: 234: else
-[; ;lcd_hd44780_pic16.c: 235: {
-"235
-{
-[; ;lcd_hd44780_pic16.c: 236: (LCDByte('%',1));
-"236
-[e ( _LCDByte (2 , -> -> 37 `ui `uc -> -> 1 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 237: (LCDByte(*msg,1));
-"237
-[e ( _LCDByte (2 , *U _msg -> -> 1 `i `uc ]
-"238
+"47
 }
-[e :U 390 ]
-"239
-}
-[; ;lcd_hd44780_pic16.c: 238: }
-[; ;lcd_hd44780_pic16.c: 239: }
-[e $U 391  ]
-"240
+[; ;keyboard.c: 47: }
+[e $U 390  ]
+"48
 [e :U 388 ]
-[; ;lcd_hd44780_pic16.c: 240: else
-[; ;lcd_hd44780_pic16.c: 241: {
-"241
+[; ;keyboard.c: 48: else if(((PORTD & 0b00100000)!=0)&&(strKey_Counts.btnDOWN<3))
+[e $ ! && != & -> _PORTD `i -> 32 `i -> 0 `i < -> . _strKey_Counts 2 `i -> 3 `i 391  ]
+[; ;keyboard.c: 49: {
+"49
 {
-[; ;lcd_hd44780_pic16.c: 242: (LCDByte(*msg,1));
-"242
-[e ( _LCDByte (2 , *U _msg -> -> 1 `i `uc ]
-"243
+[; ;keyboard.c: 50: strKey_Counts.btnDOWN=0;
+"50
+[e = . _strKey_Counts 2 -> -> 0 `i `uc ]
+"51
 }
 [e :U 391 ]
-[; ;lcd_hd44780_pic16.c: 243: }
-[; ;lcd_hd44780_pic16.c: 244: msg++;
-"244
-[e ++ _msg * -> -> 1 `i `x -> -> # *U _msg `i `x ]
-"245
+"54
+[e :U 390 ]
+[; ;keyboard.c: 51: }
+[; ;keyboard.c: 54: }
+[e :UE 379 ]
 }
-[e :U 385 ]
-"222
-[e $ != -> *U _msg `ui -> 0 `ui 386  ]
-[e :U 387 ]
-[; ;lcd_hd44780_pic16.c: 245: }
-[; ;lcd_hd44780_pic16.c: 246: }
-"246
-[e :UE 384 ]
-}
-"248
-[v _LCDWriteInt `(v ~T0 @X0 1 ef2`i`c ]
-"249
+"56
+[v _Check_KeyReleased `(v ~T0 @X0 1 ef ]
+"57
 {
-[; ;lcd_hd44780_pic16.c: 248: void LCDWriteInt(int val,int8_t field_length)
-[; ;lcd_hd44780_pic16.c: 249: {
-[e :U _LCDWriteInt ]
-"248
-[v _val `i ~T0 @X0 1 r1 ]
-[v _field_length `c ~T0 @X0 1 r2 ]
-"249
+[; ;keyboard.c: 56: void Check_KeyReleased(void)
+[; ;keyboard.c: 57: {
+[e :U _Check_KeyReleased ]
 [f ]
-[v F3737 `uc ~T0 @X0 -> 5 `i s ]
-[i F3737
-:U ..
-"261
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
-..
-]
-[v _str `uc ~T0 @X0 -> 5 `i a ]
-[; ;lcd_hd44780_pic16.c: 261: char str[5]={0,0,0,0,0};
-[e = _str F3737 ]
-"262
-[v _i `i ~T0 @X0 1 a ]
-[; ;lcd_hd44780_pic16.c: 262: int i=4,j=0;
-[e = _i -> 4 `i ]
-[v _j `i ~T0 @X0 1 a ]
-[e = _j -> 0 `i ]
-[; ;lcd_hd44780_pic16.c: 265: if(val<0)
-"265
-[e $ ! < _val -> 0 `i 393  ]
-[; ;lcd_hd44780_pic16.c: 266: {
-"266
+[; ;keyboard.c: 61: if(((PORTD & 0b01000000)!=0)&&(strKey_Counts.btnOK==3))
+"61
+[e $ ! && != & -> _PORTD `i -> 64 `i -> 0 `i == -> . _strKey_Counts 0 `i -> 3 `i 393  ]
+[; ;keyboard.c: 62: {
+"62
 {
-[; ;lcd_hd44780_pic16.c: 267: (LCDByte('-',1));
-"267
-[e ( _LCDByte (2 , -> -> 45 `ui `uc -> -> 1 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 268: val=val*-1;
-"268
-[e = _val * _val -U -> 1 `i ]
-"269
+[; ;keyboard.c: 64: strKey_Pressed.btnOK=1;
+"64
+[e = . _strKey_Pressed 0 -> -> 1 `i `uc ]
+[; ;keyboard.c: 65: strKey_Counts.btnOK=0;
+"65
+[e = . _strKey_Counts 0 -> -> 0 `i `uc ]
+"66
 }
 [e :U 393 ]
-[; ;lcd_hd44780_pic16.c: 269: }
-[; ;lcd_hd44780_pic16.c: 271: while(val)
-"271
-[e $U 394  ]
-[e :U 395 ]
-[; ;lcd_hd44780_pic16.c: 272: {
-"272
+[; ;keyboard.c: 66: }
+[; ;keyboard.c: 68: if(((PORTD & 0b10000000)!=0)&&(strKey_Counts.btnUP==3))
+"68
+[e $ ! && != & -> _PORTD `i -> 128 `i -> 0 `i == -> . _strKey_Counts 1 `i -> 3 `i 394  ]
+[; ;keyboard.c: 69: {
+"69
 {
-[; ;lcd_hd44780_pic16.c: 273: str[i]=val%10;
-"273
-[e = *U + &U _str * -> -> _i `ui `ux -> -> # *U &U _str `ui `ux -> % _val -> 10 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 274: val=val/10;
-"274
-[e = _val / _val -> 10 `i ]
-[; ;lcd_hd44780_pic16.c: 275: i--;
-"275
-[e -- _i -> 1 `i ]
-"276
+[; ;keyboard.c: 71: strKey_Pressed.btnUP=1;
+"71
+[e = . _strKey_Pressed 1 -> -> 1 `i `uc ]
+[; ;keyboard.c: 72: strKey_Counts.btnUP=0;
+"72
+[e = . _strKey_Counts 1 -> -> 0 `i `uc ]
+"73
 }
 [e :U 394 ]
-"271
-[e $ != _val -> 0 `i 395  ]
-[e :U 396 ]
-[; ;lcd_hd44780_pic16.c: 276: }
-[; ;lcd_hd44780_pic16.c: 277: if(field_length==-1)
-"277
-[e $ ! == -> _field_length `i -U -> 1 `i 397  ]
-[; ;lcd_hd44780_pic16.c: 278: while(str[j]==0) j++;
-"278
-[e $U 398  ]
-[e :U 399 ]
-[e ++ _j -> 1 `i ]
-[e :U 398 ]
-[e $ == -> *U + &U _str * -> -> _j `ui `ux -> -> # *U &U _str `ui `ux `i -> 0 `i 399  ]
-[e :U 400 ]
-[e $U 401  ]
-"279
-[e :U 397 ]
-[; ;lcd_hd44780_pic16.c: 279: else
-[; ;lcd_hd44780_pic16.c: 280: j=5-field_length;
-"280
-[e = _j - -> 5 `i -> _field_length `i ]
-[e :U 401 ]
-[; ;lcd_hd44780_pic16.c: 283: for(i=j;i<5;i++)
-"283
+[; ;keyboard.c: 73: }
+[; ;keyboard.c: 74: if(((PORTD & 0b00100000)!=0)&&(strKey_Counts.btnDOWN==3))
+"74
+[e $ ! && != & -> _PORTD `i -> 32 `i -> 0 `i == -> . _strKey_Counts 2 `i -> 3 `i 395  ]
+[; ;keyboard.c: 75: {
+"75
 {
-[e = _i _j ]
-[e $ < _i -> 5 `i 402  ]
-[e $U 403  ]
-"284
-[e :U 402 ]
-[; ;lcd_hd44780_pic16.c: 284: {
-{
-[; ;lcd_hd44780_pic16.c: 285: (LCDByte(48+str[i],1));
-"285
-[e ( _LCDByte (2 , -> + -> 48 `i -> *U + &U _str * -> -> _i `ui `ux -> -> # *U &U _str `ui `ux `i `uc -> -> 1 `i `uc ]
-"286
+[; ;keyboard.c: 77: strKey_Pressed.btnDOWN=1;
+"77
+[e = . _strKey_Pressed 2 -> -> 1 `i `uc ]
+[; ;keyboard.c: 78: strKey_Counts.btnDOWN=0;
+"78
+[e = . _strKey_Counts 2 -> -> 0 `i `uc ]
+"79
 }
-"283
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 5 `i 402  ]
-[e :U 403 ]
-"286
-}
-[; ;lcd_hd44780_pic16.c: 286: }
-[; ;lcd_hd44780_pic16.c: 287: }
-"287
+[e :U 395 ]
+[; ;keyboard.c: 79: }
+[; ;keyboard.c: 80: }
+"80
 [e :UE 392 ]
 }
-"293
-[v _LCDGotoXY `(v ~T0 @X0 1 ef2`uc`uc ]
-"294
+"82
+[v _Check_key `(uc ~T0 @X0 1 ef1`uc ]
+"83
 {
-[; ;lcd_hd44780_pic16.c: 293: void LCDGotoXY(uint8_t x,uint8_t y)
-[; ;lcd_hd44780_pic16.c: 294: {
-[e :U _LCDGotoXY ]
-"293
-[v _x `uc ~T0 @X0 1 r1 ]
-[v _y `uc ~T0 @X0 1 r2 ]
-"294
+[; ;keyboard.c: 82: unsigned char Check_key(unsigned char btn_mask)
+[; ;keyboard.c: 83: {
+[e :U _Check_key ]
+"82
+[v _btn_mask `uc ~T0 @X0 1 r1 ]
+"83
 [f ]
-[; ;lcd_hd44780_pic16.c: 295: if(x>=20) return;
-"295
-[e $ ! >= -> _x `i -> 20 `i 406  ]
-[e $UE 405  ]
-[e :U 406 ]
-[; ;lcd_hd44780_pic16.c: 299: switch(y)
-"299
-[e $U 408  ]
-[; ;lcd_hd44780_pic16.c: 300: {
-"300
+"86
+[v _btn_pressed `uc ~T0 @X0 1 a ]
+[; ;keyboard.c: 86: unsigned char btn_pressed=0;
+[e = _btn_pressed -> -> 0 `i `uc ]
+[; ;keyboard.c: 89: switch(btn_mask)
+"89
+[e $U 398  ]
+[; ;keyboard.c: 90: {
+"90
 {
-[; ;lcd_hd44780_pic16.c: 301: case 0:
-"301
-[e :U 409 ]
-[; ;lcd_hd44780_pic16.c: 302: break;
-"302
-[e $U 407  ]
-[; ;lcd_hd44780_pic16.c: 303: case 1:
-"303
-[e :U 410 ]
-[; ;lcd_hd44780_pic16.c: 304: x|=0b01000000;
-"304
-[e =| _x -> -> 64 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 305: break;
-"305
-[e $U 407  ]
-[; ;lcd_hd44780_pic16.c: 306: case 2:
-"306
-[e :U 411 ]
-[; ;lcd_hd44780_pic16.c: 307: x+=0x14;
-"307
-[e =+ _x -> -> 20 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 308: break;
-"308
-[e $U 407  ]
-[; ;lcd_hd44780_pic16.c: 309: case 3:
-"309
-[e :U 412 ]
-[; ;lcd_hd44780_pic16.c: 310: x+=0x54;
-"310
-[e =+ _x -> -> 84 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 311: break;
-"311
-[e $U 407  ]
-"312
+[; ;keyboard.c: 91: case 0b01000000:
+"91
+[e :U 399 ]
+[; ;keyboard.c: 92: btn_pressed=strKey_Pressed.btnOK;
+"92
+[e = _btn_pressed . _strKey_Pressed 0 ]
+[; ;keyboard.c: 94: strKey_Pressed.btnOK=0;
+"94
+[e = . _strKey_Pressed 0 -> -> 0 `i `uc ]
+[; ;keyboard.c: 95: break;
+"95
+[e $U 397  ]
+[; ;keyboard.c: 97: case 0b10000000:
+"97
+[e :U 400 ]
+[; ;keyboard.c: 98: btn_pressed=strKey_Pressed.btnUP;
+"98
+[e = _btn_pressed . _strKey_Pressed 1 ]
+[; ;keyboard.c: 100: strKey_Pressed.btnUP=0;
+"100
+[e = . _strKey_Pressed 1 -> -> 0 `i `uc ]
+[; ;keyboard.c: 101: break;
+"101
+[e $U 397  ]
+[; ;keyboard.c: 102: case 0b00100000:
+"102
+[e :U 401 ]
+[; ;keyboard.c: 103: btn_pressed=strKey_Pressed.btnDOWN;
+"103
+[e = _btn_pressed . _strKey_Pressed 2 ]
+[; ;keyboard.c: 105: strKey_Pressed.btnDOWN=0;
+"105
+[e = . _strKey_Pressed 2 -> -> 0 `i `uc ]
+[; ;keyboard.c: 106: break;
+"106
+[e $U 397  ]
+[; ;keyboard.c: 107: default:
+"107
+[e :U 402 ]
+[; ;keyboard.c: 108: btn_pressed=0;
+"108
+[e = _btn_pressed -> -> 0 `i `uc ]
+"109
 }
-[; ;lcd_hd44780_pic16.c: 312: }
-[e $U 407  ]
-"299
-[e :U 408 ]
-[e [\ _y , $ -> -> 0 `i `uc 409
- , $ -> -> 1 `i `uc 410
- , $ -> -> 2 `i `uc 411
- , $ -> -> 3 `i `uc 412
- 407 ]
-"312
-[e :U 407 ]
-[; ;lcd_hd44780_pic16.c: 334: x|=0b10000000;
-"334
-[e =| _x -> -> 128 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 335: (LCDByte(x,0));
-"335
-[e ( _LCDByte (2 , _x -> -> 0 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 336: }
-"336
-[e :UE 405 ]
+[; ;keyboard.c: 109: }
+[e $U 397  ]
+"89
+[e :U 398 ]
+[e [\ _btn_mask , $ -> -> 64 `i `uc 399
+ , $ -> -> 128 `i `uc 400
+ , $ -> -> 32 `i `uc 401
+ 402 ]
+"109
+[e :U 397 ]
+[; ;keyboard.c: 110: return btn_pressed;
+"110
+[e ) _btn_pressed ]
+[e $UE 396  ]
+[; ;keyboard.c: 112: }
+"112
+[e :UE 396 ]
 }

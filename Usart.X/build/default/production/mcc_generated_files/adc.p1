@@ -1,4 +1,13 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"23 mcc_generated_files/../keyboard.h
+[s S377 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S377 strKey_Pressed_ btnOK btnUP btnDOWN ]
+"28
+[s S378 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S378 strKey_Released_ btnOK btnUP btnDOWN ]
+"34
+[s S379 :2 `uc 1 :2 `uc 1 :2 `uc 1 ]
+[n S379 strKey_Counts_ btnOK btnUP btnDOWN ]
 "2188 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1937.h
 [v _ADCON0 `Vuc ~T0 @X0 0 e@157 ]
 "2277
@@ -3377,9 +3386,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.h: 258: adc_result_t ADC_GetConversionResult(void);
 [; ;adc.h: 288: adc_result_t ADC_GetConversion(adc_channel_t channel);
 [; ;adc.h: 305: void ADC_ISR(void);
-[; ;pin_manager.h: 274: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 286: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 316: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 328: void PIN_MANAGER_IOC(void);
 [; ;interrupt_manager.h: 110: void interrupt INTERRUPT_InterruptManager(void);
+[; ;tmr1.h: 63: extern int flag_1_ms, flag_10_ms, flag_100_ms, flag_500_ms,flag_1000_ms,flag_4000_ms;
+[; ;tmr1.h: 100: void TMR1_Initialize(void);
+[; ;tmr1.h: 129: void TMR1_StartTimer(void);
+[; ;tmr1.h: 161: void TMR1_StopTimer(void);
+[; ;tmr1.h: 196: uint16_t TMR1_ReadTimer(void);
+[; ;tmr1.h: 235: void TMR1_WriteTimer(uint16_t timerVal);
+[; ;tmr1.h: 271: void TMR1_Reload(void);
+[; ;tmr1.h: 310: void TMR1_StartSinglePulseAcquisition(void);
+[; ;tmr1.h: 349: uint8_t TMR1_CheckGateValueStatus(void);
+[; ;tmr1.h: 367: void TMR1_ISR(void);
+[; ;tmr1.h: 384: void TMR1_CallBack(void);
+[; ;tmr1.h: 402: void TMR1_SetInterruptHandler(void (* InterruptHandler)(void));
+[; ;tmr1.h: 420: extern void (*TMR1_InterruptHandler)(void);
+[; ;tmr1.h: 438: void TMR1_DefaultInterruptHandler(void);
+[; ;tmr1.h: 450: void TMR1_enable(void);
+[; ;tmr1.h: 451: void TMR1_disable(void);
 [; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
@@ -3419,31 +3444,42 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eusart.h: 181: void EUSART_Write(uint8_t txData);
 [; ;eusart.h: 202: void EUSART_Transmit_ISR(void);
 [; ;eusart.h: 223: void EUSART_Receive_ISR(void);
-[; ;tmr1.h: 63: extern int flag_1_ms, flag_10_ms, flag_100_ms, flag_500_ms,flag_1000_ms,flag_4000_ms;
-[; ;tmr1.h: 100: void TMR1_Initialize(void);
-[; ;tmr1.h: 129: void TMR1_StartTimer(void);
-[; ;tmr1.h: 161: void TMR1_StopTimer(void);
-[; ;tmr1.h: 196: uint16_t TMR1_ReadTimer(void);
-[; ;tmr1.h: 235: void TMR1_WriteTimer(uint16_t timerVal);
-[; ;tmr1.h: 271: void TMR1_Reload(void);
-[; ;tmr1.h: 310: void TMR1_StartSinglePulseAcquisition(void);
-[; ;tmr1.h: 349: uint8_t TMR1_CheckGateValueStatus(void);
-[; ;tmr1.h: 367: void TMR1_ISR(void);
-[; ;tmr1.h: 384: void TMR1_CallBack(void);
-[; ;tmr1.h: 402: void TMR1_SetInterruptHandler(void (* InterruptHandler)(void));
-[; ;tmr1.h: 420: extern void (*TMR1_InterruptHandler)(void);
-[; ;tmr1.h: 438: void TMR1_DefaultInterruptHandler(void);
-[; ;tmr1.h: 450: void TMR1_enable(void);
-[; ;tmr1.h: 451: void TMR1_disable(void);
 [; ;lcd_hd44780_pic16.h: 78: void LCDInit(uint8_t style);
 [; ;lcd_hd44780_pic16.h: 79: void LCDWriteString(const char *msg);
 [; ;lcd_hd44780_pic16.h: 80: void LCDWriteInt(int val,int8_t field_length);
 [; ;lcd_hd44780_pic16.h: 81: void LCDGotoXY(uint8_t x,uint8_t y);
 [; ;lcd_hd44780_pic16.h: 84: void LCDByte(uint8_t,uint8_t);
 [; ;lcd_hd44780_pic16.h: 88: void LCDBusyLoop();
-[; ;mcc.h: 72: void SYSTEM_Initialize(void);
-[; ;mcc.h: 85: void OSCILLATOR_Initialize(void);
-[; ;mcc.h: 98: void WDT_Initialize(void);
+"27 mcc_generated_files/../keyboard.h
+[v _strKey_Pressed `VS377 ~T0 @X0 1 e ]
+[; ;keyboard.h: 23: volatile struct strKey_Pressed_{
+[; ;keyboard.h: 24: unsigned char btnOK:1;
+[; ;keyboard.h: 25: unsigned char btnUP:1;
+[; ;keyboard.h: 26: unsigned char btnDOWN:1;
+[; ;keyboard.h: 27: }strKey_Pressed;
+"33
+[v _strKey_Released `VS378 ~T0 @X0 1 e ]
+[; ;keyboard.h: 28: volatile struct strKey_Released_
+[; ;keyboard.h: 29: {
+[; ;keyboard.h: 30: unsigned char btnOK:1;
+[; ;keyboard.h: 31: unsigned char btnUP:1;
+[; ;keyboard.h: 32: unsigned char btnDOWN:1;
+[; ;keyboard.h: 33: }strKey_Released;
+"39
+[v _strKey_Counts `VS379 ~T0 @X0 1 e ]
+[; ;keyboard.h: 34: volatile struct strKey_Counts_
+[; ;keyboard.h: 35: {
+[; ;keyboard.h: 36: unsigned char btnOK:2;
+[; ;keyboard.h: 37: unsigned char btnUP:2;
+[; ;keyboard.h: 38: unsigned char btnDOWN:2;
+[; ;keyboard.h: 39: }strKey_Counts;
+[; ;keyboard.h: 44: void Check_KeyPressed(void);
+[; ;keyboard.h: 45: void Check_KeyReleased(void);
+[; ;keyboard.h: 46: void Keyboard_Manager(void);
+[; ;keyboard.h: 47: unsigned char Check_key(unsigned char btn_mask);
+[; ;mcc.h: 73: void SYSTEM_Initialize(void);
+[; ;mcc.h: 86: void OSCILLATOR_Initialize(void);
+[; ;mcc.h: 99: void WDT_Initialize(void);
 [; ;adc.c: 63: uint16_t rez_conversie;
 "64 mcc_generated_files/adc.c
 [v _ADC_Initialize `(v ~T0 @X0 1 ef ]
@@ -3470,7 +3506,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _PIE1bits 0 6 -> -> 1 `i `uc ]
 [; ;adc.c: 82: }
 "82
-[e :UE 377 ]
+[e :UE 380 ]
 }
 "84
 [v _ADC_SelectChannel `(v ~T0 @X0 1 ef1`E3529 ]
@@ -3491,7 +3527,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
 [; ;adc.c: 90: }
 "90
-[e :UE 378 ]
+[e :UE 381 ]
 }
 "92
 [v _ADC_StartConversion `(v ~T0 @X0 1 ef ]
@@ -3506,7 +3542,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _ADCON0bits 0 1 -> -> 1 `i `uc ]
 [; ;adc.c: 96: }
 "96
-[e :UE 379 ]
+[e :UE 382 ]
 }
 "99
 [v _ADC_IsConversionDone `(uc ~T0 @X0 1 ef ]
@@ -3519,10 +3555,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.c: 102: return ((bool)(!ADCON0bits.GO_nDONE));
 "102
 [e ) -> -> ! != -> . . _ADCON0bits 0 1 `i -> -> -> 0 `i `Vuc `i `i `uc ]
-[e $UE 380  ]
+[e $UE 383  ]
 [; ;adc.c: 103: }
 "103
-[e :UE 380 ]
+[e :UE 383 ]
 }
 "105
 [v _ADC_GetConversionResult `(ui ~T0 @X0 1 ef ]
@@ -3535,10 +3571,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.c: 109: return ((adc_result_t)((ADRESH<<2) + (ADRESL>>6)));
 "109
 [e ) -> + << -> _ADRESH `i -> 2 `i >> -> _ADRESL `i -> 6 `i `ui ]
-[e $UE 381  ]
+[e $UE 384  ]
 [; ;adc.c: 111: }
 "111
-[e :UE 381 ]
+[e :UE 384 ]
 }
 "113
 [v _ADC_GetConversion `(ui ~T0 @X0 1 ef1`E3529 ]
@@ -3565,25 +3601,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _ADCON0bits 0 1 -> -> 1 `i `uc ]
 [; ;adc.c: 127: while (ADCON0bits.GO_nDONE)
 "127
-[e $U 383  ]
-[e :U 384 ]
+[e $U 386  ]
+[e :U 387 ]
 [; ;adc.c: 128: {
 "128
 {
 "129
 }
-[e :U 383 ]
+[e :U 386 ]
 "127
-[e $ != -> . . _ADCON0bits 0 1 `i -> -> -> 0 `i `Vuc `i 384  ]
-[e :U 385 ]
+[e $ != -> . . _ADCON0bits 0 1 `i -> -> -> 0 `i `Vuc `i 387  ]
+[e :U 388 ]
 [; ;adc.c: 129: }
 [; ;adc.c: 132: return ((adc_result_t)((ADRESH << 8) + ADRESL));
 "132
 [e ) -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `ui ]
-[e $UE 382  ]
+[e $UE 385  ]
 [; ;adc.c: 133: }
 "133
-[e :UE 382 ]
+[e :UE 385 ]
 }
 "136
 [v _ADC_ISR `(v ~T0 @X0 1 ef ]
@@ -3601,5 +3637,5 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _rez_conversie ( _ADC_GetConversionResult ..  ]
 [; ;adc.c: 142: }
 "142
-[e :UE 386 ]
+[e :UE 389 ]
 }

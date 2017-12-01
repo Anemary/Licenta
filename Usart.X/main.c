@@ -207,7 +207,7 @@ void turn_egs()
         printf("AT+CSCS=\"GSM\"");
         putch(0x0d);
        __delay_ms(200);
-         printf("AT+CMGS=\"0757494823\"");
+         printf("AT+CMGS=\"0754514917\"");
          putch(0x0d);
         __delay_ms(600);
         
@@ -432,7 +432,7 @@ void main(void)
     TRISDbits.TRISD2 = 1;   //for the senzor dht11
    
     flag_directie=1;
-    int_gsm();
+   // int_gsm();
     
     //TRISB=0;
     //TRISD=0;
@@ -441,11 +441,34 @@ void main(void)
     float volt;
     LCDInit(1);
     
-    LCDClear();
+    
     
     while (1)
     {
+        if(flag_100_ms==1)
+        {
+            Keyboard_Manager();
+            if (Check_key(BTN_OK_MASK)==1)
+            {
+                LCDClear();
+                LCDWriteString(" btn ok         ");
+            }
+            if (Check_key(BTN_DOWN_MASK)==1)
+            {
+                LCDClear();
+                LCDWriteString(" btn minus       ");
+            }
+            if (Check_key(BTN_UP_MASK)==1)
+            {
+                LCDClear();
+                LCDWriteString(" btn PLUS       ");
+            }
+            
+            flag_100_ms=0;
+        }
        // __delay_ms(300);
+        
+        /*
          if (flag_1000_ms==1)
         {
          TMR1_disable();
@@ -509,7 +532,7 @@ void main(void)
         
        
        
-        
+        */
        
         
     }

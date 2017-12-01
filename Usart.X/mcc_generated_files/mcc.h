@@ -50,10 +50,11 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include "interrupt_manager.h"
-#include "eusart.h"
-#include "adc.h"
 #include "tmr1.h"
+#include "adc.h"
+#include "eusart.h"
 #include "../lcd_hd44780_pic16.h"
+#include "../keyboard.h"
 
 #define _XTAL_FREQ  18432000
 

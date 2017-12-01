@@ -4562,10 +4562,10 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-# 274 "mcc_generated_files/pin_manager.h"
+# 316 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
 
-# 286
+# 328
 void PIN_MANAGER_IOC(void);
 
 # 12 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdbool.h"
@@ -4591,7 +4591,7 @@ TRISD = 0xF4;
 
 # 75
 ANSELB = 0x0F;
-ANSELD = 0xF4;
+ANSELD = 0x14;
 ANSELE = 0x07;
 ANSELA = 0x3F;
 

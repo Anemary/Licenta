@@ -4562,10 +4562,10 @@ extern unsigned char __resetbits;
 extern __bit __powerdown;
 extern __bit __timeout;
 
-# 274 "mcc_generated_files/pin_manager.h"
+# 316 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
 
-# 286
+# 328
 void PIN_MANAGER_IOC(void);
 
 # 13 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdint.h"
@@ -4645,6 +4645,94 @@ typedef unsigned char bool;
 
 # 110 "mcc_generated_files/interrupt_manager.h"
 void interrupt INTERRUPT_InterruptManager(void);
+
+# 63 "mcc_generated_files/tmr1.h"
+extern int flag_1_ms, flag_10_ms, flag_100_ms, flag_500_ms,flag_1000_ms,flag_4000_ms;
+
+# 100
+void TMR1_Initialize(void);
+
+# 129
+void TMR1_StartTimer(void);
+
+# 161
+void TMR1_StopTimer(void);
+
+# 196
+uint16_t TMR1_ReadTimer(void);
+
+# 235
+void TMR1_WriteTimer(uint16_t timerVal);
+
+# 271
+void TMR1_Reload(void);
+
+# 310
+void TMR1_StartSinglePulseAcquisition(void);
+
+# 349
+uint8_t TMR1_CheckGateValueStatus(void);
+
+# 367
+void TMR1_ISR(void);
+
+# 384
+void TMR1_CallBack(void);
+
+# 402
+void TMR1_SetInterruptHandler(void (* InterruptHandler)(void));
+
+# 420
+extern void (*TMR1_InterruptHandler)(void);
+
+# 438
+void TMR1_DefaultInterruptHandler(void);
+
+# 450
+void TMR1_enable(void);
+void TMR1_disable(void);
+
+# 71 "mcc_generated_files/adc.h"
+typedef uint16_t adc_result_t;
+
+# 76
+typedef struct
+{
+adc_result_t adcResult1;
+adc_result_t adcResult2;
+} adc_sync_double_result_t;
+
+# 94
+typedef enum
+{
+channel_AN0 = 0x0,
+channel_Temp = 0x1D,
+channel_DAC = 0x1E,
+channel_FVR = 0x1F
+} adc_channel_t;
+
+extern uint16_t rez_conversie=0;
+
+# 136
+void ADC_Initialize(void);
+
+# 166
+void ADC_SelectChannel(adc_channel_t channel);
+
+# 193
+void ADC_StartConversion();
+
+# 225
+bool ADC_IsConversionDone();
+
+# 258
+adc_result_t ADC_GetConversionResult(void);
+
+# 288
+adc_result_t ADC_GetConversion(adc_channel_t channel);
+
+# 305
+void ADC_ISR(void);
 
 # 4 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\__size_t.h"
 typedef unsigned size_t;
@@ -4730,94 +4818,6 @@ void EUSART_Transmit_ISR(void);
 # 223
 void EUSART_Receive_ISR(void);
 
-# 71 "mcc_generated_files/adc.h"
-typedef uint16_t adc_result_t;
-
-# 76
-typedef struct
-{
-adc_result_t adcResult1;
-adc_result_t adcResult2;
-} adc_sync_double_result_t;
-
-# 94
-typedef enum
-{
-channel_AN0 = 0x0,
-channel_Temp = 0x1D,
-channel_DAC = 0x1E,
-channel_FVR = 0x1F
-} adc_channel_t;
-
-extern uint16_t rez_conversie=0;
-
-# 136
-void ADC_Initialize(void);
-
-# 166
-void ADC_SelectChannel(adc_channel_t channel);
-
-# 193
-void ADC_StartConversion();
-
-# 225
-bool ADC_IsConversionDone();
-
-# 258
-adc_result_t ADC_GetConversionResult(void);
-
-# 288
-adc_result_t ADC_GetConversion(adc_channel_t channel);
-
-# 305
-void ADC_ISR(void);
-
-# 63 "mcc_generated_files/tmr1.h"
-extern int flag_1_ms, flag_10_ms, flag_100_ms, flag_500_ms,flag_1000_ms,flag_4000_ms;
-
-# 100
-void TMR1_Initialize(void);
-
-# 129
-void TMR1_StartTimer(void);
-
-# 161
-void TMR1_StopTimer(void);
-
-# 196
-uint16_t TMR1_ReadTimer(void);
-
-# 235
-void TMR1_WriteTimer(uint16_t timerVal);
-
-# 271
-void TMR1_Reload(void);
-
-# 310
-void TMR1_StartSinglePulseAcquisition(void);
-
-# 349
-uint8_t TMR1_CheckGateValueStatus(void);
-
-# 367
-void TMR1_ISR(void);
-
-# 384
-void TMR1_CallBack(void);
-
-# 402
-void TMR1_SetInterruptHandler(void (* InterruptHandler)(void));
-
-# 420
-extern void (*TMR1_InterruptHandler)(void);
-
-# 438
-void TMR1_DefaultInterruptHandler(void);
-
-# 450
-void TMR1_enable(void);
-void TMR1_disable(void);
-
 # 78 "mcc_generated_files/../lcd_hd44780_pic16.h"
 void LCDInit(uint8_t style);
 void LCDWriteString(const char *msg);
@@ -4831,13 +4831,40 @@ void LCDByte(uint8_t,uint8_t);
 
 void LCDBusyLoop();
 
-# 72 "mcc_generated_files/mcc.h"
+# 23 "mcc_generated_files/../keyboard.h"
+volatile struct strKey_Pressed_{
+unsigned char btnOK:1;
+unsigned char btnUP:1;
+unsigned char btnDOWN:1;
+}strKey_Pressed;
+volatile struct strKey_Released_
+{
+unsigned char btnOK:1;
+unsigned char btnUP:1;
+unsigned char btnDOWN:1;
+}strKey_Released;
+volatile struct strKey_Counts_
+{
+unsigned char btnOK:2;
+unsigned char btnUP:2;
+unsigned char btnDOWN:2;
+}strKey_Counts;
+
+
+
+
+void Check_KeyPressed(void);
+void Check_KeyReleased(void);
+void Keyboard_Manager(void);
+unsigned char Check_key(unsigned char btn_mask);
+
+# 73 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
 
-# 85
+# 86
 void OSCILLATOR_Initialize(void);
 
-# 98
+# 99
 void WDT_Initialize(void);
 
 # 48 "main.c"
@@ -4985,7 +5012,7 @@ static int sms_index=0;
 printf("AT+CSCS=\"GSM\"");
 putch(0x0d);
 _delay((unsigned long)((200)*(18432000/4000.0)));
-printf("AT+CMGS=\"0757494823\"");
+printf("AT+CMGS=\"0754514917\"");
 putch(0x0d);
 _delay((unsigned long)((600)*(18432000/4000.0)));
 
@@ -5165,78 +5192,38 @@ char incubator_state=none;
 TRISDbits.TRISD2 = 1;
 
 flag_directie=1;
-int_gsm();
 
 # 441
 float volt;
 LCDInit(1);
 
-(LCDByte(0b00000001,0));
+
 
 while (1)
 {
-
-if (flag_1000_ms==1)
+if(flag_100_ms==1)
 {
-TMR1_disable();
-StartSignal();
-CheckResponse();
-if(Check == 1)
+Keyboard_Manager();
+if (Check_key(0b01000000)==1)
 {
-DHT_result();
-
-;
-}
-ADC_StartConversion();
-volt=(rez_conversie*4.887)/1.492;
-
-temp=comparare(volt);
-if (temp<300)
-
-LATCbits.LATC2=1;
-else
-LATCbits.LATC2=0;
 (LCDByte(0b00000001,0));
-(LCDByte(0xB0,0));
-LCDWriteString("Temper=  ");
-
-LCDWriteInt(temp,3);
-(LCDByte(0xC0,0));
-LCDWriteString("Umid=  ");
-
-LCDWriteInt(umiditate,3);
-
-flag_1000_ms=0;
-TMR1_enable();
-
+LCDWriteString(" btn ok         ");
 }
-
-
-
-if (flag_G==1)
+if (Check_key(0b00100000)==1)
 {
-if (flag_N==1)
+(LCDByte(0b00000001,0));
+LCDWriteString(" btn minus       ");
+}
+if (Check_key(0b10000000)==1)
 {
-
-turn_egs();
-
+(LCDByte(0b00000001,0));
+LCDWriteString(" btn PLUS       ");
 }
 
+flag_100_ms=0;
 }
 
-if (flag_A==1)
-{
-if (flag_B==1)
-{
-
-sms_text();
-
-
-}
-
-}
-
-# 515
+# 538
 }
 
 
