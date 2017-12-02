@@ -55,7 +55,9 @@
 #include "eusart.h"
 #include "../lcd_hd44780_pic16.h"
 #include "../keyboard.h"
-
+#include "../gsm.h"
+#include "../dht11.h"
+#include "../step_motor.h"
 #define _XTAL_FREQ  18432000
 
 
