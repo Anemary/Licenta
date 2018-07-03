@@ -20,7 +20,7 @@ void Check_KeyPressed(void)
     
     if((PORTD & BTN_OK_MASK)==0)  //if key is pressed
     {
-        if(strKey_Counts.btnOK<3)
+        if(strKey_Counts.btnOK<3) 
         strKey_Counts.btnOK++; 
     }
     else if(((PORTD & BTN_OK_MASK)!=0)&&(strKey_Counts.btnOK<3))   //if an bouncing effect has been detected reset the button counter

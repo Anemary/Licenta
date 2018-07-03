@@ -13,7 +13,7 @@
   Description:
     This header file provides implementations for pin APIs for all pins selected in the GUI.
     Generation Information :
-        Product Revision  :  MPLAB(c) Code Configurator - 4.26
+        Product Revision  :  MPLAB(c) Code Configurator - 4.26.2
         Device            :  PIC16F1937
         Driver Version    :  1.02
     The generated drivers are tested against the following:
@@ -64,7 +64,7 @@ void PIN_MANAGER_Initialize(void)
     TRISx registers
     */    
     TRISE = 0x0F;
-    TRISA = 0xFF;
+    TRISA = 0xEF;
     TRISB = 0x00;
     TRISC = 0x86;
     TRISD = 0xF4;
@@ -75,7 +75,7 @@ void PIN_MANAGER_Initialize(void)
     ANSELB = 0x0F;
     ANSELD = 0x10;
     ANSELE = 0x07;
-    ANSELA = 0x3F;
+    ANSELA = 0x2F;
 
     /**
     WPUx registers

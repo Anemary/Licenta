@@ -67,7 +67,7 @@
 
 #include "mcc.h"
 
-void SYSTEM_Initialize(void)
+  void SYSTEM_Initialize(void)
 {
 
     PIN_MANAGER_Initialize();

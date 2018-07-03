@@ -51,5 +51,6 @@ void DHT_result(void)
                           }
             int x=RH_byte1;
             umiditate=RH_byte1;
+           // umiditate=T_byte1;
             
 }

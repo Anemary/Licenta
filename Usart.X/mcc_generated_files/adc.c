@@ -61,6 +61,8 @@
   Section: ADC Module APIs
 */
 uint16_t rez_conversie;
+ uint16_t rez;
+ 
 void ADC_Initialize(void)
 {
     // set the ADC to the options selected in the User Interface
@@ -68,15 +70,15 @@ void ADC_Initialize(void)
     // GO_nDONE stop; ADON enabled; CHS AN0; 
     ADCON0 = 0x01;
     
-    // ADFM left; ADNREF VSS; ADPREF VDD; ADCS FOSC/64; 
-    ADCON1 = 0x60;
+    // ADFM left; ADNREF VSS; ADPREF FVR; ADCS FOSC/4; 
+    ADCON1 = 0x43;
     
     // ADRESL 0; 
     ADRESL = 0x00;
     
     // ADRESH 0; 
     ADRESH = 0x00;
-    
+    FVRCON=0b01001010;
     // Enabling ADC interrupt.
     PIE1bits.ADIE = 1;
 }
@@ -129,7 +131,9 @@ adc_result_t ADC_GetConversion(adc_channel_t channel)
     }
 
     // Conversion finished, return the result
-    return ((adc_result_t)((ADRESH << 8) + ADRESL));
+    //return ((adc_result_t)((ADRESH << 8) + ADRESL));
+    return ((adc_result_t)((ADRESH<<2)  + (ADRESL>>6)));
+    
 }
 
 
@@ -137,11 +141,26 @@ void ADC_ISR(void)
 {
     // Clear the ADC interrupt flag
     PIR1bits.ADIF = 0;
-    rez_conversie=ADC_GetConversionResult();
-  //  ADC_StartConversion();
+  //  rez_conversie=ADC_GetConversionResult();
+    //ADC_StartConversion();
 }
 
-
+ uint16_t ADC_conversii(void )
+{
+    uint16_t rezultat;
+    uint16_t temper=0;
+    for (int i=0; i<10;i++)
+    {
+    ADC_StartConversion();
+    rezultat=ADC_GetConversion(0);
+   
+    temper=temper+rezultat;
+   // rezultat=0;
+    
+    }
+    rez=temper/10;
+    return rez;
+}
 /**
  End of File
 */

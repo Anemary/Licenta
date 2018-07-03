@@ -50,9 +50,17 @@
 #define releu LATDbits.LATD4
 
 
-
+extern int flag_on;
+ 
+ char val;
+  int valoare;
+  int test_eeprom;
+ uint16_t supplay_security;
 extern char txt_receive[];
-
+int temp_setata=37;
+int virgula_temp_setata;
+char temp_real,temp_virgula,temp_real1,temp_virgula1;
+volatile unsigned char menu_flag=0;
 /*
                          Main application
  */
@@ -60,8 +68,27 @@ extern char txt_receive[];
 //FUNCTII PENTRU LCD
 
 
+void write_eeprom_int32(unsigned char addr, unsigned int data)
+{
+    eeprom_write(addr, data & 0xFF);
+    eeprom_write(addr + 1, (data >> 8) & 0xFF);
+    eeprom_write(addr + 2, (data >> 16) & 0xFF);
+    eeprom_write(addr + 3, (data >> 24) & 0xFF);
+}
 
+uint32_t read_eeprom_int32(unsigned char addr)
+{
+    uint32_t result;
 
+    result = eeprom_read(addr + 3);
+    result <<= 8;
+    result += eeprom_read(addr + 2);
+    result <<= 8;
+    result += eeprom_read(addr + 1);
+    result <<= 8;
+    result += eeprom_read(addr);
+    return result;
+}
     
 
 
@@ -104,18 +131,170 @@ struct incubaator
     int id_tip;
         }
 ;
+void afisare_inf_lcd()
+{
+    //LCDClear();
+       LCD_Init_apdatat();
+       temp_virgula=temp%10;
+       temp_real=temp/10;
+       temp_virgula=temp_virgula;
+       LCDCmd(0xB0);
+       LCDWriteStringXY(0,0,"Temp=");
+       LCDWriteInt(temp_real,2);
+       LCDWriteString(".");
+       LCDWriteInt(temp_virgula,1);
+       LCDWriteString("C ");
+       LCDCmd(0xC0);
+      LCDWriteString("Umid=");
+      // LCDWriteStringXY(1,1,"UMIDITATE=");
+       LCDWriteInt(umiditate,3);
+    // LCDWriteInt(step_nr,3);
+         
+      //  __delay_ms(3);
+}
+
+/*
+void state_of_button()
+{
+ 
+ if (Check_key(BTN_OK_MASK)==1)
+            {
+     do 
+                
+     {
+                
+               
+                    if (Check_key(BTN_UP_MASK)==1)
+                    {
+                        
+                        temp_setata++;
+                        
+                    }
+                    if (Check_key(BTN_DOWN_MASK)==1)
+                       {
+                        //LCDClear();
+                        temp_setata--;
+                        
+                    }
+                    LCDClear();
+                    LCDWriteString("setare temp=");
+                    LCDWriteInt(temp_setata,3);
+                 //if (Check_key(BTN_OK_MASK)==1)
+                 //   afisare_inf_lcd();
+                
+     }while(Check_key(BTN_OK_MASK)==0);   
+         afisare_inf_lcd();            
+            }
+}
+*/
+void setare_temperatura()
+{
+    
+    //LCDClear();
+     LCD_Init_apdatat();
+    // LCDWriteInt(flag_directie_read,1);
+     LCDWriteString(" Temp setat este");
+     /*
+      LCDWriteString("F dir " );
+      LCDWriteInt(flag_directie,1);
+      LCDCmd(0xC0);
+        */
+     
+     
+     //afisare eeprom
+     /*
+       LCDCmd(0xC0);
+       LCDWriteString("eeprom");
+       LCDWriteInt(valoare,4);
+       */
+     LCDCmd(0xC0);
+   
+     LCDWriteInt(step_nr,3);
+     
+     
+     
+     LCDCmd(0xC0);
+
+    
+     LCDWriteString("   ");
+     LCDWriteInt(temp_setata,2);
+     LCDWriteString(".");
+     LCDWriteInt(virgula_temp_setata,1);
+     LCDWriteString("C"); 
+     //LCDWriteString(".");
+    // LCDWriteInt(temp_virgula1,1);
+    
+     __delay_ms(3);
+}
+void state_of_button()
+{
+   if (Check_key(BTN_OK_MASK)==1)
+   {
+       flag_directie=eeprom_read(0x00);
+       LCD_Init_apdatat();
+       LCDWriteString(" Intoarcere oua!");
+        LCDCmd(0xC0);
+   
+     LCDWriteInt(step_nr,3);
+       turn_egs();
+       eeprom_write(0x00,flag_directie);
+      //write_eeprom_int32(0x01,350);
+	   menu_flag=~menu_flag;
+        
+	
+   }
+   else if((menu_flag==0)&(Check_key(BTN_UP_MASK)==1))
+	{
+       
+      
+      //incrementare temp
+		virgula_temp_setata++; 
+        if (virgula_temp_setata==10)
+       {
+           virgula_temp_setata=0;
+           temp_setata++;
+       }
+        
+	}
+		else if((menu_flag==0)&(Check_key(BTN_DOWN_MASK)==1))
+	{
+            //decrementare temp
+            virgula_temp_setata--; 
+            if (virgula_temp_setata==-1)
+       {
+           virgula_temp_setata=9;
+           temp_setata--;
+       }
+		 
+      
+	}
+   if (menu_flag!=0 )
+		{
+			
+			afisare_inf_lcd();
+             
+			
+		}
+		else if(menu_flag==0)
+		{
+			
+		setare_temperatura();
+			
+		}
+   
+}
+int btn=20;
+
 
 void main(void)
 {
     char x=0;
-    
+    int flag_scriere=0,flag_citire=0;
     // initialize the device
     SYSTEM_Initialize();
     TRISCbits.TRISC2=0; // set as output for the sourse of heater
+     TRISCbits.TRISC1=0; // set as output for the FAN
     ADC_StartConversion();
-   
-    
-  
     // When using interrupts, you need to set the Global and Peripheral Interrupt Enable bits
     // Use the following macros to:
    
@@ -131,42 +310,68 @@ void main(void)
     // Disable the Peripheral Interrupts
    // INTERRUPT_PeripheralInterruptDisable();
     
-    flag_directie=1;
-    int_gsm();
-    float volt;
+    
+    
+    float volt,volt1,volt2;
+    
     LCDInit(1);
+    LCD_Init_apdatat();
+    flag_directie_read=eeprom_read(0x00);
+    step_nr=read_eeprom_int32(0x01);
+    
+    if((flag_directie_read!=0)&&(flag_directie_read!=1))
+    {
+       
+        flag_directie=1;
+        eeprom_write(0x00,flag_directie);
+       
+    }
+    else 
+        
+        flag_directie=eeprom_read(0x00);
+   if (step_nr==-1)
+   {
+       step_nr=0;
+   }
+   else 
+       step_nr=read_eeprom_int32(0x01);
+    if (step_nr)
+    {
+        turn_egs();
+    }
+   
+  //  turn_egs();
+    LCDWriteString("   Wait for  ");
+     LCDCmd(0xC0);
+     LCDWriteString("   initialize  ");
+      int_gsm();
+    __delay_ms(3000);
+    // LCDCmd(0xB0);
     
     
     
     while (1)
-    {/*
-        if(flag_100_ms==1)
-        {
-            Keyboard_Manager();
-            if (Check_key(BTN_OK_MASK)==1)
-            {
-                LCDClear();
-                LCDWriteString(" btn ok         ");
-            }
-            if (Check_key(BTN_DOWN_MASK)==1)
-            {
-                LCDClear();
-                LCDWriteString(" btn minus       ");
-            }
-            if (Check_key(BTN_UP_MASK)==1)
-            {
-                LCDClear();
-                LCDWriteString(" btn PLUS       ");
-            }
-            
-            flag_100_ms=0;
-        }
-       */
-        //__delay_ms(300);
+    {
         
+         LATCbits.LATC1=1;  //ventilator
+       
+        
+         supplay_security=ADC_GetConversion(1); 
+           
+         if( (supplay_security<200)&& (flag_on==0))
+           {
+               flag_on=1;
+               
+             eeprom_write(0x00,flag_directie);
+             //write_eeprom_int32(0x01, step_nr);
+           }     
+      
         
          if (flag_1000_ms==1)
         {
+        
+        LCDClear();
+        
          TMR1_disable();
          StartSignal();
          CheckResponse();
@@ -176,37 +381,97 @@ void main(void)
         
         }
         ADC_StartConversion();
-        volt=(rez_conversie*4.887)/1.492;
+       // volt=(rez_conversie*4.887)/0.5;
+        
+       // rez=ADC_conversii();
+          //volt=(ADC_GetConversion(0)*1.97)/0.555;
+        volt=(ADC_conversii()*1.97)/0.555;
+       //  volt=(rez_conversie*1.97)/0.5; 
+       // volt1=(rez_conversie*1.97)/0.5;
+      //  volt2=(rez_conversie*1.97)/0.5;
        // volt=(rez_conversie*4.7461)/1.533;
        temp=comparare(volt);//conversie rezistenta->temperatura
-       if (temp<300)
-        
-            LATCbits.LATC2=1;
-        else 
-            LATCbits.LATC2=0;
-        LCDClear();
-        LCDCmd(0xB0);
-        LCDWriteString("Temper=  ");
-         // LCDGotoXY(9,1);
-        LCDWriteInt(temp,3);
-        LCDCmd(0xC0);
-        LCDWriteString("Umid=  ");
-         // LCDGotoXY(9,2);
-        LCDWriteInt(umiditate,3);
+      // temp=temp+comparare(volt1)+comparare(volt2);
+       //temp=temp/3;
          
+       if (temp<(temp_setata-10))
+       {
+            LATCbits.LATC2=1;
+            //LATCbits.LATC1=1;
+       }
+       else if(temp>(temp_setata+10))
+       {
+           LATCbits.LATC2=0;
+          // LATCbits.LATC1=0;
+       }
+       if (umiditate<50)
+           LATAbits.LATA4=1;
+            
+        else 
+            LATAbits.LATA4=0;
+       
         flag_1000_ms=0;
         TMR1_enable(); 
-        
+        state_of_button();
         }
-        command_turn();
-        check_status_incubator();
         
         
+         
+         if (flag_100_ms==1)
+        {
+            
+            Keyboard_Manager();
+            
+            flag_100_ms==0;
+         }
+          // flag_directie_read=eeprom_read(0x00);
+     command_turn();
+     check_status_incubator();
   
+       
+        
+        
+        
+        
+        //TEST VERIFICARE SCRIERE IN EEPROM
+    /*
+        LCDClear();
+        
+        if( (supplay_security<200)&& (flag_on==0))
+           {
+               flag_on=1;
+               
+             //eeprom_write(0x00,flag_directie);
+             write_eeprom_int32(0x07, 1112);
+           }
+        
+        
+        if(flag_scriere==0)
+        {
+            write_eeprom_int32(0x10,9573);
+            //eeprom_write(0x03,12);
+              flag_scriere=1;
+        }
+         
+       
+       // if(flag_citire==0)
+       // {
+            test_eeprom=read_eeprom_int32(0x10);
+            
+            //  test_eeprom=eeprom_read(0x03);
+         //     flag_citire=1;
+      //  }
+       LCDWriteString("VAl eprom");
+       LCDWriteInt(test_eeprom,4);
+       LCDCmd(0xC0);
+        LCDWriteString("VAl eprom");
+         LCDWriteInt(read_eeprom_int32(0x07),4);
+        __delay_ms(1000);
+       */
     }
-      
-    
-        return;
+  
+
+        return;  
 }
 
 /**

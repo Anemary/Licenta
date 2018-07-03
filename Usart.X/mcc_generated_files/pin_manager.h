@@ -13,7 +13,7 @@
   @Description:
     This header file provides implementations for pin APIs for all pins selected in the GUI.
     Generation Information :
-        Product Revision  :  MPLAB(c) Code Configurator - 4.26
+        Product Revision  :  MPLAB(c) Code Configurator - 4.26.2
         Device            :  PIC16F1937
         Version           :  1.01
     The generated drivers are tested against the following:
@@ -72,6 +72,34 @@
 #define channel_AN0_SetDigitalOutput()   do { TRISAbits.TRISA0 = 0; } while(0)
 #define channel_AN0_SetAnalogMode()  do { ANSELAbits.ANSA0 = 1; } while(0)
 #define channel_AN0_SetDigitalMode() do { ANSELAbits.ANSA0 = 0; } while(0)
+
+// get/set channel_AN1 aliases
+#define channel_AN1_TRIS               TRISAbits.TRISA1
+#define channel_AN1_LAT                LATAbits.LATA1
+#define channel_AN1_PORT               PORTAbits.RA1
+#define channel_AN1_ANS                ANSELAbits.ANSA1
+#define channel_AN1_SetHigh()            do { LATAbits.LATA1 = 1; } while(0)
+#define channel_AN1_SetLow()             do { LATAbits.LATA1 = 0; } while(0)
+#define channel_AN1_Toggle()             do { LATAbits.LATA1 = ~LATAbits.LATA1; } while(0)
+#define channel_AN1_GetValue()           PORTAbits.RA1
+#define channel_AN1_SetDigitalInput()    do { TRISAbits.TRISA1 = 1; } while(0)
+#define channel_AN1_SetDigitalOutput()   do { TRISAbits.TRISA1 = 0; } while(0)
+#define channel_AN1_SetAnalogMode()  do { ANSELAbits.ANSA1 = 1; } while(0)
+#define channel_AN1_SetDigitalMode() do { ANSELAbits.ANSA1 = 0; } while(0)
+
+// get/set IO_RA4 aliases
+#define IO_RA4_TRIS               TRISAbits.TRISA4
+#define IO_RA4_LAT                LATAbits.LATA4
+#define IO_RA4_PORT               PORTAbits.RA4
+#define IO_RA4_ANS                ANSELAbits.ANSA4
+#define IO_RA4_SetHigh()            do { LATAbits.LATA4 = 1; } while(0)
+#define IO_RA4_SetLow()             do { LATAbits.LATA4 = 0; } while(0)
+#define IO_RA4_Toggle()             do { LATAbits.LATA4 = ~LATAbits.LATA4; } while(0)
+#define IO_RA4_GetValue()           PORTAbits.RA4
+#define IO_RA4_SetDigitalInput()    do { TRISAbits.TRISA4 = 1; } while(0)
+#define IO_RA4_SetDigitalOutput()   do { TRISAbits.TRISA4 = 0; } while(0)
+#define IO_RA4_SetAnalogMode()  do { ANSELAbits.ANSA4 = 1; } while(0)
+#define IO_RA4_SetDigitalMode() do { ANSELAbits.ANSA4 = 0; } while(0)
 
 // get/set IO_RB0 aliases
 #define IO_RB0_TRIS               TRISBbits.TRISB0

@@ -8,10 +8,32 @@ Version 3.2 HI-TECH Software Intermediate Code
 "34
 [s S379 :2 `uc 1 :2 `uc 1 :2 `uc 1 ]
 [n S379 strKey_Counts_ btnOK btnUP btnDOWN ]
+"114 C:\Program Files (x86)\Microchip\xc8\v1.44\include\eeprom_routines.h
+[v _eeprom_write `(v ~T0 @X0 0 ef2`uc`uc ]
+"115
+[v _eeprom_read `(uc ~T0 @X0 0 ef1`uc ]
+"83 mcc_generated_files/../lcd_hd44780_pic16.h
+[v _LCD_Init_apdatat `(v ~T0 @X0 0 ef ]
+"86
+[v _LCDByte `(v ~T0 @X0 0 ef2`uc`uc ]
+"81
+[v _LCDGotoXY `(v ~T0 @X0 0 ef2`uc`uc ]
+"79
+[v _LCDWriteString `(v ~T0 @X0 0 ef1`*Cuc ]
+"80
+[v _LCDWriteInt `(v ~T0 @X0 0 ef2`i`c ]
+[v F3491 `(v ~T0 @X0 1 tf1`ul ]
+"153 C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic.h
+[v __delay `JF3491 ~T0 @X0 0 e ]
+[p i __delay ]
+"47 mcc_generated_files/../keyboard.h
+[v _Check_key `(uc ~T0 @X0 0 ef1`uc ]
+"34 mcc_generated_files/../step_motor.h
+[v _turn_egs `(v ~T0 @X0 0 ef ]
 [p mainexit ]
 "75 mcc_generated_files/mcc.h
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
-"1435 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1937.h
+"1435 C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic16f1937.h
 [s S74 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S74 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
 "1434
@@ -19,9 +41,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S73 . . ]
 "1446
 [v _TRISCbits `VS73 ~T0 @X0 0 e@142 ]
-"193 mcc_generated_files/adc.h
+"194 mcc_generated_files/adc.h
 [v _ADC_StartConversion `(v ~T0 @X0 0 ef ]
-"355 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1937.h
+"355 C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic16f1937.h
 [s S26 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S26 . IOCIF INTF TMR0IF IOCIE INTE TMR0IE PEIE GIE ]
 "365
@@ -32,10 +54,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S25 . . . ]
 "372
 [v _INTCONbits `VS25 ~T0 @X0 0 e@11 ]
-"22 mcc_generated_files/../gsm.h
-[v _int_gsm `(v ~T0 @X0 0 ef ]
 "78 mcc_generated_files/../lcd_hd44780_pic16.h
 [v _LCDInit `(v ~T0 @X0 0 ef1`uc ]
+"22 mcc_generated_files/../gsm.h
+[v _int_gsm `(v ~T0 @X0 0 ef ]
+"2479 C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic16f1937.h
+[s S118 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S118 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
+"2478
+[u S117 `S118 1 ]
+[n S117 . . ]
+"2490
+[v _LATCbits `VS117 ~T0 @X0 0 e@270 ]
+"359 main.c
+[c E3581 0 1 29 30 31 .. ]
+[n E3581 . channel_AN0 channel_AN1 channel_Temp channel_DAC channel_FVR  ]
+"289 mcc_generated_files/adc.h
+[v _ADC_GetConversion `(ui ~T0 @X0 0 ef1`E3581 ]
 "63 mcc_generated_files/tmr1.h
 [v _flag_1000_ms `i ~T0 @X0 0 e ]
 "451
@@ -46,23 +81,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _CheckResponse `(v ~T0 @X0 0 ef ]
 "27
 [v _DHT_result `(v ~T0 @X0 0 ef ]
-"2479 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1937.h
-[s S118 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S118 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
-"2478
-[u S117 `S118 1 ]
-[n S117 . . ]
-"2490
-[v _LATCbits `VS117 ~T0 @X0 0 e@270 ]
-"84 mcc_generated_files/../lcd_hd44780_pic16.h
-[v _LCDByte `(v ~T0 @X0 0 ef2`uc`uc ]
-"79
-[v _LCDWriteString `(v ~T0 @X0 0 ef1`*Cuc ]
-"80
-[v _LCDWriteInt `(v ~T0 @X0 0 ef2`i`c ]
+"307 mcc_generated_files/adc.h
+[v _ADC_conversii `(ui ~T0 @X0 0 ef ]
+"2355 C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic16f1937.h
+[s S114 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S114 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
+"2354
+[u S113 `S114 1 ]
+[n S113 . . ]
+"2366
+[v _LATAbits `VS113 ~T0 @X0 0 e@268 ]
 "450 mcc_generated_files/tmr1.h
 [v _TMR1_enable `(v ~T0 @X0 0 ef ]
-"31 mcc_generated_files/../step_motor.h
+"63
+[v _flag_100_ms `i ~T0 @X0 0 e ]
+"46 mcc_generated_files/../keyboard.h
+[v _Keyboard_Manager `(v ~T0 @X0 0 ef ]
+"35 mcc_generated_files/../step_motor.h
 [v _command_turn `(v ~T0 @X0 0 ef ]
 "24 mcc_generated_files/../gsm.h
 [v _check_status_incubator `(v ~T0 @X0 0 ef ]
@@ -70,7 +105,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic16f1937.h: 50: extern volatile unsigned char INDF0 @ 0x000;
-"52 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1937.h
+"52 C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic16f1937.h
 [; ;pic16f1937.h: 52: asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
 [; ;pic16f1937.h: 55: typedef union {
@@ -3335,42 +3370,48 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic16f1937.h: 9283: extern volatile __bit nT1SYNC @ (((unsigned) &T1CON)*8) + 2;
 [; ;pic16f1937.h: 9285: extern volatile __bit nTO @ (((unsigned) &STATUS)*8) + 4;
 [; ;pic16f1937.h: 9287: extern volatile __bit nWPUEN @ (((unsigned) &OPTION_REG)*8) + 7;
-[; ;pic.h: 28: extern void __nop(void);
-[; ;pic.h: 77: extern unsigned int flash_read(unsigned short addr);
+[; ;pic.h: 29: extern void __nop(void);
+[; ;pic.h: 78: extern unsigned int flash_read(unsigned short addr);
 [; ;eeprom_routines.h: 114: extern void eeprom_write(unsigned char addr, unsigned char value);
 [; ;eeprom_routines.h: 115: extern unsigned char eeprom_read(unsigned char addr);
 [; ;eeprom_routines.h: 116: extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 [; ;eeprom_routines.h: 117: extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
-[; ;pic.h: 152: extern __nonreentrant void _delay(unsigned long);
-[; ;pic.h: 154: extern __nonreentrant void _delaywdt(unsigned long);
-[; ;pic.h: 157: extern __nonreentrant void _delay3(unsigned char);
-[; ;pic.h: 192: extern unsigned char __resetbits;
-[; ;pic.h: 193: extern __bit __powerdown;
-[; ;pic.h: 194: extern __bit __timeout;
-[; ;pin_manager.h: 374: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 386: void PIN_MANAGER_IOC(void);
+[; ;pic.h: 153: extern __nonreentrant void _delay(unsigned long);
+[; ;pic.h: 155: extern __nonreentrant void _delaywdt(unsigned long);
+[; ;pic.h: 158: extern __nonreentrant void _delay3(unsigned char);
+[; ;pic.h: 193: extern __bank0 unsigned char __resetbits;
+[; ;pic.h: 194: extern __bank0 __bit __powerdown;
+[; ;pic.h: 195: extern __bank0 __bit __timeout;
+[; ;pin_manager.h: 402: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 414: void PIN_MANAGER_IOC(void);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 38: typedef signed long int int32_t;
-[; ;stdint.h: 45: typedef unsigned char uint8_t;
-[; ;stdint.h: 51: typedef unsigned int uint16_t;
-[; ;stdint.h: 67: typedef unsigned long int uint32_t;
-[; ;stdint.h: 75: typedef signed char int_least8_t;
-[; ;stdint.h: 82: typedef signed int int_least16_t;
-[; ;stdint.h: 104: typedef signed long int int_least32_t;
-[; ;stdint.h: 111: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 117: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 136: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 145: typedef signed char int_fast8_t;
-[; ;stdint.h: 152: typedef signed int int_fast16_t;
-[; ;stdint.h: 174: typedef signed long int int_fast32_t;
-[; ;stdint.h: 181: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 187: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 206: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 212: typedef int32_t intmax_t;
-[; ;stdint.h: 217: typedef uint32_t uintmax_t;
-[; ;stdint.h: 222: typedef int16_t intptr_t;
-[; ;stdint.h: 227: typedef uint16_t uintptr_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;interrupt_manager.h: 110: void interrupt INTERRUPT_InterruptManager(void);
 [; ;tmr1.h: 63: extern int flag_1_ms, flag_10_ms, flag_100_ms, flag_500_ms,flag_1000_ms,flag_4000_ms;
@@ -3398,23 +3439,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.h: 94: typedef enum
 [; ;adc.h: 95: {
 [; ;adc.h: 96: channel_AN0 = 0x0,
-[; ;adc.h: 97: channel_Temp = 0x1D,
-[; ;adc.h: 98: channel_DAC = 0x1E,
-[; ;adc.h: 99: channel_FVR = 0x1F
-[; ;adc.h: 100: } adc_channel_t;
-"102 mcc_generated_files/adc.h
+[; ;adc.h: 97: channel_AN1 = 0x1,
+[; ;adc.h: 98: channel_Temp = 0x1D,
+[; ;adc.h: 99: channel_DAC = 0x1E,
+[; ;adc.h: 100: channel_FVR = 0x1F
+[; ;adc.h: 101: } adc_channel_t;
+"103 mcc_generated_files/adc.h
 [v _rez_conversie `ui ~T0 @X0 1 e ]
 [i _rez_conversie
 -> -> 0 `i `ui
 ]
-[; ;adc.h: 102: extern uint16_t rez_conversie=0;
-[; ;adc.h: 136: void ADC_Initialize(void);
-[; ;adc.h: 166: void ADC_SelectChannel(adc_channel_t channel);
-[; ;adc.h: 193: void ADC_StartConversion();
-[; ;adc.h: 225: bool ADC_IsConversionDone();
-[; ;adc.h: 258: adc_result_t ADC_GetConversionResult(void);
-[; ;adc.h: 288: adc_result_t ADC_GetConversion(adc_channel_t channel);
-[; ;adc.h: 305: void ADC_ISR(void);
+[; ;adc.h: 103: extern uint16_t rez_conversie=0;
+[; ;adc.h: 137: void ADC_Initialize(void);
+[; ;adc.h: 167: void ADC_SelectChannel(adc_channel_t channel);
+[; ;adc.h: 194: void ADC_StartConversion();
+[; ;adc.h: 226: bool ADC_IsConversionDone();
+[; ;adc.h: 259: adc_result_t ADC_GetConversionResult(void);
+[; ;adc.h: 289: adc_result_t ADC_GetConversion(adc_channel_t channel);
+[; ;adc.h: 306: void ADC_ISR(void);
+[; ;adc.h: 307: uint16_t ADC_conversii(void );
 [; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
@@ -3458,8 +3501,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lcd_hd44780_pic16.h: 79: void LCDWriteString(const char *msg);
 [; ;lcd_hd44780_pic16.h: 80: void LCDWriteInt(int val,int8_t field_length);
 [; ;lcd_hd44780_pic16.h: 81: void LCDGotoXY(uint8_t x,uint8_t y);
-[; ;lcd_hd44780_pic16.h: 84: void LCDByte(uint8_t,uint8_t);
-[; ;lcd_hd44780_pic16.h: 88: void LCDBusyLoop();
+[; ;lcd_hd44780_pic16.h: 82: void before_init_lcd();
+[; ;lcd_hd44780_pic16.h: 83: void LCD_Init_apdatat();
+[; ;lcd_hd44780_pic16.h: 84: void Lcd_CmdWrite(char cmd);
+[; ;lcd_hd44780_pic16.h: 86: void LCDByte(uint8_t,uint8_t);
+[; ;lcd_hd44780_pic16.h: 90: void LCDBusyLoop();
 "27 mcc_generated_files/../keyboard.h
 [v _strKey_Pressed `VS377 ~T0 @X0 1 e ]
 [; ;keyboard.h: 23: volatile struct strKey_Pressed_{
@@ -3517,30 +3563,159 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;dht11.h: 23: void CheckResponse(void);
 [; ;dht11.h: 25: char ReadData(void);
 [; ;dht11.h: 27: void DHT_result(void);
-"29 mcc_generated_files/../step_motor.h
+"28 mcc_generated_files/../step_motor.h
+[v _step_nr `ui ~T0 @X0 1 e ]
+[i _step_nr
+-> -> 0 `i `ui
+]
+[; ;step_motor.h: 28: extern unsigned int step_nr=0;
+[; ;step_motor.h: 29: extern uint16_t supplay_security;
+"30
+[v _flag_on `i ~T0 @X0 1 e ]
+[i _flag_on
+-> 0 `i
+]
+[; ;step_motor.h: 30: extern int flag_on=0;
+"31
+[v _flag_step `i ~T0 @X0 1 e ]
+[i _flag_step
+-> 0 `i
+]
+[; ;step_motor.h: 31: extern int flag_step=0;
+"32
 [v _flag_directie `i ~T0 @X0 1 e ]
-[; ;step_motor.h: 29: int flag_directie;
-[; ;step_motor.h: 30: void turn_egs(void);
-[; ;step_motor.h: 31: void command_turn(void);
+[; ;step_motor.h: 32: int flag_directie;
+"33
+[v _flag_directie_read `i ~T0 @X0 1 e ]
+[; ;step_motor.h: 33: int flag_directie_read;
+[; ;step_motor.h: 34: void turn_egs(void);
+[; ;step_motor.h: 35: void command_turn(void);
+[; ;step_motor.h: 36: void write_eeprom_int32(unsigned char addr, unsigned int data);
+[; ;step_motor.h: 37: uint32_t read_eeprom_int32(unsigned char addr);
 [; ;mcc.h: 75: void SYSTEM_Initialize(void);
 [; ;mcc.h: 88: void OSCILLATOR_Initialize(void);
 [; ;mcc.h: 101: void WDT_Initialize(void);
-[; ;main.c: 54: extern char txt_receive[];
-"69 main.c
-[v _comparare `(i ~T0 @X0 1 ef1`i ]
-"70
-{
-[; ;main.c: 69: int comparare(int resistor_value)
-[; ;main.c: 70: {
-[e :U _comparare ]
-"69
-[v _resistor_value `i ~T0 @X0 1 r1 ]
-"70
-[f ]
-[v F3749 `ui ~T0 @X0 -> 0 `x s ]
-[i F3749
-:U ..
+[; ;main.c: 53: extern int flag_on;
+"55 main.c
+[v _val `uc ~T0 @X0 1 e ]
+[; ;main.c: 55: char val;
+"56
+[v _valoare `i ~T0 @X0 1 e ]
+[; ;main.c: 56: int valoare;
+"57
+[v _test_eeprom `i ~T0 @X0 1 e ]
+[; ;main.c: 57: int test_eeprom;
+"58
+[v _supplay_security `ui ~T0 @X0 1 e ]
+[; ;main.c: 58: uint16_t supplay_security;
+[; ;main.c: 59: extern char txt_receive[];
+"60
+[v _temp_setata `i ~T0 @X0 1 e ]
+[i _temp_setata
+-> 37 `i
+]
+[; ;main.c: 60: int temp_setata=37;
+"61
+[v _virgula_temp_setata `i ~T0 @X0 1 e ]
+[; ;main.c: 61: int virgula_temp_setata;
+"62
+[v _temp_real `uc ~T0 @X0 1 e ]
+[v _temp_virgula `uc ~T0 @X0 1 e ]
+[v _temp_real1 `uc ~T0 @X0 1 e ]
+[v _temp_virgula1 `uc ~T0 @X0 1 e ]
+[; ;main.c: 62: char temp_real,temp_virgula,temp_real1,temp_virgula1;
+"63
+[v _menu_flag `Vuc ~T0 @X0 1 e ]
+[i _menu_flag
+-> -> 0 `i `uc
+]
+[; ;main.c: 63: volatile unsigned char menu_flag=0;
 "71
+[v _write_eeprom_int32 `(v ~T0 @X0 1 ef2`uc`ui ]
+"72
+{
+[; ;main.c: 71: void write_eeprom_int32(unsigned char addr, unsigned int data)
+[; ;main.c: 72: {
+[e :U _write_eeprom_int32 ]
+"71
+[v _addr `uc ~T0 @X0 1 r1 ]
+[v _data `ui ~T0 @X0 1 r2 ]
+"72
+[f ]
+[; ;main.c: 73: eeprom_write(addr, data & 0xFF);
+"73
+[e ( _eeprom_write (2 , _addr -> & _data -> -> 255 `i `ui `uc ]
+[; ;main.c: 74: eeprom_write(addr + 1, (data >> 8) & 0xFF);
+"74
+[e ( _eeprom_write (2 , -> + -> _addr `i -> 1 `i `uc -> & >> _data -> 8 `i -> -> 255 `i `ui `uc ]
+[; ;main.c: 75: eeprom_write(addr + 2, (data >> 16) & 0xFF);
+"75
+[e ( _eeprom_write (2 , -> + -> _addr `i -> 2 `i `uc -> & >> _data -> 16 `i -> -> 255 `i `ui `uc ]
+[; ;main.c: 76: eeprom_write(addr + 3, (data >> 24) & 0xFF);
+"76
+[e ( _eeprom_write (2 , -> + -> _addr `i -> 3 `i `uc -> & >> _data -> 24 `i -> -> 255 `i `ui `uc ]
+[; ;main.c: 77: }
+"77
+[e :UE 380 ]
+}
+"79
+[v _read_eeprom_int32 `(ul ~T0 @X0 1 ef1`uc ]
+"80
+{
+[; ;main.c: 79: uint32_t read_eeprom_int32(unsigned char addr)
+[; ;main.c: 80: {
+[e :U _read_eeprom_int32 ]
+"79
+[v _addr `uc ~T0 @X0 1 r1 ]
+"80
+[f ]
+"81
+[v _result `ul ~T0 @X0 1 a ]
+[; ;main.c: 81: uint32_t result;
+[; ;main.c: 83: result = eeprom_read(addr + 3);
+"83
+[e = _result -> ( _eeprom_read (1 -> + -> _addr `i -> 3 `i `uc `ul ]
+[; ;main.c: 84: result <<= 8;
+"84
+[e =<< _result -> 8 `i ]
+[; ;main.c: 85: result += eeprom_read(addr + 2);
+"85
+[e =+ _result -> ( _eeprom_read (1 -> + -> _addr `i -> 2 `i `uc `ul ]
+[; ;main.c: 86: result <<= 8;
+"86
+[e =<< _result -> 8 `i ]
+[; ;main.c: 87: result += eeprom_read(addr + 1);
+"87
+[e =+ _result -> ( _eeprom_read (1 -> + -> _addr `i -> 1 `i `uc `ul ]
+[; ;main.c: 88: result <<= 8;
+"88
+[e =<< _result -> 8 `i ]
+[; ;main.c: 89: result += eeprom_read(addr);
+"89
+[e =+ _result -> ( _eeprom_read (1 _addr `ul ]
+[; ;main.c: 90: return result;
+"90
+[e ) _result ]
+[e $UE 381  ]
+[; ;main.c: 91: }
+"91
+[e :UE 381 ]
+}
+"96
+[v _comparare `(i ~T0 @X0 1 ef1`i ]
+"97
+{
+[; ;main.c: 96: int comparare(int resistor_value)
+[; ;main.c: 97: {
+[e :U _comparare ]
+"96
+[v _resistor_value `i ~T0 @X0 1 r1 ]
+"97
+[f ]
+[v F3786 `ui ~T0 @X0 -> 0 `x s ]
+[i F3786
+:U ..
+"98
 -> -> 3002 `i `ui
 -> -> 2689 `i `ui
 -> -> 2377 `i `ui
@@ -3565,285 +3740,671 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ]
 [v _res `ui ~T0 @X0 21  a ]
-[; ;main.c: 71: unsigned int res[]={3002,2689,2377,2136,1895,1707,1520,1374,1228,1114,1000,908,817,745,673,615,557,510,463,423,383};
-[e = _res F3749 ]
-"72
+[; ;main.c: 98: unsigned int res[]={3002,2689,2377,2136,1895,1707,1520,1374,1228,1114,1000,908,817,745,673,615,557,510,463,423,383};
+[e = _res F3786 ]
+"99
 [v _result `i ~T0 @X0 1 a ]
-[; ;main.c: 72: int result=1000;
+[; ;main.c: 99: int result=1000;
 [e = _result -> 1000 `i ]
-"73
+"100
 [v _dif `f ~T0 @X0 1 a ]
-[; ;main.c: 73: float dif=0,step=0;
+[; ;main.c: 100: float dif=0,step=0;
 [e = _dif -> -> 0 `i `f ]
 [v _step `f ~T0 @X0 1 a ]
 [e = _step -> -> 0 `i `f ]
-[v F3754 `f ~T0 @X0 -> 25 `i s ]
-[i F3754
+[v F3791 `f ~T0 @X0 -> 25 `i s ]
+[i F3791
 :U ..
 ..
 ]
-"74
+"101
 [v _table `f ~T0 @X0 -> 25 `i a ]
-[; ;main.c: 74: float table[25]={};
-[e = _table F3754 ]
-[; ;main.c: 75: for(int i=0;i<21;i++)
-"75
+[; ;main.c: 101: float table[25]={};
+[e = _table F3791 ]
+[; ;main.c: 102: for(int i=0;i<21;i++)
+"102
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 21 `i 381  ]
-[e $U 382  ]
-"76
-[e :U 381 ]
-[; ;main.c: 76: {
+[e $ < _i -> 21 `i 383  ]
+[e $U 384  ]
+"103
+[e :U 383 ]
+[; ;main.c: 103: {
 {
-[; ;main.c: 77: if((resistor_value<=res[i])&(resistor_value>=res[i+1]))
-"77
-[e $ ! & <= -> _resistor_value `ui *U + &U _res * -> -> _i `ui `ux -> -> # *U &U _res `ui `ux >= -> _resistor_value `ui *U + &U _res * -> -> + _i -> 1 `i `ui `ux -> -> # *U &U _res `ui `ux 384  ]
-[; ;main.c: 78: {
-"78
+[; ;main.c: 104: if((resistor_value<=res[i])&(resistor_value>=res[i+1]))
+"104
+[e $ ! & <= -> _resistor_value `ui *U + &U _res * -> -> _i `ui `ux -> -> # *U &U _res `ui `ux >= -> _resistor_value `ui *U + &U _res * -> -> + _i -> 1 `i `ui `ux -> -> # *U &U _res `ui `ux 386  ]
+[; ;main.c: 105: {
+"105
 {
-[; ;main.c: 79: dif=res[i]-res[i+1];
-"79
+[; ;main.c: 106: dif=res[i]-res[i+1];
+"106
 [e = _dif -> - *U + &U _res * -> -> _i `ui `ux -> -> # *U &U _res `ui `ux *U + &U _res * -> -> + _i -> 1 `i `ui `ux -> -> # *U &U _res `ui `ux `f ]
-[; ;main.c: 80: step=dif/25;
-"80
+[; ;main.c: 107: step=dif/25;
+"107
 [e = _step / _dif -> -> 25 `i `f ]
-[; ;main.c: 81: for(int j=0;j<25;j++)
-"81
-{
-[v _j `i ~T0 @X0 1 a ]
-[e = _j -> 0 `i ]
-[e $ < _j -> 25 `i 385  ]
-[e $U 386  ]
-"82
-[e :U 385 ]
-[; ;main.c: 82: {
-{
-[; ;main.c: 84: table[j]=res[i]-j*step;
-"84
-[e = *U + &U _table * -> -> _j `ui `ux -> -> # *U &U _table `ui `ux - -> *U + &U _res * -> -> _i `ui `ux -> -> # *U &U _res `ui `ux `f * -> _j `f _step ]
-"86
-}
-"81
-[e ++ _j -> 1 `i ]
-[e $ < _j -> 25 `i 385  ]
-[e :U 386 ]
-"86
-}
-[; ;main.c: 86: }
-[; ;main.c: 87: for(int j=0;j<25;j++)
-"87
-{
-[v _j `i ~T0 @X0 1 a ]
-[e = _j -> 0 `i ]
-[e $ < _j -> 25 `i 388  ]
-[e $U 389  ]
-"88
-[e :U 388 ]
-[; ;main.c: 88: {
-{
-[; ;main.c: 89: if((resistor_value<=table[j])&(resistor_value>=table[j+1]))
-"89
-[e $ ! & <= -> _resistor_value `f *U + &U _table * -> -> _j `ui `ux -> -> # *U &U _table `ui `ux >= -> _resistor_value `f *U + &U _table * -> -> + _j -> 1 `i `ui `ux -> -> # *U &U _table `ui `ux 391  ]
-[; ;main.c: 90: {
-"90
-{
-[; ;main.c: 91: result=(i*25+1*j);
-"91
-[e = _result + * _i -> 25 `i * -> 1 `i _j ]
-[; ;main.c: 92: break;
-"92
-[e $U 389  ]
-"93
-}
-[e :U 391 ]
-"94
-}
-"87
-[e ++ _j -> 1 `i ]
-[e $ < _j -> 25 `i 388  ]
-[e :U 389 ]
-"94
-}
-"95
-}
-[e :U 384 ]
-"96
-}
-"75
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 21 `i 381  ]
-[e :U 382 ]
-"96
-}
-[; ;main.c: 93: }
-[; ;main.c: 94: }
-[; ;main.c: 95: }
-[; ;main.c: 96: }
-[; ;main.c: 97: return result;
-"97
-[e ) _result ]
-[e $UE 380  ]
-[; ;main.c: 98: }
-"98
-[e :UE 380 ]
-}
-[; ;main.c: 99: struct incubaator
-[; ;main.c: 100: {
-[; ;main.c: 101: char tip_oua[];
-[; ;main.c: 102: float umiditate;
-[; ;main.c: 103: float temperatura;
-[; ;main.c: 104: int id_tip;
-[; ;main.c: 105: }
-[; ;main.c: 106: ;
-[v $root$_main `(v ~T0 @X0 0 e ]
+[; ;main.c: 108: for(int j=0;j<25;j++)
 "108
-[v _main `(v ~T0 @X0 1 ef ]
-"109
 {
-[; ;main.c: 108: void main(void)
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ < _j -> 25 `i 387  ]
+[e $U 388  ]
+"109
+[e :U 387 ]
 [; ;main.c: 109: {
-[e :U _main ]
-[f ]
-"110
-[v _x `uc ~T0 @X0 1 a ]
-[; ;main.c: 110: char x=0;
-[e = _x -> -> 0 `i `uc ]
-[; ;main.c: 113: SYSTEM_Initialize();
+{
+[; ;main.c: 111: table[j]=res[i]-j*step;
+"111
+[e = *U + &U _table * -> -> _j `ui `ux -> -> # *U &U _table `ui `ux - -> *U + &U _res * -> -> _i `ui `ux -> -> # *U &U _res `ui `ux `f * -> _j `f _step ]
 "113
-[e ( _SYSTEM_Initialize ..  ]
-[; ;main.c: 114: TRISCbits.TRISC2=0;
+}
+"108
+[e ++ _j -> 1 `i ]
+[e $ < _j -> 25 `i 387  ]
+[e :U 388 ]
+"113
+}
+[; ;main.c: 113: }
+[; ;main.c: 114: for(int j=0;j<25;j++)
 "114
-[e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
-[; ;main.c: 115: ADC_StartConversion();
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ < _j -> 25 `i 390  ]
+[e $U 391  ]
 "115
-[e ( _ADC_StartConversion ..  ]
-[; ;main.c: 123: (INTCONbits.GIE = 1);
+[e :U 390 ]
+[; ;main.c: 115: {
+{
+[; ;main.c: 116: if((resistor_value<=table[j])&(resistor_value>=table[j+1]))
+"116
+[e $ ! & <= -> _resistor_value `f *U + &U _table * -> -> _j `ui `ux -> -> # *U &U _table `ui `ux >= -> _resistor_value `f *U + &U _table * -> -> + _j -> 1 `i `ui `ux -> -> # *U &U _table `ui `ux 393  ]
+[; ;main.c: 117: {
+"117
+{
+[; ;main.c: 118: result=(i*25+1*j);
+"118
+[e = _result + * _i -> 25 `i * -> 1 `i _j ]
+[; ;main.c: 119: break;
+"119
+[e $U 391  ]
+"120
+}
+[e :U 393 ]
+"121
+}
+"114
+[e ++ _j -> 1 `i ]
+[e $ < _j -> 25 `i 390  ]
+[e :U 391 ]
+"121
+}
+"122
+}
+[e :U 386 ]
 "123
-[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-[; ;main.c: 126: (INTCONbits.PEIE = 1);
-"126
-[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
-[; ;main.c: 134: flag_directie=1;
+}
+"102
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 21 `i 383  ]
+[e :U 384 ]
+"123
+}
+[; ;main.c: 120: }
+[; ;main.c: 121: }
+[; ;main.c: 122: }
+[; ;main.c: 123: }
+[; ;main.c: 124: return result;
+"124
+[e ) _result ]
+[e $UE 382  ]
+[; ;main.c: 125: }
+"125
+[e :UE 382 ]
+}
+[; ;main.c: 126: struct incubaator
+[; ;main.c: 127: {
+[; ;main.c: 128: char tip_oua[];
+[; ;main.c: 129: float umiditate;
+[; ;main.c: 130: float temperatura;
+[; ;main.c: 131: int id_tip;
+[; ;main.c: 132: }
+[; ;main.c: 133: ;
 "134
-[e = _flag_directie -> 1 `i ]
-[; ;main.c: 135: int_gsm();
+[v _afisare_inf_lcd `(v ~T0 @X0 1 ef ]
 "135
-[e ( _int_gsm ..  ]
-"136
-[v _volt `f ~T0 @X0 1 a ]
-[; ;main.c: 136: float volt;
-[; ;main.c: 137: LCDInit(1);
+{
+[; ;main.c: 134: void afisare_inf_lcd()
+[; ;main.c: 135: {
+[e :U _afisare_inf_lcd ]
+[f ]
+[; ;main.c: 137: LCD_Init_apdatat();
 "137
-[e ( _LCDInit (1 -> -> 1 `i `uc ]
-[; ;main.c: 141: while (1)
+[e ( _LCD_Init_apdatat ..  ]
+[; ;main.c: 138: temp_virgula=temp%10;
+"138
+[e = _temp_virgula -> % _temp -> 10 `i `uc ]
+[; ;main.c: 139: temp_real=temp/10;
+"139
+[e = _temp_real -> / _temp -> 10 `i `uc ]
+[; ;main.c: 140: temp_virgula=temp_virgula;
+"140
+[e = _temp_virgula _temp_virgula ]
+[; ;main.c: 141: (LCDByte(0xB0,0));
 "141
-[e :U 395 ]
-[; ;main.c: 142: {
+[e ( _LCDByte (2 , -> -> 176 `i `uc -> -> 0 `i `uc ]
+[; ;main.c: 142: { LCDGotoXY(0,0); LCDWriteString("Temp=");};
 "142
 {
-[; ;main.c: 168: if (flag_1000_ms==1)
-"168
-[e $ ! == _flag_1000_ms -> 1 `i 397  ]
-[; ;main.c: 169: {
-"169
-{
-[; ;main.c: 170: TMR1_disable();
-"170
-[e ( _TMR1_disable ..  ]
-[; ;main.c: 171: StartSignal();
-"171
-[e ( _StartSignal ..  ]
-[; ;main.c: 172: CheckResponse();
-"172
-[e ( _CheckResponse ..  ]
-[; ;main.c: 173: if(Check == 1)
-"173
-[e $ ! == -> _Check `i -> 1 `i 398  ]
-[; ;main.c: 174: {
-"174
-{
-[; ;main.c: 175: DHT_result();
-"175
-[e ( _DHT_result ..  ]
-"177
-}
-[e :U 398 ]
-[; ;main.c: 177: }
-[; ;main.c: 178: ADC_StartConversion();
-"178
-[e ( _ADC_StartConversion ..  ]
-[; ;main.c: 179: volt=(rez_conversie*4.887)/1.492;
-"179
-[e = _volt -> / * -> _rez_conversie `d .4.887 .1.492 `f ]
-[; ;main.c: 181: temp=comparare(volt);
-"181
-[e = _temp ( _comparare (1 -> _volt `i ]
-[; ;main.c: 182: if (temp<300)
-"182
-[e $ ! < _temp -> 300 `i 399  ]
-[; ;main.c: 184: LATCbits.LATC2=1;
-"184
-[e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
-[e $U 400  ]
-"185
-[e :U 399 ]
-[; ;main.c: 185: else
-[; ;main.c: 186: LATCbits.LATC2=0;
-"186
-[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
-[e :U 400 ]
-[; ;main.c: 187: (LCDByte(0b00000001,0));
-"187
-[e ( _LCDByte (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
-[; ;main.c: 188: (LCDByte(0xB0,0));
-"188
-[e ( _LCDByte (2 , -> -> 176 `i `uc -> -> 0 `i `uc ]
-[; ;main.c: 189: LCDWriteString("Temper=  ");
-"189
+[e ( _LCDGotoXY (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
 [e ( _LCDWriteString (1 :s 1C ]
-[; ;main.c: 191: LCDWriteInt(temp,3);
-"191
-[e ( _LCDWriteInt (2 , _temp -> -> 3 `i `c ]
-[; ;main.c: 192: (LCDByte(0xC0,0));
-"192
-[e ( _LCDByte (2 , -> -> 192 `i `uc -> -> 0 `i `uc ]
-[; ;main.c: 193: LCDWriteString("Umid=  ");
-"193
+}
+[; ;main.c: 143: LCDWriteInt(temp_real,2);
+"143
+[e ( _LCDWriteInt (2 , -> _temp_real `i -> -> 2 `i `c ]
+[; ;main.c: 144: LCDWriteString(".");
+"144
 [e ( _LCDWriteString (1 :s 2C ]
-[; ;main.c: 195: LCDWriteInt(umiditate,3);
-"195
+[; ;main.c: 145: LCDWriteInt(temp_virgula,1);
+"145
+[e ( _LCDWriteInt (2 , -> _temp_virgula `i -> -> 1 `i `c ]
+[; ;main.c: 146: LCDWriteString("C ");
+"146
+[e ( _LCDWriteString (1 :s 3C ]
+[; ;main.c: 147: (LCDByte(0xC0,0));
+"147
+[e ( _LCDByte (2 , -> -> 192 `i `uc -> -> 0 `i `uc ]
+[; ;main.c: 148: LCDWriteString("Umid=");
+"148
+[e ( _LCDWriteString (1 :s 4C ]
+[; ;main.c: 150: LCDWriteInt(umiditate,3);
+"150
 [e ( _LCDWriteInt (2 , _umiditate -> -> 3 `i `c ]
-[; ;main.c: 197: flag_1000_ms=0;
-"197
-[e = _flag_1000_ms -> 0 `i ]
-[; ;main.c: 198: TMR1_enable();
-"198
-[e ( _TMR1_enable ..  ]
-"200
+[; ;main.c: 154: }
+"154
+[e :UE 395 ]
 }
-[e :U 397 ]
-[; ;main.c: 200: }
-[; ;main.c: 201: command_turn();
-"201
-[e ( _command_turn ..  ]
-[; ;main.c: 202: check_status_incubator();
-"202
-[e ( _check_status_incubator ..  ]
-"206
-}
-[e :U 394 ]
-"141
-[e $U 395  ]
-[e :U 396 ]
-[; ;main.c: 206: }
-[; ;main.c: 209: return;
-"209
-[e $UE 393  ]
-[; ;main.c: 210: }
+"190
+[v _setare_temperatura `(v ~T0 @X0 1 ef ]
+"191
+{
+[; ;main.c: 190: void setare_temperatura()
+[; ;main.c: 191: {
+[e :U _setare_temperatura ]
+[f ]
+[; ;main.c: 194: LCD_Init_apdatat();
+"194
+[e ( _LCD_Init_apdatat ..  ]
+[; ;main.c: 196: LCDWriteString(" Temp setat este");
+"196
+[e ( _LCDWriteString (1 :s 5C ]
+[; ;main.c: 210: (LCDByte(0xC0,0));
 "210
-[e :UE 393 ]
+[e ( _LCDByte (2 , -> -> 192 `i `uc -> -> 0 `i `uc ]
+[; ;main.c: 212: LCDWriteInt(step_nr,3);
+"212
+[e ( _LCDWriteInt (2 , -> _step_nr `i -> -> 3 `i `c ]
+[; ;main.c: 216: (LCDByte(0xC0,0));
+"216
+[e ( _LCDByte (2 , -> -> 192 `i `uc -> -> 0 `i `uc ]
+[; ;main.c: 219: LCDWriteString("   ");
+"219
+[e ( _LCDWriteString (1 :s 6C ]
+[; ;main.c: 220: LCDWriteInt(temp_setata,2);
+"220
+[e ( _LCDWriteInt (2 , _temp_setata -> -> 2 `i `c ]
+[; ;main.c: 221: LCDWriteString(".");
+"221
+[e ( _LCDWriteString (1 :s 7C ]
+[; ;main.c: 222: LCDWriteInt(virgula_temp_setata,1);
+"222
+[e ( _LCDWriteInt (2 , _virgula_temp_setata -> -> 1 `i `c ]
+[; ;main.c: 223: LCDWriteString("C");
+"223
+[e ( _LCDWriteString (1 :s 8C ]
+[; ;main.c: 227: _delay((unsigned long)((3)*(18432000/4000.0)));
+"227
+[e ( __delay (1 -> * -> -> 3 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[; ;main.c: 228: }
+"228
+[e :UE 396 ]
 }
-[a 1C 84 101 109 112 101 114 61 32 32 0 ]
-[a 2C 85 109 105 100 61 32 32 0 ]
+"229
+[v _state_of_button `(v ~T0 @X0 1 ef ]
+"230
+{
+[; ;main.c: 229: void state_of_button()
+[; ;main.c: 230: {
+[e :U _state_of_button ]
+[f ]
+[; ;main.c: 231: if (Check_key(0b01000000)==1)
+"231
+[e $ ! == -> ( _Check_key (1 -> -> 64 `i `uc `i -> 1 `i 398  ]
+[; ;main.c: 232: {
+"232
+{
+[; ;main.c: 233: flag_directie=eeprom_read(0x00);
+"233
+[e = _flag_directie -> ( _eeprom_read (1 -> -> 0 `i `uc `i ]
+[; ;main.c: 234: LCD_Init_apdatat();
+"234
+[e ( _LCD_Init_apdatat ..  ]
+[; ;main.c: 235: LCDWriteString(" Intoarcere oua!");
+"235
+[e ( _LCDWriteString (1 :s 9C ]
+[; ;main.c: 236: (LCDByte(0xC0,0));
+"236
+[e ( _LCDByte (2 , -> -> 192 `i `uc -> -> 0 `i `uc ]
+[; ;main.c: 238: LCDWriteInt(step_nr,3);
+"238
+[e ( _LCDWriteInt (2 , -> _step_nr `i -> -> 3 `i `c ]
+[; ;main.c: 239: turn_egs();
+"239
+[e ( _turn_egs ..  ]
+[; ;main.c: 240: eeprom_write(0x00,flag_directie);
+"240
+[e ( _eeprom_write (2 , -> -> 0 `i `uc -> _flag_directie `uc ]
+[; ;main.c: 242: menu_flag=~menu_flag;
+"242
+[e = _menu_flag -> ~ -> _menu_flag `i `uc ]
+"245
+}
+[; ;main.c: 245: }
+[e $U 399  ]
+"246
+[e :U 398 ]
+[; ;main.c: 246: else if((menu_flag==0)&(Check_key(0b10000000)==1))
+[e $ ! & == -> _menu_flag `i -> 0 `i == -> ( _Check_key (1 -> -> 128 `i `uc `i -> 1 `i 400  ]
+[; ;main.c: 247: {
+"247
+{
+[; ;main.c: 251: virgula_temp_setata++;
+"251
+[e ++ _virgula_temp_setata -> 1 `i ]
+[; ;main.c: 252: if (virgula_temp_setata==10)
+"252
+[e $ ! == _virgula_temp_setata -> 10 `i 401  ]
+[; ;main.c: 253: {
+"253
+{
+[; ;main.c: 254: virgula_temp_setata=0;
+"254
+[e = _virgula_temp_setata -> 0 `i ]
+[; ;main.c: 255: temp_setata++;
+"255
+[e ++ _temp_setata -> 1 `i ]
+"256
+}
+[e :U 401 ]
+"258
+}
+[; ;main.c: 256: }
+[; ;main.c: 258: }
+[e $U 402  ]
+"259
+[e :U 400 ]
+[; ;main.c: 259: else if((menu_flag==0)&(Check_key(0b00100000)==1))
+[e $ ! & == -> _menu_flag `i -> 0 `i == -> ( _Check_key (1 -> -> 32 `i `uc `i -> 1 `i 403  ]
+[; ;main.c: 260: {
+"260
+{
+[; ;main.c: 262: virgula_temp_setata--;
+"262
+[e -- _virgula_temp_setata -> 1 `i ]
+[; ;main.c: 263: if (virgula_temp_setata==-1)
+"263
+[e $ ! == _virgula_temp_setata -U -> 1 `i 404  ]
+[; ;main.c: 264: {
+"264
+{
+[; ;main.c: 265: virgula_temp_setata=9;
+"265
+[e = _virgula_temp_setata -> 9 `i ]
+[; ;main.c: 266: temp_setata--;
+"266
+[e -- _temp_setata -> 1 `i ]
+"267
+}
+[e :U 404 ]
+"270
+}
+[e :U 403 ]
+"271
+[e :U 402 ]
+[e :U 399 ]
+[; ;main.c: 267: }
+[; ;main.c: 270: }
+[; ;main.c: 271: if (menu_flag!=0 )
+[e $ ! != -> _menu_flag `i -> 0 `i 405  ]
+[; ;main.c: 272: {
+"272
+{
+[; ;main.c: 274: afisare_inf_lcd();
+"274
+[e ( _afisare_inf_lcd ..  ]
+"277
+}
+[; ;main.c: 277: }
+[e $U 406  ]
+"278
+[e :U 405 ]
+[; ;main.c: 278: else if(menu_flag==0)
+[e $ ! == -> _menu_flag `i -> 0 `i 407  ]
+[; ;main.c: 279: {
+"279
+{
+[; ;main.c: 281: setare_temperatura();
+"281
+[e ( _setare_temperatura ..  ]
+"283
+}
+[e :U 407 ]
+"285
+[e :U 406 ]
+[; ;main.c: 283: }
+[; ;main.c: 285: }
+[e :UE 397 ]
+}
+"286
+[v _btn `i ~T0 @X0 1 e ]
+[i _btn
+-> 20 `i
+]
+[; ;main.c: 286: int btn=20;
+[v $root$_main `(v ~T0 @X0 0 e ]
+"289
+[v _main `(v ~T0 @X0 1 ef ]
+"290
+{
+[; ;main.c: 289: void main(void)
+[; ;main.c: 290: {
+[e :U _main ]
+[f ]
+"291
+[v _x `uc ~T0 @X0 1 a ]
+[; ;main.c: 291: char x=0;
+[e = _x -> -> 0 `i `uc ]
+"292
+[v _flag_scriere `i ~T0 @X0 1 a ]
+[; ;main.c: 292: int flag_scriere=0,flag_citire=0;
+[e = _flag_scriere -> 0 `i ]
+[v _flag_citire `i ~T0 @X0 1 a ]
+[e = _flag_citire -> 0 `i ]
+[; ;main.c: 294: SYSTEM_Initialize();
+"294
+[e ( _SYSTEM_Initialize ..  ]
+[; ;main.c: 295: TRISCbits.TRISC2=0;
+"295
+[e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
+[; ;main.c: 296: TRISCbits.TRISC1=0;
+"296
+[e = . . _TRISCbits 0 1 -> -> 0 `i `uc ]
+[; ;main.c: 297: ADC_StartConversion();
+"297
+[e ( _ADC_StartConversion ..  ]
+[; ;main.c: 302: (INTCONbits.GIE = 1);
+"302
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+[; ;main.c: 305: (INTCONbits.PEIE = 1);
+"305
+[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
+"315
+[v _volt `f ~T0 @X0 1 a ]
+[v _volt1 `f ~T0 @X0 1 a ]
+[v _volt2 `f ~T0 @X0 1 a ]
+[; ;main.c: 315: float volt,volt1,volt2;
+[; ;main.c: 317: LCDInit(1);
+"317
+[e ( _LCDInit (1 -> -> 1 `i `uc ]
+[; ;main.c: 318: LCD_Init_apdatat();
+"318
+[e ( _LCD_Init_apdatat ..  ]
+[; ;main.c: 319: flag_directie_read=eeprom_read(0x00);
+"319
+[e = _flag_directie_read -> ( _eeprom_read (1 -> -> 0 `i `uc `i ]
+[; ;main.c: 320: step_nr=read_eeprom_int32(0x01);
+"320
+[e = _step_nr -> ( _read_eeprom_int32 (1 -> -> 1 `i `uc `ui ]
+[; ;main.c: 322: if((flag_directie_read!=0)&&(flag_directie_read!=1))
+"322
+[e $ ! && != _flag_directie_read -> 0 `i != _flag_directie_read -> 1 `i 409  ]
+[; ;main.c: 323: {
+"323
+{
+[; ;main.c: 325: flag_directie=1;
+"325
+[e = _flag_directie -> 1 `i ]
+[; ;main.c: 326: eeprom_write(0x00,flag_directie);
+"326
+[e ( _eeprom_write (2 , -> -> 0 `i `uc -> _flag_directie `uc ]
+"328
+}
+[; ;main.c: 328: }
+[e $U 410  ]
+"329
+[e :U 409 ]
+[; ;main.c: 329: else
+[; ;main.c: 331: flag_directie=eeprom_read(0x00);
+"331
+[e = _flag_directie -> ( _eeprom_read (1 -> -> 0 `i `uc `i ]
+[e :U 410 ]
+[; ;main.c: 332: if (step_nr==-1)
+"332
+[e $ ! == _step_nr -> -U -> 1 `i `ui 411  ]
+[; ;main.c: 333: {
+"333
+{
+[; ;main.c: 334: step_nr=0;
+"334
+[e = _step_nr -> -> 0 `i `ui ]
+"335
+}
+[; ;main.c: 335: }
+[e $U 412  ]
+"336
+[e :U 411 ]
+[; ;main.c: 336: else
+[; ;main.c: 337: step_nr=read_eeprom_int32(0x01);
+"337
+[e = _step_nr -> ( _read_eeprom_int32 (1 -> -> 1 `i `uc `ui ]
+[e :U 412 ]
+[; ;main.c: 338: if (step_nr)
+"338
+[e $ ! != _step_nr -> -> 0 `i `ui 413  ]
+[; ;main.c: 339: {
+"339
+{
+[; ;main.c: 340: turn_egs();
+"340
+[e ( _turn_egs ..  ]
+"341
+}
+[e :U 413 ]
+[; ;main.c: 341: }
+[; ;main.c: 344: LCDWriteString("   Wait for  ");
+"344
+[e ( _LCDWriteString (1 :s 10C ]
+[; ;main.c: 345: (LCDByte(0xC0,0));
+"345
+[e ( _LCDByte (2 , -> -> 192 `i `uc -> -> 0 `i `uc ]
+[; ;main.c: 346: LCDWriteString("   initialize  ");
+"346
+[e ( _LCDWriteString (1 :s 11C ]
+[; ;main.c: 347: int_gsm();
+"347
+[e ( _int_gsm ..  ]
+[; ;main.c: 348: _delay((unsigned long)((3000)*(18432000/4000.0)));
+"348
+[e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[; ;main.c: 353: while (1)
+"353
+[e :U 415 ]
+[; ;main.c: 354: {
+"354
+{
+[; ;main.c: 356: LATCbits.LATC1=1;
+"356
+[e = . . _LATCbits 0 1 -> -> 1 `i `uc ]
+[; ;main.c: 359: supplay_security=ADC_GetConversion(1);
+"359
+[e = _supplay_security ( _ADC_GetConversion (1 -> -> 1 `i `E3581 ]
+[; ;main.c: 361: if( (supplay_security<200)&& (flag_on==0))
+"361
+[e $ ! && < _supplay_security -> -> 200 `i `ui == _flag_on -> 0 `i 417  ]
+[; ;main.c: 362: {
+"362
+{
+[; ;main.c: 363: flag_on=1;
+"363
+[e = _flag_on -> 1 `i ]
+[; ;main.c: 365: eeprom_write(0x00,flag_directie);
+"365
+[e ( _eeprom_write (2 , -> -> 0 `i `uc -> _flag_directie `uc ]
+"367
+}
+[e :U 417 ]
+[; ;main.c: 367: }
+[; ;main.c: 370: if (flag_1000_ms==1)
+"370
+[e $ ! == _flag_1000_ms -> 1 `i 418  ]
+[; ;main.c: 371: {
+"371
+{
+[; ;main.c: 373: (LCDByte(0b00000001,0));
+"373
+[e ( _LCDByte (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
+[; ;main.c: 375: TMR1_disable();
+"375
+[e ( _TMR1_disable ..  ]
+[; ;main.c: 376: StartSignal();
+"376
+[e ( _StartSignal ..  ]
+[; ;main.c: 377: CheckResponse();
+"377
+[e ( _CheckResponse ..  ]
+[; ;main.c: 378: if(Check == 1)
+"378
+[e $ ! == -> _Check `i -> 1 `i 419  ]
+[; ;main.c: 379: {
+"379
+{
+[; ;main.c: 380: DHT_result();
+"380
+[e ( _DHT_result ..  ]
+"382
+}
+[e :U 419 ]
+[; ;main.c: 382: }
+[; ;main.c: 383: ADC_StartConversion();
+"383
+[e ( _ADC_StartConversion ..  ]
+[; ;main.c: 388: volt=(ADC_conversii()*1.97)/0.555;
+"388
+[e = _volt -> / * -> ( _ADC_conversii ..  `d .1.97 .0.555 `f ]
+[; ;main.c: 393: temp=comparare(volt);
+"393
+[e = _temp ( _comparare (1 -> _volt `i ]
+[; ;main.c: 397: if (temp<(temp_setata-10))
+"397
+[e $ ! < _temp - _temp_setata -> 10 `i 420  ]
+[; ;main.c: 398: {
+"398
+{
+[; ;main.c: 399: LATCbits.LATC2=1;
+"399
+[e = . . _LATCbits 0 2 -> -> 1 `i `uc ]
+"401
+}
+[; ;main.c: 401: }
+[e $U 421  ]
+"402
+[e :U 420 ]
+[; ;main.c: 402: else if(temp>(temp_setata+10))
+[e $ ! > _temp + _temp_setata -> 10 `i 422  ]
+[; ;main.c: 403: {
+"403
+{
+[; ;main.c: 404: LATCbits.LATC2=0;
+"404
+[e = . . _LATCbits 0 2 -> -> 0 `i `uc ]
+"406
+}
+[e :U 422 ]
+"407
+[e :U 421 ]
+[; ;main.c: 406: }
+[; ;main.c: 407: if (umiditate<50)
+[e $ ! < _umiditate -> 50 `i 423  ]
+[; ;main.c: 408: LATAbits.LATA4=1;
+"408
+[e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
+[e $U 424  ]
+"410
+[e :U 423 ]
+[; ;main.c: 410: else
+[; ;main.c: 411: LATAbits.LATA4=0;
+"411
+[e = . . _LATAbits 0 4 -> -> 0 `i `uc ]
+[e :U 424 ]
+[; ;main.c: 413: flag_1000_ms=0;
+"413
+[e = _flag_1000_ms -> 0 `i ]
+[; ;main.c: 414: TMR1_enable();
+"414
+[e ( _TMR1_enable ..  ]
+[; ;main.c: 415: state_of_button();
+"415
+[e ( _state_of_button ..  ]
+"416
+}
+[e :U 418 ]
+[; ;main.c: 416: }
+[; ;main.c: 420: if (flag_100_ms==1)
+"420
+[e $ ! == _flag_100_ms -> 1 `i 425  ]
+[; ;main.c: 421: {
+"421
+{
+[; ;main.c: 423: Keyboard_Manager();
+"423
+[e ( _Keyboard_Manager ..  ]
+[; ;main.c: 425: flag_100_ms==0;
+"425
+[e == _flag_100_ms -> 0 `i ]
+"426
+}
+[e :U 425 ]
+[; ;main.c: 426: }
+[; ;main.c: 428: command_turn();
+"428
+[e ( _command_turn ..  ]
+[; ;main.c: 429: check_status_incubator();
+"429
+[e ( _check_status_incubator ..  ]
+"471
+}
+[e :U 414 ]
+"353
+[e $U 415  ]
+[e :U 416 ]
+[; ;main.c: 471: }
+[; ;main.c: 474: return;
+"474
+[e $UE 408  ]
+[; ;main.c: 475: }
+"475
+[e :UE 408 ]
+}
+[a 5C 32 84 101 109 112 32 115 101 116 97 116 32 101 115 116 101 0 ]
+[a 8C 67 0 ]
+[a 1C 84 101 109 112 61 0 ]
+[a 4C 85 109 105 100 61 0 ]
+[a 2C 46 0 ]
+[a 7C 46 0 ]
+[a 9C 32 73 110 116 111 97 114 99 101 114 101 32 111 117 97 33 0 ]
+[a 3C 67 32 0 ]
+[a 10C 32 32 32 87 97 105 116 32 102 111 114 32 32 0 ]
+[a 11C 32 32 32 105 110 105 116 105 97 108 105 122 101 32 32 0 ]
+[a 6C 32 32 32 0 ]

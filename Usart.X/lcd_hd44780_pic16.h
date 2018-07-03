@@ -79,7 +79,9 @@ void LCDInit(uint8_t style);
 void LCDWriteString(const char *msg);
 void LCDWriteInt(int val,int8_t field_length);
 void LCDGotoXY(uint8_t x,uint8_t y);
-
+void before_init_lcd();
+void LCD_Init_apdatat();
+void Lcd_CmdWrite(char cmd);
 //Low level
 void LCDByte(uint8_t,uint8_t);
 #define LCDCmd(c) (LCDByte(c,0))

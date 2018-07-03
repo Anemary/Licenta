@@ -1,7 +1,14 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"63 mcc_generated_files/tmr1.h
-[v _flag_10_ms `i ~T0 @X0 0 e ]
-"2479 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1937.h
+"23 mcc_generated_files/../keyboard.h
+[s S377 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S377 strKey_Pressed_ btnOK btnUP btnDOWN ]
+"28
+[s S378 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S378 strKey_Released_ btnOK btnUP btnDOWN ]
+"34
+[s S379 :2 `uc 1 :2 `uc 1 :2 `uc 1 ]
+[n S379 strKey_Counts_ btnOK btnUP btnDOWN ]
+"2479 C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic16f1937.h
 [s S118 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S118 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
 "2478
@@ -9,15 +16,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S117 . . ]
 "2490
 [v _LATCbits `VS117 ~T0 @X0 0 e@270 ]
+[v F3491 `(v ~T0 @X0 1 tf1`ul ]
+"153 C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic.h
+[v __delay `JF3491 ~T0 @X0 0 e ]
+[p i __delay ]
 "79 mcc_generated_files/eusart.h
 [v _flag_N `i ~T0 @X0 0 e ]
 "80
 [v _flag_G `i ~T0 @X0 0 e ]
+"115 C:\Program Files (x86)\Microchip\xc8\v1.44\include\eeprom_routines.h
+[v _eeprom_read `(uc ~T0 @X0 0 ef1`uc ]
+"83 lcd_hd44780_pic16.h
+[v _LCD_Init_apdatat `(v ~T0 @X0 0 ef ]
+"79
+[v _LCDWriteString `(v ~T0 @X0 0 ef1`*Cuc ]
+"114 C:\Program Files (x86)\Microchip\xc8\v1.44\include\eeprom_routines.h
+[v _eeprom_write `(v ~T0 @X0 0 ef2`uc`uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic16f1937.h: 50: extern volatile unsigned char INDF0 @ 0x000;
-"52 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1937.h
+"52 C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic16f1937.h
 [; ;pic16f1937.h: 52: asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
 [; ;pic16f1937.h: 55: typedef union {
@@ -3282,46 +3301,50 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic16f1937.h: 9283: extern volatile __bit nT1SYNC @ (((unsigned) &T1CON)*8) + 2;
 [; ;pic16f1937.h: 9285: extern volatile __bit nTO @ (((unsigned) &STATUS)*8) + 4;
 [; ;pic16f1937.h: 9287: extern volatile __bit nWPUEN @ (((unsigned) &OPTION_REG)*8) + 7;
-[; ;pic.h: 28: extern void __nop(void);
-[; ;pic.h: 77: extern unsigned int flash_read(unsigned short addr);
+[; ;pic.h: 29: extern void __nop(void);
+[; ;pic.h: 78: extern unsigned int flash_read(unsigned short addr);
 [; ;eeprom_routines.h: 114: extern void eeprom_write(unsigned char addr, unsigned char value);
 [; ;eeprom_routines.h: 115: extern unsigned char eeprom_read(unsigned char addr);
 [; ;eeprom_routines.h: 116: extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 [; ;eeprom_routines.h: 117: extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
-[; ;pic.h: 152: extern __nonreentrant void _delay(unsigned long);
-[; ;pic.h: 154: extern __nonreentrant void _delaywdt(unsigned long);
-[; ;pic.h: 157: extern __nonreentrant void _delay3(unsigned char);
-[; ;pic.h: 192: extern unsigned char __resetbits;
-[; ;pic.h: 193: extern __bit __powerdown;
-[; ;pic.h: 194: extern __bit __timeout;
-"29 step_motor.h
-[v _flag_directie `i ~T0 @X0 1 e ]
-[; ;step_motor.h: 29: int flag_directie;
-[; ;step_motor.h: 30: void turn_egs(void);
-[; ;step_motor.h: 31: void command_turn(void);
-[; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;pic.h: 153: extern __nonreentrant void _delay(unsigned long);
+[; ;pic.h: 155: extern __nonreentrant void _delaywdt(unsigned long);
+[; ;pic.h: 158: extern __nonreentrant void _delay3(unsigned char);
+[; ;pic.h: 193: extern __bank0 unsigned char __resetbits;
+[; ;pic.h: 194: extern __bank0 __bit __powerdown;
+[; ;pic.h: 195: extern __bank0 __bit __timeout;
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 38: typedef signed long int int32_t;
-[; ;stdint.h: 45: typedef unsigned char uint8_t;
-[; ;stdint.h: 51: typedef unsigned int uint16_t;
-[; ;stdint.h: 67: typedef unsigned long int uint32_t;
-[; ;stdint.h: 75: typedef signed char int_least8_t;
-[; ;stdint.h: 82: typedef signed int int_least16_t;
-[; ;stdint.h: 104: typedef signed long int int_least32_t;
-[; ;stdint.h: 111: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 117: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 136: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 145: typedef signed char int_fast8_t;
-[; ;stdint.h: 152: typedef signed int int_fast16_t;
-[; ;stdint.h: 174: typedef signed long int int_fast32_t;
-[; ;stdint.h: 181: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 187: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 206: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 212: typedef int32_t intmax_t;
-[; ;stdint.h: 217: typedef uint32_t uintmax_t;
-[; ;stdint.h: 222: typedef int16_t intptr_t;
-[; ;stdint.h: 227: typedef uint16_t uintptr_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;pin_manager.h: 402: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 414: void PIN_MANAGER_IOC(void);
+[; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;interrupt_manager.h: 110: void interrupt INTERRUPT_InterruptManager(void);
 [; ;tmr1.h: 63: extern int flag_1_ms, flag_10_ms, flag_100_ms, flag_500_ms,flag_1000_ms,flag_4000_ms;
 [; ;tmr1.h: 100: void TMR1_Initialize(void);
 [; ;tmr1.h: 129: void TMR1_StartTimer(void);
@@ -3338,6 +3361,34 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr1.h: 438: void TMR1_DefaultInterruptHandler(void);
 [; ;tmr1.h: 450: void TMR1_enable(void);
 [; ;tmr1.h: 451: void TMR1_disable(void);
+[; ;adc.h: 71: typedef uint16_t adc_result_t;
+[; ;adc.h: 76: typedef struct
+[; ;adc.h: 77: {
+[; ;adc.h: 78: adc_result_t adcResult1;
+[; ;adc.h: 79: adc_result_t adcResult2;
+[; ;adc.h: 80: } adc_sync_double_result_t;
+[; ;adc.h: 94: typedef enum
+[; ;adc.h: 95: {
+[; ;adc.h: 96: channel_AN0 = 0x0,
+[; ;adc.h: 97: channel_AN1 = 0x1,
+[; ;adc.h: 98: channel_Temp = 0x1D,
+[; ;adc.h: 99: channel_DAC = 0x1E,
+[; ;adc.h: 100: channel_FVR = 0x1F
+[; ;adc.h: 101: } adc_channel_t;
+"103 mcc_generated_files/adc.h
+[v _rez_conversie `ui ~T0 @X0 1 e ]
+[i _rez_conversie
+-> -> 0 `i `ui
+]
+[; ;adc.h: 103: extern uint16_t rez_conversie=0;
+[; ;adc.h: 137: void ADC_Initialize(void);
+[; ;adc.h: 167: void ADC_SelectChannel(adc_channel_t channel);
+[; ;adc.h: 194: void ADC_StartConversion();
+[; ;adc.h: 226: bool ADC_IsConversionDone();
+[; ;adc.h: 259: adc_result_t ADC_GetConversionResult(void);
+[; ;adc.h: 289: adc_result_t ADC_GetConversion(adc_channel_t channel);
+[; ;adc.h: 306: void ADC_ISR(void);
+[; ;adc.h: 307: uint16_t ADC_conversii(void );
 [; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
@@ -3377,395 +3428,386 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eusart.h: 181: void EUSART_Write(uint8_t txData);
 [; ;eusart.h: 202: void EUSART_Transmit_ISR(void);
 [; ;eusart.h: 223: void EUSART_Receive_ISR(void);
-"6 step_motor.c
+"27 mcc_generated_files/../keyboard.h
+[v _strKey_Pressed `VS377 ~T0 @X0 1 e ]
+[; ;keyboard.h: 23: volatile struct strKey_Pressed_{
+[; ;keyboard.h: 24: unsigned char btnOK:1;
+[; ;keyboard.h: 25: unsigned char btnUP:1;
+[; ;keyboard.h: 26: unsigned char btnDOWN:1;
+[; ;keyboard.h: 27: }strKey_Pressed;
+"33
+[v _strKey_Released `VS378 ~T0 @X0 1 e ]
+[; ;keyboard.h: 28: volatile struct strKey_Released_
+[; ;keyboard.h: 29: {
+[; ;keyboard.h: 30: unsigned char btnOK:1;
+[; ;keyboard.h: 31: unsigned char btnUP:1;
+[; ;keyboard.h: 32: unsigned char btnDOWN:1;
+[; ;keyboard.h: 33: }strKey_Released;
+"39
+[v _strKey_Counts `VS379 ~T0 @X0 1 e ]
+[; ;keyboard.h: 34: volatile struct strKey_Counts_
+[; ;keyboard.h: 35: {
+[; ;keyboard.h: 36: unsigned char btnOK:2;
+[; ;keyboard.h: 37: unsigned char btnUP:2;
+[; ;keyboard.h: 38: unsigned char btnDOWN:2;
+[; ;keyboard.h: 39: }strKey_Counts;
+[; ;keyboard.h: 44: void Check_KeyPressed(void);
+[; ;keyboard.h: 45: void Check_KeyReleased(void);
+[; ;keyboard.h: 46: void Keyboard_Manager(void);
+[; ;keyboard.h: 47: unsigned char Check_key(unsigned char btn_mask);
+"16 mcc_generated_files/../gsm.h
+[v _temp `i ~T0 @X0 1 e ]
+[; ;gsm.h: 16: int temp;
+"17
+[v _RH_byte1 `uc ~T0 @X0 1 e ]
+[; ;gsm.h: 17: unsigned char RH_byte1;
+[; ;gsm.h: 20: void sms_text(void);
+[; ;gsm.h: 22: void int_gsm(void);
+[; ;gsm.h: 24: void check_status_incubator(void);
+"16 mcc_generated_files/../dht11.h
+[v _Check `uc ~T0 @X0 1 e ]
+[v _T_byte1 `uc ~T0 @X0 1 e ]
+[v _T_byte2 `uc ~T0 @X0 1 e ]
+"17
+[v _RH_byte2 `uc ~T0 @X0 1 e ]
+[v _Ch `uc ~T0 @X0 1 e ]
+[; ;dht11.h: 16: unsigned char Check, T_byte1, T_byte2,
+[; ;dht11.h: 17: RH_byte2, Ch ;
+"18
+[v _Temp `uc ~T0 @X0 1 e ]
+[v _RH `uc ~T0 @X0 1 e ]
+[v _Sum `uc ~T0 @X0 1 e ]
+[; ;dht11.h: 18: unsigned char Temp, RH, Sum ;
+"19
+[v _umiditate `i ~T0 @X0 1 e ]
+[; ;dht11.h: 19: int umiditate;
+[; ;dht11.h: 21: void StartSignal(void);
+[; ;dht11.h: 23: void CheckResponse(void);
+[; ;dht11.h: 25: char ReadData(void);
+[; ;dht11.h: 27: void DHT_result(void);
+"28 mcc_generated_files/../step_motor.h
+[v _step_nr `ui ~T0 @X0 1 e ]
+[i _step_nr
+-> -> 0 `i `ui
+]
+[; ;step_motor.h: 28: extern unsigned int step_nr=0;
+[; ;step_motor.h: 29: extern uint16_t supplay_security;
+"30
+[v _flag_on `i ~T0 @X0 1 e ]
+[i _flag_on
+-> 0 `i
+]
+[; ;step_motor.h: 30: extern int flag_on=0;
+"31
+[v _flag_step `i ~T0 @X0 1 e ]
+[i _flag_step
+-> 0 `i
+]
+[; ;step_motor.h: 31: extern int flag_step=0;
+"32
+[v _flag_directie `i ~T0 @X0 1 e ]
+[; ;step_motor.h: 32: int flag_directie;
+"33
+[v _flag_directie_read `i ~T0 @X0 1 e ]
+[; ;step_motor.h: 33: int flag_directie_read;
+[; ;step_motor.h: 34: void turn_egs(void);
+[; ;step_motor.h: 35: void command_turn(void);
+[; ;step_motor.h: 36: void write_eeprom_int32(unsigned char addr, unsigned int data);
+[; ;step_motor.h: 37: uint32_t read_eeprom_int32(unsigned char addr);
+[; ;mcc.h: 75: void SYSTEM_Initialize(void);
+[; ;mcc.h: 88: void OSCILLATOR_Initialize(void);
+[; ;mcc.h: 101: void WDT_Initialize(void);
+[; ;lcd_hd44780_pic16.h: 78: void LCDInit(uint8_t style);
+[; ;lcd_hd44780_pic16.h: 79: void LCDWriteString(const char *msg);
+[; ;lcd_hd44780_pic16.h: 80: void LCDWriteInt(int val,int8_t field_length);
+[; ;lcd_hd44780_pic16.h: 81: void LCDGotoXY(uint8_t x,uint8_t y);
+[; ;lcd_hd44780_pic16.h: 82: void before_init_lcd();
+[; ;lcd_hd44780_pic16.h: 83: void LCD_Init_apdatat();
+[; ;lcd_hd44780_pic16.h: 84: void Lcd_CmdWrite(char cmd);
+[; ;lcd_hd44780_pic16.h: 86: void LCDByte(uint8_t,uint8_t);
+[; ;lcd_hd44780_pic16.h: 90: void LCDBusyLoop();
+[; ;tmr1.h: 450: void TMR1_enable(void);
+[; ;tmr1.h: 451: void TMR1_disable(void);
+"9 step_motor.c
 [v _turn_egs `(v ~T0 @X0 1 ef ]
-"7
+"10
 {
-[; ;step_motor.c: 6: void turn_egs(void)
-[; ;step_motor.c: 7: {
+[; ;step_motor.c: 9: void turn_egs(void)
+[; ;step_motor.c: 10: {
 [e :U _turn_egs ]
 [f ]
-"8
-[v F3647 `uc ~T0 @X0 1 s step_index ]
-"9
-[v F3648 `ui ~T0 @X0 1 s step_nr ]
-[i F3648
--> -> 1 `i `ui
-]
-[; ;step_motor.c: 8: static unsigned char step_index;
-[; ;step_motor.c: 9: static unsigned int step_nr=1;
-[; ;step_motor.c: 16: if((step_nr<1000)&&(flag_10_ms==1))
-"16
-[e $ ! && < F3648 -> -> 1000 `i `ui == _flag_10_ms -> 1 `i 377  ]
-[; ;step_motor.c: 17: {
-"17
-{
-[; ;step_motor.c: 18: if(flag_directie==1)
-"18
-[e $ ! == _flag_directie -> 1 `i 378  ]
-[; ;step_motor.c: 19: {
+"11
+[v _step_index `uc ~T0 @X0 0 e ]
+[; ;step_motor.c: 11: extern unsigned char step_index;
+[; ;step_motor.c: 19: while((step_nr<350))
 "19
-{
-[; ;step_motor.c: 20: step_nr++;
-"20
-[e ++ F3648 -> -> 1 `i `ui ]
-[; ;step_motor.c: 21: if(step_index==0)
-"21
-[e $ ! == -> F3647 `i -> 0 `i 379  ]
-[; ;step_motor.c: 22: {
-"22
-{
-[; ;step_motor.c: 23: step_index++;
-"23
-[e ++ F3647 -> -> 1 `i `uc ]
-[; ;step_motor.c: 24: LATCbits.LATC0=1;
-"24
-[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
-[; ;step_motor.c: 25: LATCbits.LATC3=0;
-"25
-[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
-[; ;step_motor.c: 26: LATCbits.LATC4=0;
-"26
-[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
-[; ;step_motor.c: 27: LATCbits.LATC5=0;
-"27
-[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
-"28
-}
-[; ;step_motor.c: 28: }
-[e $U 380  ]
-"29
-[e :U 379 ]
-[; ;step_motor.c: 29: else if(step_index==1)
-[e $ ! == -> F3647 `i -> 1 `i 381  ]
-[; ;step_motor.c: 30: {
-"30
-{
-[; ;step_motor.c: 31: step_index++;
-"31
-[e ++ F3647 -> -> 1 `i `uc ]
-[; ;step_motor.c: 32: LATCbits.LATC0=0;
-"32
-[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
-[; ;step_motor.c: 33: LATCbits.LATC3=1;
-"33
-[e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
-[; ;step_motor.c: 34: LATCbits.LATC4=0;
-"34
-[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
-[; ;step_motor.c: 35: LATCbits.LATC5=0;
-"35
-[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
-"36
-}
-[; ;step_motor.c: 36: }
-[e $U 382  ]
-"37
-[e :U 381 ]
-[; ;step_motor.c: 37: else if(step_index==2)
-[e $ ! == -> F3647 `i -> 2 `i 383  ]
-[; ;step_motor.c: 38: {
-"38
-{
-[; ;step_motor.c: 39: step_index++;
-"39
-[e ++ F3647 -> -> 1 `i `uc ]
-[; ;step_motor.c: 40: LATCbits.LATC0=0;
-"40
-[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
-[; ;step_motor.c: 41: LATCbits.LATC3=0;
-"41
-[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
-[; ;step_motor.c: 42: LATCbits.LATC4=1;
-"42
-[e = . . _LATCbits 0 4 -> -> 1 `i `uc ]
-[; ;step_motor.c: 43: LATCbits.LATC5=0;
-"43
-[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
-"44
-}
-[; ;step_motor.c: 44: }
-[e $U 384  ]
-"45
-[e :U 383 ]
-[; ;step_motor.c: 45: else if(step_index==3)
-[e $ ! == -> F3647 `i -> 3 `i 385  ]
-[; ;step_motor.c: 46: {
-"46
-{
-[; ;step_motor.c: 47: step_index++;
-"47
-[e ++ F3647 -> -> 1 `i `uc ]
-[; ;step_motor.c: 48: LATCbits.LATC0=0;
-"48
-[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
-[; ;step_motor.c: 49: LATCbits.LATC3=0;
-"49
-[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
-[; ;step_motor.c: 50: LATCbits.LATC4=0;
-"50
-[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
-[; ;step_motor.c: 51: LATCbits.LATC5=1;
-"51
-[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
-"52
-}
-[; ;step_motor.c: 52: }
-[e $U 386  ]
-"53
-[e :U 385 ]
-[; ;step_motor.c: 53: else if(step_index==4)
-[e $ ! == -> F3647 `i -> 4 `i 387  ]
-[; ;step_motor.c: 54: {
-"54
-{
-[; ;step_motor.c: 55: step_index=0;
-"55
-[e = F3647 -> -> 0 `i `uc ]
-"56
-}
-[e :U 387 ]
-"58
-[e :U 386 ]
-[e :U 384 ]
+[e $U 381  ]
 [e :U 382 ]
-[e :U 380 ]
-[; ;step_motor.c: 56: }
-[; ;step_motor.c: 58: flag_10_ms=0;
-[e = _flag_10_ms -> 0 `i ]
-"59
-}
-[; ;step_motor.c: 59: }
-[e $U 388  ]
-"60
-[e :U 378 ]
-[; ;step_motor.c: 60: else if(flag_directie==0)
-[e $ ! == _flag_directie -> 0 `i 389  ]
-[; ;step_motor.c: 61: {
-"61
+[; ;step_motor.c: 20: {
+"20
 {
-[; ;step_motor.c: 62: step_nr++;
+[; ;step_motor.c: 22: if(flag_directie==1)
+"22
+[e $ ! == _flag_directie -> 1 `i 384  ]
+[; ;step_motor.c: 23: {
+"23
+{
+[; ;step_motor.c: 33: step_nr++;
+"33
+[e ++ _step_nr -> -> 1 `i `ui ]
+[; ;step_motor.c: 35: LATCbits.LATC5=1;
+"35
+[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
+[; ;step_motor.c: 36: LATCbits.LATC4=0;
+"36
+[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
+[; ;step_motor.c: 37: LATCbits.LATC3=0;
+"37
+[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
+[; ;step_motor.c: 38: LATCbits.LATC0=0;
+"38
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[; ;step_motor.c: 39: _delay((unsigned long)((5)*(18432000/4000.0)));
+"39
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[; ;step_motor.c: 42: LATCbits.LATC5=0;
+"42
+[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+[; ;step_motor.c: 43: LATCbits.LATC4=1;
+"43
+[e = . . _LATCbits 0 4 -> -> 1 `i `uc ]
+[; ;step_motor.c: 44: LATCbits.LATC3=0;
+"44
+[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
+[; ;step_motor.c: 45: LATCbits.LATC0=0;
+"45
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[; ;step_motor.c: 46: _delay((unsigned long)((5)*(18432000/4000.0)));
+"46
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[; ;step_motor.c: 48: LATCbits.LATC5=0;
+"48
+[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+[; ;step_motor.c: 49: LATCbits.LATC4=0;
+"49
+[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
+[; ;step_motor.c: 50: LATCbits.LATC3=1;
+"50
+[e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
+[; ;step_motor.c: 51: LATCbits.LATC0=0;
+"51
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[; ;step_motor.c: 52: _delay((unsigned long)((5)*(18432000/4000.0)));
+"52
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[; ;step_motor.c: 55: LATCbits.LATC5=0;
+"55
+[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+[; ;step_motor.c: 56: LATCbits.LATC4=0;
+"56
+[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
+[; ;step_motor.c: 57: LATCbits.LATC3=0;
+"57
+[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
+[; ;step_motor.c: 58: LATCbits.LATC0=1;
+"58
+[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
+[; ;step_motor.c: 59: _delay((unsigned long)((5)*(18432000/4000.0)));
+"59
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
 "62
-[e ++ F3648 -> -> 1 `i `ui ]
-[; ;step_motor.c: 63: if(step_index==0)
+}
+[e :U 384 ]
+[; ;step_motor.c: 62: }
+[; ;step_motor.c: 63: if(flag_directie==0)
 "63
-[e $ ! == -> F3647 `i -> 0 `i 390  ]
+[e $ ! == _flag_directie -> 0 `i 385  ]
 [; ;step_motor.c: 64: {
 "64
 {
-[; ;step_motor.c: 65: step_index++;
-"65
-[e ++ F3647 -> -> 1 `i `uc ]
-[; ;step_motor.c: 66: LATCbits.LATC5=1;
-"66
-[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
-[; ;step_motor.c: 67: LATCbits.LATC4=0;
-"67
-[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
-[; ;step_motor.c: 68: LATCbits.LATC3=0;
-"68
-[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
-[; ;step_motor.c: 69: LATCbits.LATC0=0;
-"69
-[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
-"70
-}
-[; ;step_motor.c: 70: }
-[e $U 391  ]
-"71
-[e :U 390 ]
-[; ;step_motor.c: 71: else if(step_index==1)
-[e $ ! == -> F3647 `i -> 1 `i 392  ]
-[; ;step_motor.c: 72: {
-"72
-{
-[; ;step_motor.c: 73: step_index++;
-"73
-[e ++ F3647 -> -> 1 `i `uc ]
-[; ;step_motor.c: 74: LATCbits.LATC5=0;
-"74
-[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
-[; ;step_motor.c: 75: LATCbits.LATC4=1;
-"75
-[e = . . _LATCbits 0 4 -> -> 1 `i `uc ]
-[; ;step_motor.c: 76: LATCbits.LATC3=0;
-"76
-[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
-[; ;step_motor.c: 77: LATCbits.LATC0=0;
-"77
-[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[; ;step_motor.c: 78: step_nr++;
 "78
-}
-[; ;step_motor.c: 78: }
-[e $U 393  ]
+[e ++ _step_nr -> -> 1 `i `ui ]
+[; ;step_motor.c: 79: LATCbits.LATC0=1;
 "79
-[e :U 392 ]
-[; ;step_motor.c: 79: else if(step_index==2)
-[e $ ! == -> F3647 `i -> 2 `i 394  ]
-[; ;step_motor.c: 80: {
+[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
+[; ;step_motor.c: 80: LATCbits.LATC3=0;
 "80
-{
-[; ;step_motor.c: 81: step_index++;
+[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
+[; ;step_motor.c: 81: LATCbits.LATC4=0;
 "81
-[e ++ F3647 -> -> 1 `i `uc ]
+[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
 [; ;step_motor.c: 82: LATCbits.LATC5=0;
 "82
 [e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
-[; ;step_motor.c: 83: LATCbits.LATC4=0;
+[; ;step_motor.c: 83: _delay((unsigned long)((5)*(18432000/4000.0)));
 "83
-[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
-[; ;step_motor.c: 84: LATCbits.LATC3=1;
-"84
-[e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
-[; ;step_motor.c: 85: LATCbits.LATC0=0;
-"85
-[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[; ;step_motor.c: 86: LATCbits.LATC0=0;
 "86
-}
-[; ;step_motor.c: 86: }
-[e $U 395  ]
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[; ;step_motor.c: 87: LATCbits.LATC3=1;
 "87
-[e :U 394 ]
-[; ;step_motor.c: 87: else if(step_index==3)
-[e $ ! == -> F3647 `i -> 3 `i 396  ]
-[; ;step_motor.c: 88: {
+[e = . . _LATCbits 0 3 -> -> 1 `i `uc ]
+[; ;step_motor.c: 88: LATCbits.LATC4=0;
 "88
-{
-[; ;step_motor.c: 89: step_index++;
-"89
-[e ++ F3647 -> -> 1 `i `uc ]
-[; ;step_motor.c: 90: LATCbits.LATC5=0;
-"90
-[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
-[; ;step_motor.c: 91: LATCbits.LATC4=0;
-"91
 [e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
-[; ;step_motor.c: 92: LATCbits.LATC3=0;
+[; ;step_motor.c: 89: LATCbits.LATC5=0;
+"89
+[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+[; ;step_motor.c: 90: _delay((unsigned long)((5)*(18432000/4000.0)));
+"90
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[; ;step_motor.c: 92: LATCbits.LATC0=0;
 "92
-[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
-[; ;step_motor.c: 93: LATCbits.LATC0=1;
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[; ;step_motor.c: 93: LATCbits.LATC3=0;
 "93
-[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
+[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
+[; ;step_motor.c: 94: LATCbits.LATC4=1;
 "94
-}
-[; ;step_motor.c: 94: }
-[e $U 397  ]
+[e = . . _LATCbits 0 4 -> -> 1 `i `uc ]
+[; ;step_motor.c: 95: LATCbits.LATC5=0;
 "95
-[e :U 396 ]
-[; ;step_motor.c: 95: else if(step_index==4)
-[e $ ! == -> F3647 `i -> 4 `i 398  ]
-[; ;step_motor.c: 96: {
+[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+[; ;step_motor.c: 96: _delay((unsigned long)((5)*(18432000/4000.0)));
 "96
-{
-[; ;step_motor.c: 97: step_index=0;
-"97
-[e = F3647 -> -> 0 `i `uc ]
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+[; ;step_motor.c: 98: LATCbits.LATC0=0;
 "98
-}
-[e :U 398 ]
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[; ;step_motor.c: 99: LATCbits.LATC3=0;
+"99
+[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
+[; ;step_motor.c: 100: LATCbits.LATC4=0;
 "100
-[e :U 397 ]
-[e :U 395 ]
-[e :U 393 ]
-[e :U 391 ]
-[; ;step_motor.c: 98: }
-[; ;step_motor.c: 100: flag_10_ms=0;
-[e = _flag_10_ms -> 0 `i ]
+[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
+[; ;step_motor.c: 101: LATCbits.LATC5=1;
 "101
+[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
+[; ;step_motor.c: 102: _delay((unsigned long)((5)*(18432000/4000.0)));
+"102
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 18432000 `l `d .4000.0 `ul ]
+"112
+}
+[e :U 385 ]
+"113
+}
+[e :U 381 ]
+"19
+[e $ < _step_nr -> -> 350 `i `ui 382  ]
+[e :U 383 ]
+[; ;step_motor.c: 112: }
+[; ;step_motor.c: 113: }
+[; ;step_motor.c: 115: LATCbits.LATC0=0;
+"115
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[; ;step_motor.c: 116: LATCbits.LATC3=0;
+"116
+[e = . . _LATCbits 0 3 -> -> 0 `i `uc ]
+[; ;step_motor.c: 117: LATCbits.LATC4=0;
+"117
+[e = . . _LATCbits 0 4 -> -> 0 `i `uc ]
+[; ;step_motor.c: 118: LATCbits.LATC5=0;
+"118
+[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+[; ;step_motor.c: 119: if(step_nr==350)
+"119
+[e $ ! == _step_nr -> -> 350 `i `ui 386  ]
+[; ;step_motor.c: 120: {
+"120
+{
+[; ;step_motor.c: 121: flag_N=0;
+"121
+[e = _flag_N -> 0 `i ]
+[; ;step_motor.c: 122: flag_G=0;
+"122
+[e = _flag_G -> 0 `i ]
+[; ;step_motor.c: 123: step_nr=0;
+"123
+[e = _step_nr -> -> 0 `i `ui ]
+"125
+}
+[e :U 386 ]
+[; ;step_motor.c: 125: }
+[; ;step_motor.c: 127: if(flag_directie==1)
+"127
+[e $ ! == _flag_directie -> 1 `i 387  ]
+[; ;step_motor.c: 128: {
+"128
+{
+[; ;step_motor.c: 129: flag_directie=0;
+"129
+[e = _flag_directie -> 0 `i ]
+"130
+}
+[; ;step_motor.c: 130: }
+[e $U 388  ]
+"131
+[e :U 387 ]
+[; ;step_motor.c: 131: else if(flag_directie==0)
+[e $ ! == _flag_directie -> 0 `i 389  ]
+[; ;step_motor.c: 132: {
+"132
+{
+[; ;step_motor.c: 133: flag_directie=1;
+"133
+[e = _flag_directie -> 1 `i ]
+"134
 }
 [e :U 389 ]
-"102
+"242
 [e :U 388 ]
+[; ;step_motor.c: 134: }
+[; ;step_motor.c: 242: }
+[e :UE 380 ]
 }
-[; ;step_motor.c: 101: }
-[; ;step_motor.c: 102: }
-[e $U 399  ]
-"103
-[e :U 377 ]
-[; ;step_motor.c: 103: else if(step_nr==1000)
-[e $ ! == F3648 -> -> 1000 `i `ui 400  ]
-[; ;step_motor.c: 104: {
-"104
-{
-[; ;step_motor.c: 105: flag_N=0;
-"105
-[e = _flag_N -> 0 `i ]
-[; ;step_motor.c: 106: flag_G=0;
-"106
-[e = _flag_G -> 0 `i ]
-[; ;step_motor.c: 107: step_nr=0;
-"107
-[e = F3648 -> -> 0 `i `ui ]
-[; ;step_motor.c: 108: if(flag_directie==1)
-"108
-[e $ ! == _flag_directie -> 1 `i 401  ]
-[; ;step_motor.c: 109: {
-"109
-{
-[; ;step_motor.c: 110: flag_directie=0;
-"110
-[e = _flag_directie -> 0 `i ]
-"111
-}
-[; ;step_motor.c: 111: }
-[e $U 402  ]
-"112
-[e :U 401 ]
-[; ;step_motor.c: 112: else if(flag_directie==0)
-[e $ ! == _flag_directie -> 0 `i 403  ]
-[; ;step_motor.c: 113: {
-"113
-{
-[; ;step_motor.c: 114: flag_directie=1;
-"114
-[e = _flag_directie -> 1 `i ]
-"115
-}
-[e :U 403 ]
-"116
-[e :U 402 ]
-[; ;step_motor.c: 115: }
-[; ;step_motor.c: 116: step_index=0;
-[e = F3647 -> -> 0 `i `uc ]
-"118
-}
-[e :U 400 ]
-"120
-[e :U 399 ]
-[; ;step_motor.c: 118: }
-[; ;step_motor.c: 120: }
-[e :UE 376 ]
-}
-"122
+"244
 [v _command_turn `(v ~T0 @X0 1 ef ]
-"123
+"245
 {
-[; ;step_motor.c: 122: void command_turn(void)
-[; ;step_motor.c: 123: {
+[; ;step_motor.c: 244: void command_turn(void)
+[; ;step_motor.c: 245: {
 [e :U _command_turn ]
 [f ]
-[; ;step_motor.c: 124: if (flag_G==1)
-"124
-[e $ ! == _flag_G -> 1 `i 405  ]
-[; ;step_motor.c: 125: {
-"125
+[; ;step_motor.c: 246: if (flag_G==1)
+"246
+[e $ ! == _flag_G -> 1 `i 391  ]
+[; ;step_motor.c: 247: {
+"247
 {
-[; ;step_motor.c: 126: if (flag_N==1)
-"126
-[e $ ! == _flag_N -> 1 `i 406  ]
-[; ;step_motor.c: 127: {
-"127
+[; ;step_motor.c: 248: if (flag_N==1)
+"248
+[e $ ! == _flag_N -> 1 `i 392  ]
+[; ;step_motor.c: 249: {
+"249
 {
-[; ;step_motor.c: 129: turn_egs();
-"129
+[; ;step_motor.c: 250: flag_directie=eeprom_read(0x00);
+"250
+[e = _flag_directie -> ( _eeprom_read (1 -> -> 0 `i `uc `i ]
+[; ;step_motor.c: 252: LCD_Init_apdatat();
+"252
+[e ( _LCD_Init_apdatat ..  ]
+[; ;step_motor.c: 253: LCDWriteString(" Intoarcere oua!");
+"253
+[e ( _LCDWriteString (1 :s 1C ]
+[; ;step_motor.c: 254: turn_egs();
+"254
 [e ( _turn_egs ..  ]
-"131
+[; ;step_motor.c: 255: eeprom_write(0x00,flag_directie);
+"255
+[e ( _eeprom_write (2 , -> -> 0 `i `uc -> _flag_directie `uc ]
+"256
 }
-[e :U 406 ]
-"133
+[e :U 392 ]
+"258
 }
-[e :U 405 ]
-[; ;step_motor.c: 131: }
-[; ;step_motor.c: 133: } }
-[e :UE 404 ]
+[e :U 391 ]
+[; ;step_motor.c: 256: }
+[; ;step_motor.c: 258: }
+[; ;step_motor.c: 262: }
+"262
+[e :UE 390 ]
 }
+[a 1C 32 73 110 116 111 97 114 99 101 114 101 32 111 117 97 33 0 ]
+

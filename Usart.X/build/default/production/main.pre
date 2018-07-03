@@ -1,17 +1,17 @@
 
 # 1 "main.c"
 
-# 26 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\htc.h"
+# 26 "C:\Program Files (x86)\Microchip\xc8\v1.44\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 extern double __fpnormalize(double);
 
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\xc8debug.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.44\include\xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 50 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1937.h"
+# 50 "C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic16f1937.h"
 extern volatile unsigned char INDF0 @ 0x000;
 
 asm("INDF0 equ 00h");
@@ -4534,21 +4534,21 @@ extern volatile __bit nTO @ (((unsigned) &STATUS)*8) + 4;
 extern volatile __bit nWPUEN @ (((unsigned) &OPTION_REG)*8) + 7;
 
 
-# 27 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic.h"
+# 28 "C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic.h"
 #pragma intrinsic(__nop)
 extern void __nop(void);
 
-# 77
+# 78
 extern unsigned int flash_read(unsigned short addr);
 
-# 114 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\eeprom_routines.h"
+# 114 "C:\Program Files (x86)\Microchip\xc8\v1.44\include\eeprom_routines.h"
 extern void eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
 extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 
 
-# 151 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic.h"
+# 152 "C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic.h"
 #pragma intrinsic(_delay)
 extern __nonreentrant void _delay(unsigned long);
 #pragma intrinsic(_delaywdt)
@@ -4557,72 +4557,90 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 192
-extern unsigned char __resetbits;
-extern __bit __powerdown;
-extern __bit __timeout;
+# 193
+extern __bank0 unsigned char __resetbits;
+extern __bank0 __bit __powerdown;
+extern __bank0 __bit __timeout;
 
-# 374 "mcc_generated_files/pin_manager.h"
+# 402 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
 
-# 386
+# 414
 void PIN_MANAGER_IOC(void);
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdint.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.44\include\stdint.h"
 typedef signed char int8_t;
 
 # 20
 typedef signed int int16_t;
 
-# 38
+# 28
+typedef signed short long int int24_t;
+
+# 36
 typedef signed long int int32_t;
 
-# 45
+# 43
 typedef unsigned char uint8_t;
 
-# 51
+# 49
 typedef unsigned int uint16_t;
 
-# 67
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
 typedef unsigned long int uint32_t;
 
-# 75
+# 71
 typedef signed char int_least8_t;
 
-# 82
+# 78
 typedef signed int int_least16_t;
 
-# 104
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
 typedef signed long int int_least32_t;
 
-# 111
+# 105
 typedef unsigned char uint_least8_t;
 
-# 117
+# 111
 typedef unsigned int uint_least16_t;
 
-# 136
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
 typedef unsigned long int uint_least32_t;
 
-# 145
+# 137
 typedef signed char int_fast8_t;
 
-# 152
+# 144
 typedef signed int int_fast16_t;
 
-# 174
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
 typedef signed long int int_fast32_t;
 
-# 181
+# 171
 typedef unsigned char uint_fast8_t;
 
-# 187
+# 177
 typedef unsigned int uint_fast16_t;
 
-# 206
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
 typedef unsigned long int uint_fast32_t;
 
-# 212
+# 200
 typedef int32_t intmax_t;
 
 
@@ -4640,7 +4658,7 @@ typedef int16_t intptr_t;
 
 typedef uint16_t uintptr_t;
 
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdbool.h"
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.44\include\stdbool.h"
 typedef unsigned char bool;
 
 # 110 "mcc_generated_files/interrupt_manager.h"
@@ -4706,6 +4724,7 @@ adc_result_t adcResult2;
 typedef enum
 {
 channel_AN0 = 0x0,
+channel_AN1 = 0x1,
 channel_Temp = 0x1D,
 channel_DAC = 0x1E,
 channel_FVR = 0x1F
@@ -4713,31 +4732,32 @@ channel_FVR = 0x1F
 
 extern uint16_t rez_conversie=0;
 
-# 136
+# 137
 void ADC_Initialize(void);
 
-# 166
+# 167
 void ADC_SelectChannel(adc_channel_t channel);
 
-# 193
+# 194
 void ADC_StartConversion();
 
-# 225
+# 226
 bool ADC_IsConversionDone();
 
-# 258
+# 259
 adc_result_t ADC_GetConversionResult(void);
 
-# 288
+# 289
 adc_result_t ADC_GetConversion(adc_channel_t channel);
 
-# 305
+# 306
 void ADC_ISR(void);
+uint16_t ADC_conversii(void );
 
-# 4 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\__size_t.h"
+# 4 "C:\Program Files (x86)\Microchip\xc8\v1.44\include\__size_t.h"
 typedef unsigned size_t;
 
-# 7 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdarg.h"
+# 7 "C:\Program Files (x86)\Microchip\xc8\v1.44\include\stdarg.h"
 typedef void * va_list[1];
 
 #pragma intrinsic(__va_start)
@@ -4746,17 +4766,17 @@ extern void * __va_start(void);
 #pragma intrinsic(__va_arg)
 extern void * __va_arg(void *, ...);
 
-# 43 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdio.h"
+# 43 "C:\Program Files (x86)\Microchip\xc8\v1.44\include\stdio.h"
 struct __prbuf
 {
 char * ptr;
 void (* func)(char);
 };
 
-# 29 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\errno.h"
+# 29 "C:\Program Files (x86)\Microchip\xc8\v1.44\include\errno.h"
 extern int errno;
 
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\conio.h"
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.44\include\conio.h"
 extern void init_uart(void);
 
 extern char getch(void);
@@ -4770,7 +4790,7 @@ extern __bit kbhit(void);
 extern char * cgets(char *);
 extern void cputs(const char *);
 
-# 88 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdio.h"
+# 88 "C:\Program Files (x86)\Microchip\xc8\v1.44\include\stdio.h"
 extern int cprintf(char *, ...);
 #pragma printf_check(cprintf)
 
@@ -4823,7 +4843,9 @@ void LCDInit(uint8_t style);
 void LCDWriteString(const char *msg);
 void LCDWriteInt(int val,int8_t field_length);
 void LCDGotoXY(uint8_t x,uint8_t y);
-
+void before_init_lcd();
+void LCD_Init_apdatat();
+void Lcd_CmdWrite(char cmd);
 
 void LCDByte(uint8_t,uint8_t);
 
@@ -4883,10 +4905,17 @@ char ReadData(void);
 
 void DHT_result(void);
 
-# 29 "mcc_generated_files/../step_motor.h"
+# 28 "mcc_generated_files/../step_motor.h"
+extern unsigned int step_nr=0;
+extern uint16_t supplay_security;
+extern int flag_on=0;
+extern int flag_step=0;
 int flag_directie;
+int flag_directie_read;
 void turn_egs(void);
 void command_turn(void);
+void write_eeprom_int32(unsigned char addr, unsigned int data);
+uint32_t read_eeprom_int32(unsigned char addr);
 
 # 75 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
@@ -4897,10 +4926,45 @@ void OSCILLATOR_Initialize(void);
 # 101
 void WDT_Initialize(void);
 
-# 54 "main.c"
-extern char txt_receive[];
+# 53 "main.c"
+extern int flag_on;
 
-# 69
+char val;
+int valoare;
+int test_eeprom;
+uint16_t supplay_security;
+extern char txt_receive[];
+int temp_setata=37;
+int virgula_temp_setata;
+char temp_real,temp_virgula,temp_real1,temp_virgula1;
+volatile unsigned char menu_flag=0;
+
+# 71
+void write_eeprom_int32(unsigned char addr, unsigned int data)
+{
+eeprom_write(addr, data & 0xFF);
+eeprom_write(addr + 1, (data >> 8) & 0xFF);
+eeprom_write(addr + 2, (data >> 16) & 0xFF);
+eeprom_write(addr + 3, (data >> 24) & 0xFF);
+}
+
+uint32_t read_eeprom_int32(unsigned char addr)
+{
+uint32_t result;
+
+result = eeprom_read(addr + 3);
+result <<= 8;
+result += eeprom_read(addr + 2);
+result <<= 8;
+result += eeprom_read(addr + 1);
+result <<= 8;
+result += eeprom_read(addr);
+return result;
+}
+
+
+
+
 int comparare(int resistor_value)
 {
 unsigned int res[]={3002,2689,2377,2136,1895,1707,1520,1374,1228,1114,1000,908,817,745,673,615,557,510,463,423,383};
@@ -4939,36 +5003,196 @@ float temperatura;
 int id_tip;
 }
 ;
+void afisare_inf_lcd()
+{
+
+LCD_Init_apdatat();
+temp_virgula=temp%10;
+temp_real=temp/10;
+temp_virgula=temp_virgula;
+(LCDByte(0xB0,0));
+{ LCDGotoXY(0,0); LCDWriteString("Temp=");};
+LCDWriteInt(temp_real,2);
+LCDWriteString(".");
+LCDWriteInt(temp_virgula,1);
+LCDWriteString("C ");
+(LCDByte(0xC0,0));
+LCDWriteString("Umid=");
+
+LCDWriteInt(umiditate,3);
+
+
+
+}
+
+# 190
+void setare_temperatura()
+{
+
+
+LCD_Init_apdatat();
+
+LCDWriteString(" Temp setat este");
+
+# 210
+(LCDByte(0xC0,0));
+
+LCDWriteInt(step_nr,3);
+
+
+
+(LCDByte(0xC0,0));
+
+
+LCDWriteString("   ");
+LCDWriteInt(temp_setata,2);
+LCDWriteString(".");
+LCDWriteInt(virgula_temp_setata,1);
+LCDWriteString("C");
+
+
+
+_delay((unsigned long)((3)*(18432000/4000.0)));
+}
+void state_of_button()
+{
+if (Check_key(0b01000000)==1)
+{
+flag_directie=eeprom_read(0x00);
+LCD_Init_apdatat();
+LCDWriteString(" Intoarcere oua!");
+(LCDByte(0xC0,0));
+
+LCDWriteInt(step_nr,3);
+turn_egs();
+eeprom_write(0x00,flag_directie);
+
+menu_flag=~menu_flag;
+
+
+}
+else if((menu_flag==0)&(Check_key(0b10000000)==1))
+{
+
+
+
+virgula_temp_setata++;
+if (virgula_temp_setata==10)
+{
+virgula_temp_setata=0;
+temp_setata++;
+}
+
+}
+else if((menu_flag==0)&(Check_key(0b00100000)==1))
+{
+
+virgula_temp_setata--;
+if (virgula_temp_setata==-1)
+{
+virgula_temp_setata=9;
+temp_setata--;
+}
+
+
+}
+if (menu_flag!=0 )
+{
+
+afisare_inf_lcd();
+
+
+}
+else if(menu_flag==0)
+{
+
+setare_temperatura();
+
+}
+
+}
+int btn=20;
+
 
 void main(void)
 {
 char x=0;
-
+int flag_scriere=0,flag_citire=0;
 
 SYSTEM_Initialize();
 TRISCbits.TRISC2=0;
+TRISCbits.TRISC1=0;
 ADC_StartConversion();
 
-# 123
+
+
+
 (INTCONbits.GIE = 1);
 
 
 (INTCONbits.PEIE = 1);
 
-# 134
-flag_directie=1;
-int_gsm();
-float volt;
+# 315
+float volt,volt1,volt2;
+
 LCDInit(1);
+LCD_Init_apdatat();
+flag_directie_read=eeprom_read(0x00);
+step_nr=read_eeprom_int32(0x01);
+
+if((flag_directie_read!=0)&&(flag_directie_read!=1))
+{
+
+flag_directie=1;
+eeprom_write(0x00,flag_directie);
+
+}
+else
+
+flag_directie=eeprom_read(0x00);
+if (step_nr==-1)
+{
+step_nr=0;
+}
+else
+step_nr=read_eeprom_int32(0x01);
+if (step_nr)
+{
+turn_egs();
+}
+
+
+LCDWriteString("   Wait for  ");
+(LCDByte(0xC0,0));
+LCDWriteString("   initialize  ");
+int_gsm();
+_delay((unsigned long)((3000)*(18432000/4000.0)));
+
 
 
 
 while (1)
 {
 
-# 168
+LATCbits.LATC1=1;
+
+
+supplay_security=ADC_GetConversion(1);
+
+if( (supplay_security<200)&& (flag_on==0))
+{
+flag_on=1;
+
+eeprom_write(0x00,flag_directie);
+
+}
+
+
 if (flag_1000_ms==1)
 {
+
+(LCDByte(0b00000001,0));
+
 TMR1_disable();
 StartSignal();
 CheckResponse();
@@ -4978,33 +5202,54 @@ DHT_result();
 
 }
 ADC_StartConversion();
-volt=(rez_conversie*4.887)/1.492;
+
+
+
+
+volt=(ADC_conversii()*1.97)/0.555;
+
+
+
 
 temp=comparare(volt);
-if (temp<300)
 
+
+
+if (temp<(temp_setata-10))
+{
 LATCbits.LATC2=1;
-else
+
+}
+else if(temp>(temp_setata+10))
+{
 LATCbits.LATC2=0;
-(LCDByte(0b00000001,0));
-(LCDByte(0xB0,0));
-LCDWriteString("Temper=  ");
 
-LCDWriteInt(temp,3);
-(LCDByte(0xC0,0));
-LCDWriteString("Umid=  ");
+}
+if (umiditate<50)
+LATAbits.LATA4=1;
 
-LCDWriteInt(umiditate,3);
+else
+LATAbits.LATA4=0;
 
 flag_1000_ms=0;
 TMR1_enable();
-
+state_of_button();
 }
+
+
+
+if (flag_100_ms==1)
+{
+
+Keyboard_Manager();
+
+flag_100_ms==0;
+}
+
 command_turn();
 check_status_incubator();
 
-
-
+# 471
 }
 
 

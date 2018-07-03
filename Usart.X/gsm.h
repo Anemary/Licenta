@@ -13,7 +13,7 @@ extern "C" {
 #endif
 #define _XTAL_FREQ  18432000
     
-    int temp;
+   int temp;
     unsigned char RH_byte1;
     
     

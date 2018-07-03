@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"1497 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1937.h
+"1497 C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic16f1937.h
 [s S76 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S76 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
 "1496
@@ -16,7 +16,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "630
 [v _PORTDbits `VS34 ~T0 @X0 0 e@15 ]
 [v F3516 `(v ~T0 @X0 1 tf1`ul ]
-"152 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic.h
+"153 C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic.h
 [v __delay `JF3516 ~T0 @X0 0 e ]
 [p i __delay ]
 "16 dht11.h
@@ -53,7 +53,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic16f1937.h: 50: extern volatile unsigned char INDF0 @ 0x000;
-"52 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1937.h
+"52 C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic16f1937.h
 [; ;pic16f1937.h: 52: asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
 [; ;pic16f1937.h: 55: typedef union {
@@ -3318,18 +3318,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic16f1937.h: 9283: extern volatile __bit nT1SYNC @ (((unsigned) &T1CON)*8) + 2;
 [; ;pic16f1937.h: 9285: extern volatile __bit nTO @ (((unsigned) &STATUS)*8) + 4;
 [; ;pic16f1937.h: 9287: extern volatile __bit nWPUEN @ (((unsigned) &OPTION_REG)*8) + 7;
-[; ;pic.h: 28: extern void __nop(void);
-[; ;pic.h: 77: extern unsigned int flash_read(unsigned short addr);
+[; ;pic.h: 29: extern void __nop(void);
+[; ;pic.h: 78: extern unsigned int flash_read(unsigned short addr);
 [; ;eeprom_routines.h: 114: extern void eeprom_write(unsigned char addr, unsigned char value);
 [; ;eeprom_routines.h: 115: extern unsigned char eeprom_read(unsigned char addr);
 [; ;eeprom_routines.h: 116: extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 [; ;eeprom_routines.h: 117: extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
-[; ;pic.h: 152: extern __nonreentrant void _delay(unsigned long);
-[; ;pic.h: 154: extern __nonreentrant void _delaywdt(unsigned long);
-[; ;pic.h: 157: extern __nonreentrant void _delay3(unsigned char);
-[; ;pic.h: 192: extern unsigned char __resetbits;
-[; ;pic.h: 193: extern __bit __powerdown;
-[; ;pic.h: 194: extern __bit __timeout;
+[; ;pic.h: 153: extern __nonreentrant void _delay(unsigned long);
+[; ;pic.h: 155: extern __nonreentrant void _delaywdt(unsigned long);
+[; ;pic.h: 158: extern __nonreentrant void _delay3(unsigned char);
+[; ;pic.h: 193: extern __bank0 unsigned char __resetbits;
+[; ;pic.h: 194: extern __bank0 __bit __powerdown;
+[; ;pic.h: 195: extern __bank0 __bit __timeout;
 "5 dht11.c
 [v _StartSignal `(v ~T0 @X0 1 ef ]
 "6
@@ -3507,7 +3507,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;dht11.c: 53: umiditate=RH_byte1;
 "53
 [e = _umiditate -> _RH_byte1 `i ]
-[; ;dht11.c: 55: }
-"55
+[; ;dht11.c: 56: }
+"56
 [e :UE 391 ]
 }

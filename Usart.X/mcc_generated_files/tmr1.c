@@ -177,7 +177,7 @@ void TMR1_ISR(void)
 
     TMR1H = (timer1ReloadVal >> 8);
     TMR1L = timer1ReloadVal;
-    flag_1_ms=1;
+   // flag_1_ms=1;
     // callback function - called every 10th pass
     if (++CountCallBack >= TMR1_INTERRUPT_TICKER_FACTOR)
     {
@@ -191,7 +191,7 @@ void TMR1_ISR(void)
 
 void TMR1_CallBack(void)
 {
-    flag_10_ms=1;
+    flag_1_ms=1;
     count_100_ms++;
     count_500_ms++;
     count_1000_ms++;

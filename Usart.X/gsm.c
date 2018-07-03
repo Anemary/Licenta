@@ -1,10 +1,14 @@
 
 #include "gsm.h"
+#include "lcd_hd44780_pic16.h"
 #include "mcc_generated_files/eusart.h"
 #include <xc.h>
 
      void sms_text(void)
 {
+     
+     
+     
     char smstext[]="";
     char umid[]="";
    static int sms_index=0;
@@ -12,7 +16,7 @@
         printf("AT+CSCS=\"GSM\"");
         putch(0x0d);
        __delay_ms(200);
-         printf("AT+CMGS=\"0757494823\"");
+         printf("AT+CMGS=\"0758426929\"");
          putch(0x0d);
         __delay_ms(600);
         
@@ -37,8 +41,10 @@
             printf("AT");
             putch(0x0d);
             __delay_ms(3000);
-            printf("AT+CPIN=\"1234\"");
+            printf("AT+CPIN=\"0000\"");
             putch(0x0d);
+            
+            
             __delay_ms(5000);
             printf("AT+CMGF=1");
             putch(0x0d);
@@ -59,8 +65,10 @@
         {
            if (flag_B==1)
             {
+                 LCD_Init_apdatat();
+                 LCDWriteString(" Trimitere sms");
+                 sms_text();
                
-               sms_text();
              }
                
         }

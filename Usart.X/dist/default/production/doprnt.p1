@@ -1,9 +1,9 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [v F10 `(v ~T0 @X0 0 tf1`uc ]
-"43 C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdio.h
+"43 C:\Program Files (x86)\Microchip\xc8\v1.44\include\stdio.h
 [s S1 `*uc 1 `*F10 1 ]
 [n S1 __prbuf ptr func ]
-"13 C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdarg.h
+"13 C:\Program Files (x86)\Microchip\xc8\v1.44\include\stdarg.h
 [v ___va_arg `(*v ~T0 @X0 0 ev`*v ]
 [p i ___va_arg ]
 [; ;__size_t.h: 4: typedef unsigned size_t;
@@ -181,7 +181,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;math.h: 53: extern double fmod(double, double);
 [; ;math.h: 54: extern double trunc(double);
 [; ;math.h: 55: extern double round(double);
-"13 C:\Program Files (x86)\Microchip\xc8\v1.42\sources\common\doprnt.c
+"13 C:\Program Files (x86)\Microchip\xc8\v1.44\sources\common\doprnt.c
 [p n 350 ]
 "354
 [v _dpowers `Cui ~T0 @X0 -> 0 `x s ]

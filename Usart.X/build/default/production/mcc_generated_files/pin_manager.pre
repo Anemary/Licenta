@@ -1,17 +1,17 @@
 
 # 1 "mcc_generated_files/pin_manager.c"
 
-# 26 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\htc.h"
+# 26 "C:\Program Files (x86)\Microchip\xc8\v1.44\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 extern double __fpnormalize(double);
 
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\xc8debug.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.44\include\xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 50 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1937.h"
+# 50 "C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic16f1937.h"
 extern volatile unsigned char INDF0 @ 0x000;
 
 asm("INDF0 equ 00h");
@@ -4534,21 +4534,21 @@ extern volatile __bit nTO @ (((unsigned) &STATUS)*8) + 4;
 extern volatile __bit nWPUEN @ (((unsigned) &OPTION_REG)*8) + 7;
 
 
-# 27 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic.h"
+# 28 "C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic.h"
 #pragma intrinsic(__nop)
 extern void __nop(void);
 
-# 77
+# 78
 extern unsigned int flash_read(unsigned short addr);
 
-# 114 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\eeprom_routines.h"
+# 114 "C:\Program Files (x86)\Microchip\xc8\v1.44\include\eeprom_routines.h"
 extern void eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
 extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 
 
-# 151 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic.h"
+# 152 "C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic.h"
 #pragma intrinsic(_delay)
 extern __nonreentrant void _delay(unsigned long);
 #pragma intrinsic(_delaywdt)
@@ -4557,18 +4557,18 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 192
-extern unsigned char __resetbits;
-extern __bit __powerdown;
-extern __bit __timeout;
+# 193
+extern __bank0 unsigned char __resetbits;
+extern __bank0 __bit __powerdown;
+extern __bank0 __bit __timeout;
 
-# 374 "mcc_generated_files/pin_manager.h"
+# 402 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
 
-# 386
+# 414
 void PIN_MANAGER_IOC(void);
 
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdbool.h"
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.44\include\stdbool.h"
 typedef unsigned char bool;
 
 # 52 "mcc_generated_files/pin_manager.c"
@@ -4584,7 +4584,7 @@ LATC = 0x00;
 
 # 66
 TRISE = 0x0F;
-TRISA = 0xFF;
+TRISA = 0xEF;
 TRISB = 0x00;
 TRISC = 0x86;
 TRISD = 0xF4;
@@ -4593,7 +4593,7 @@ TRISD = 0xF4;
 ANSELB = 0x0F;
 ANSELD = 0x10;
 ANSELE = 0x07;
-ANSELA = 0x3F;
+ANSELA = 0x2F;
 
 # 83
 WPUE = 0x08;

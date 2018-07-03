@@ -1,6 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
-[v F3555 `(v ~T0 @X0 0 tf ]
-"1597 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1937.h
+[v F3561 `(v ~T0 @X0 0 tf ]
+"1597 C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic16f1937.h
 [s S80 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S80 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE TMR1GIE ]
 "1596
@@ -24,14 +24,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S38 . . ]
 "730
 [v _PIR1bits `VS38 ~T0 @X0 0 e@17 ]
-[v F3552 `(v ~T0 @X0 0 tf ]
+[v F3558 `(v ~T0 @X0 0 tf ]
 "402 mcc_generated_files/tmr1.h
-[v _TMR1_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F3552 ]
+[v _TMR1_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F3558 ]
 "438
 [v _TMR1_DefaultInterruptHandler `(v ~T0 @X0 0 ef ]
 "129
 [v _TMR1_StartTimer `(v ~T0 @X0 0 ef ]
-"951 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1937.h
+"951 C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic16f1937.h
 [s S51 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S51 . TMR1ON . nT1SYNC T1OSCEN T1CKPS0 T1CKPS1 TMR1CS0 TMR1CS1 ]
 "961
@@ -59,7 +59,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic16f1937.h: 50: extern volatile unsigned char INDF0 @ 0x000;
-"52 C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1937.h
+"52 C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic16f1937.h
 [; ;pic16f1937.h: 52: asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
 [; ;pic16f1937.h: 55: typedef union {
@@ -3324,41 +3324,47 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic16f1937.h: 9283: extern volatile __bit nT1SYNC @ (((unsigned) &T1CON)*8) + 2;
 [; ;pic16f1937.h: 9285: extern volatile __bit nTO @ (((unsigned) &STATUS)*8) + 4;
 [; ;pic16f1937.h: 9287: extern volatile __bit nWPUEN @ (((unsigned) &OPTION_REG)*8) + 7;
-[; ;pic.h: 28: extern void __nop(void);
-[; ;pic.h: 77: extern unsigned int flash_read(unsigned short addr);
+[; ;pic.h: 29: extern void __nop(void);
+[; ;pic.h: 78: extern unsigned int flash_read(unsigned short addr);
 [; ;eeprom_routines.h: 114: extern void eeprom_write(unsigned char addr, unsigned char value);
 [; ;eeprom_routines.h: 115: extern unsigned char eeprom_read(unsigned char addr);
 [; ;eeprom_routines.h: 116: extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 [; ;eeprom_routines.h: 117: extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
-[; ;pic.h: 152: extern __nonreentrant void _delay(unsigned long);
-[; ;pic.h: 154: extern __nonreentrant void _delaywdt(unsigned long);
-[; ;pic.h: 157: extern __nonreentrant void _delay3(unsigned char);
-[; ;pic.h: 192: extern unsigned char __resetbits;
-[; ;pic.h: 193: extern __bit __powerdown;
-[; ;pic.h: 194: extern __bit __timeout;
+[; ;pic.h: 153: extern __nonreentrant void _delay(unsigned long);
+[; ;pic.h: 155: extern __nonreentrant void _delaywdt(unsigned long);
+[; ;pic.h: 158: extern __nonreentrant void _delay3(unsigned char);
+[; ;pic.h: 193: extern __bank0 unsigned char __resetbits;
+[; ;pic.h: 194: extern __bank0 __bit __powerdown;
+[; ;pic.h: 195: extern __bank0 __bit __timeout;
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 38: typedef signed long int int32_t;
-[; ;stdint.h: 45: typedef unsigned char uint8_t;
-[; ;stdint.h: 51: typedef unsigned int uint16_t;
-[; ;stdint.h: 67: typedef unsigned long int uint32_t;
-[; ;stdint.h: 75: typedef signed char int_least8_t;
-[; ;stdint.h: 82: typedef signed int int_least16_t;
-[; ;stdint.h: 104: typedef signed long int int_least32_t;
-[; ;stdint.h: 111: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 117: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 136: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 145: typedef signed char int_fast8_t;
-[; ;stdint.h: 152: typedef signed int int_fast16_t;
-[; ;stdint.h: 174: typedef signed long int int_fast32_t;
-[; ;stdint.h: 181: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 187: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 206: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 212: typedef int32_t intmax_t;
-[; ;stdint.h: 217: typedef uint32_t uintmax_t;
-[; ;stdint.h: 222: typedef int16_t intptr_t;
-[; ;stdint.h: 227: typedef uint16_t uintptr_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;tmr1.h: 63: extern int flag_1_ms, flag_10_ms, flag_100_ms, flag_500_ms,flag_1000_ms,flag_4000_ms;
 [; ;tmr1.h: 100: void TMR1_Initialize(void);
 [; ;tmr1.h: 129: void TMR1_StartTimer(void);
@@ -3420,7 +3426,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _timer1ReloadVal `Vui ~T0 @X0 1 e ]
 [; ;tmr1.c: 57: volatile uint16_t timer1ReloadVal;
 "58
-[v _TMR1_InterruptHandler `*F3555 ~T0 @X0 1 e ]
+[v _TMR1_InterruptHandler `*F3561 ~T0 @X0 1 e ]
 [; ;tmr1.c: 58: void (*TMR1_InterruptHandler)(void);
 "64
 [v _TMR1_disable `(v ~T0 @X0 1 ef ]
@@ -3666,8 +3672,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _TMR1_ISR ]
 [f ]
 "173
-[v F3587 `Vui ~T0 @X0 1 s CountCallBack ]
-[i F3587
+[v F3593 `Vui ~T0 @X0 1 s CountCallBack ]
+[i F3593
 -> -> 0 `i `ui
 ]
 [; ;tmr1.c: 173: static volatile unsigned int CountCallBack = 0;
@@ -3680,12 +3686,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr1.c: 179: TMR1L = timer1ReloadVal;
 "179
 [e = _TMR1L -> _timer1ReloadVal `uc ]
-[; ;tmr1.c: 180: flag_1_ms=1;
-"180
-[e = _flag_1_ms -> 1 `i ]
 [; ;tmr1.c: 182: if (++CountCallBack >= 10)
 "182
-[e $ ! >= =+ F3587 -> -> 1 `i `ui -> -> 10 `i `ui 388  ]
+[e $ ! >= =+ F3593 -> -> 1 `i `ui -> -> 10 `i `ui 388  ]
 [; ;tmr1.c: 183: {
 "183
 {
@@ -3694,7 +3697,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _TMR1_CallBack ..  ]
 [; ;tmr1.c: 188: CountCallBack = 0;
 "188
-[e = F3587 -> -> 0 `i `ui ]
+[e = F3593 -> -> 0 `i `ui ]
 "189
 }
 [e :U 388 ]
@@ -3711,9 +3714,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr1.c: 193: {
 [e :U _TMR1_CallBack ]
 [f ]
-[; ;tmr1.c: 194: flag_10_ms=1;
+[; ;tmr1.c: 194: flag_1_ms=1;
 "194
-[e = _flag_10_ms -> 1 `i ]
+[e = _flag_1_ms -> 1 `i ]
 [; ;tmr1.c: 195: count_100_ms++;
 "195
 [e ++ _count_100_ms -> 1 `i ]
@@ -3792,7 +3795,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr1.c: 219: }
 [; ;tmr1.c: 220: if(TMR1_InterruptHandler)
 "220
-[e $ ! != _TMR1_InterruptHandler -> -> 0 `i `*F3555 394  ]
+[e $ ! != _TMR1_InterruptHandler -> -> 0 `i `*F3561 394  ]
 [; ;tmr1.c: 221: {
 "221
 {
@@ -3808,12 +3811,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 389 ]
 }
 "227
-[v _TMR1_SetInterruptHandler `(v ~T0 @X0 1 ef1`*F3552 ]
+[v _TMR1_SetInterruptHandler `(v ~T0 @X0 1 ef1`*F3558 ]
 {
 [; ;tmr1.c: 227: void TMR1_SetInterruptHandler(void (* InterruptHandler)(void)){
 [e :U _TMR1_SetInterruptHandler ]
-[v F3590 `(v ~T0 @X0 0 tf ]
-[v _InterruptHandler `*F3590 ~T0 @X0 1 r1 ]
+[v F3596 `(v ~T0 @X0 0 tf ]
+[v _InterruptHandler `*F3596 ~T0 @X0 1 r1 ]
 [f ]
 [; ;tmr1.c: 228: TMR1_InterruptHandler = InterruptHandler;
 "228

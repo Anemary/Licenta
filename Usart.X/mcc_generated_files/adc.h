@@ -94,6 +94,7 @@ typedef struct
 typedef enum
 {
     channel_AN0 =  0x0,
+    channel_AN1 =  0x1,
     channel_Temp =  0x1D,
     channel_DAC =  0x1E,
     channel_FVR =  0x1F
@@ -303,6 +304,7 @@ adc_result_t ADC_GetConversion(adc_channel_t channel);
     None
 */
 void ADC_ISR(void);
+ uint16_t ADC_conversii(void );
 
 #ifdef __cplusplus  // Provide C++ Compatibility
 

@@ -75,8 +75,48 @@ me@avinashgupta.com
 #ifdef LCD_TYPE_202
 	#define LCD_TYPE_204
 #endif
+void Lcd_CmdWrite(char cmd)
+{
+    LCD_DATA_PORT = (cmd & 0xF0);     //Send higher nibble
+   LCD_DATA_PORT &= ~(1<<LCD_RS); // Send LOW pulse on RS pin for selecting Command register
+    LCD_DATA_PORT &= ~(1<<LCD_RW); // Send LOW pulse on RW pin for Write operation
+   LCD_DATA_PORT |= (1<<LCD_E);  // Generate a High-to-low pulse on EN pin
+    __delay_ms(1000);
+    LCD_DATA_PORT &= ~(1<<LCD_E);
 
+    __delay_ms(10000);
 
+    LCD_DATA_PORT = ((cmd<<4) & 0xF0); //Send Lower nibble
+    LCD_DATA_PORT &= ~(1<<LCD_RS);  // Send LOW pulse on RS pin for selecting Command register
+    LCD_DATA_PORT &= ~(1<<LCD_RW);  // Send LOW pulse on RW pin for Write operation
+    LCD_DATA_PORT |= (1<<LCD_E);   // Generate a High-to-low pulse on EN pin
+    __delay_ms(1000);
+    LCD_DATA_PORT &= ~(1<<LCD_E); 
+
+    __delay_ms(10000);
+}
+void before_init_lcd()
+{
+ CLEAR_E();
+ CLEAR_RW();
+CLEAR_RS();
+LCD_DATA_PORT=0b00000000;
+__delay_ms(1000);
+
+}
+
+void LCD_Init_apdatat()
+{
+    LCD_DATA_TRIS= 0;         /*PORT as Output Port*/
+    __delay_ms(100);          /* 15 ms, Power-On delay*/
+    LCDCmd(0x02);    /*send for initialization of LCD with nibble method */
+    LCDCmd(0x28);    /*use 2 line and initialize 5*7 matrix in (4-bit mode)*/
+    LCDCmd(0x01);    /*clear display screen*/
+    LCDCmd(0x0c);    /*display on cursor off*/
+    LCDCmd(0x06);    /*increment cursor (shift cursor to right)*/	
+    __delay_us(10);
+    LCDClear();
+}
 void LCDByte(uint8_t c,uint8_t isdata)
 {
 //Sends a byte to the LCD in 4bit mode
@@ -97,7 +137,7 @@ if(isdata==0)
 else
 	SET_RS();
 
-__delay_us(0.5);		//tAS
+__delay_us(10);		//tAS
 
 SET_E();
 
@@ -106,13 +146,13 @@ SET_E();
 temp=(LCD_DATA_PORT & (~(0X0F<<LCD_DATA_POS)))|((hn<<LCD_DATA_POS));
 LCD_DATA_PORT=temp;
 
-__delay_us(1);			//tEH
+__delay_us(10);			//tEH
 
 //Now data lines are stable pull E low for transmission
 
 CLEAR_E();
 
-__delay_us(1);
+__delay_us(10);
 
 //Send the lower nibble
 SET_E();
@@ -127,7 +167,7 @@ __delay_us(1);			//tEH
 
 CLEAR_E();
 
-__delay_us(1);			//tEL
+//__delay_us(1);			//tEL
 __delay_ms(1);
 //LCDBusyLoop();
 }
@@ -148,7 +188,7 @@ void LCDInit(uint8_t style)
 	*****************************************************************/
 
 	//After power on Wait for LCD to Initialize
-	__delay_ms(30);
+	__delay_ms(40);
 
 	//Set IO Ports
 	LCD_DATA_TRIS&=(~(0x0F<<LCD_DATA_POS)); //Output
@@ -159,15 +199,16 @@ void LCDInit(uint8_t style)
 
 	LCD_DATA_PORT&=(~(0x0F<<LCD_DATA_POS));//Clear data port
 
-        CLEAR_E();
+    CLEAR_E();
 	CLEAR_RW();
 	CLEAR_RS();
 
 	//Set 4-bit mode
-	__delay_us(0.5);	//tAS
+	__delay_us(1);	//tAS
 
 	SET_E();
-	LCD_DATA_PORT|=((0b00000010)<<LCD_DATA_POS); //[B] To transfer 0b00100000 i was using LCD_DATA_PORT|=0b00100000
+	//LCD_DATA_PORT|=((0b00000010)<<LCD_DATA_POS); //[B] To transfer 0b00100000 i was using LCD_DATA_PORT|=0b00100000
+    LCD_DATA_PORT|=((0b00101000)<<LCD_DATA_POS); //[B] To transfer 0b00100000 i was using LCD_DATA_PORT|=0b00100000
 	__delay_us(1);
 	CLEAR_E();
 	__delay_us(1);
@@ -176,13 +217,23 @@ void LCDInit(uint8_t style)
 	//LCDBusyLoop();                                    //[B] Forgot this delay
     __delay_ms(1);
 	//Now the LCD is in 4-bit mode
-
-	
+/*
+	LCDCmd(0b00110000); 
+    __delay_ms(5);
+    LCDCmd(0b00110000); 
+    __delay_us(100);
+    LCDCmd(0b00110000); 
+   __delay_us(100);
+  */ 
 	LCDCmd(0b00101000);             //function set 4-bit,2 line 5x7 dot format
-        LCDCmd(0b00001100|style);	//Display On
-
+    __delay_ms(54);
+    LCDCmd(0b00000110);  
+  __delay_us(6);
+    LCDCmd(0b00001100|style);	//Display On
+ __delay_ms(4);
+ 
 	/* Custom Char */
-        LCDCmd(0b01000000);
+     //   LCDCmd(0b01000000);
 LCDClear();
 	//uint8_t __i;
 	//for(__i=0;__i<sizeof(__cgram);__i++)
@@ -301,7 +352,7 @@ void LCDGotoXY(uint8_t x,uint8_t y)
 		case 0:
 			break;
 		case 1:
-			x|=0b01000000;
+            	x|=0b01000000;
 			break;
 		case 2:
 			x+=0x14;
@@ -312,7 +363,7 @@ void LCDGotoXY(uint8_t x,uint8_t y)
 	}
 
 	#endif
-
+/*
 	#ifdef LCD_TYPE_164
 	switch(y)
 	{
@@ -330,7 +381,7 @@ void LCDGotoXY(uint8_t x,uint8_t y)
 	}
 
 	#endif
-
+*/
 	x|=0b10000000;
   	LCDCmd(x);
 }

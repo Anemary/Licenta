@@ -1,17 +1,17 @@
 
 # 1 "mcc_generated_files/tmr1.c"
 
-# 26 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\htc.h"
+# 26 "C:\Program Files (x86)\Microchip\xc8\v1.44\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 extern double __fpnormalize(double);
 
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\xc8debug.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.44\include\xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 50 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic16f1937.h"
+# 50 "C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic16f1937.h"
 extern volatile unsigned char INDF0 @ 0x000;
 
 asm("INDF0 equ 00h");
@@ -4534,21 +4534,21 @@ extern volatile __bit nTO @ (((unsigned) &STATUS)*8) + 4;
 extern volatile __bit nWPUEN @ (((unsigned) &OPTION_REG)*8) + 7;
 
 
-# 27 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic.h"
+# 28 "C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic.h"
 #pragma intrinsic(__nop)
 extern void __nop(void);
 
-# 77
+# 78
 extern unsigned int flash_read(unsigned short addr);
 
-# 114 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\eeprom_routines.h"
+# 114 "C:\Program Files (x86)\Microchip\xc8\v1.44\include\eeprom_routines.h"
 extern void eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
 extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 
 
-# 151 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\pic.h"
+# 152 "C:\Program Files (x86)\Microchip\xc8\v1.44\include\pic.h"
 #pragma intrinsic(_delay)
 extern __nonreentrant void _delay(unsigned long);
 #pragma intrinsic(_delaywdt)
@@ -4557,69 +4557,87 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 192
-extern unsigned char __resetbits;
-extern __bit __powerdown;
-extern __bit __timeout;
+# 193
+extern __bank0 unsigned char __resetbits;
+extern __bank0 __bit __powerdown;
+extern __bank0 __bit __timeout;
 
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdbool.h"
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.44\include\stdbool.h"
 typedef unsigned char bool;
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.42\include\stdint.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.44\include\stdint.h"
 typedef signed char int8_t;
 
 # 20
 typedef signed int int16_t;
 
-# 38
+# 28
+typedef signed short long int int24_t;
+
+# 36
 typedef signed long int int32_t;
 
-# 45
+# 43
 typedef unsigned char uint8_t;
 
-# 51
+# 49
 typedef unsigned int uint16_t;
 
-# 67
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
 typedef unsigned long int uint32_t;
 
-# 75
+# 71
 typedef signed char int_least8_t;
 
-# 82
+# 78
 typedef signed int int_least16_t;
 
-# 104
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
 typedef signed long int int_least32_t;
 
-# 111
+# 105
 typedef unsigned char uint_least8_t;
 
-# 117
+# 111
 typedef unsigned int uint_least16_t;
 
-# 136
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
 typedef unsigned long int uint_least32_t;
 
-# 145
+# 137
 typedef signed char int_fast8_t;
 
-# 152
+# 144
 typedef signed int int_fast16_t;
 
-# 174
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
 typedef signed long int int_fast32_t;
 
-# 181
+# 171
 typedef unsigned char uint_fast8_t;
 
-# 187
+# 177
 typedef unsigned int uint_fast16_t;
 
-# 206
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
 typedef unsigned long int uint_fast32_t;
 
-# 212
+# 200
 typedef int32_t intmax_t;
 
 
@@ -4808,7 +4826,7 @@ PIR1bits.TMR1IF = 0;
 
 TMR1H = (timer1ReloadVal >> 8);
 TMR1L = timer1ReloadVal;
-flag_1_ms=1;
+
 
 if (++CountCallBack >= 10)
 {
@@ -4822,7 +4840,7 @@ CountCallBack = 0;
 
 void TMR1_CallBack(void)
 {
-flag_10_ms=1;
+flag_1_ms=1;
 count_100_ms++;
 count_500_ms++;
 count_1000_ms++;

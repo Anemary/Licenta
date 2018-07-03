@@ -25,10 +25,16 @@ extern "C" {
 #define PIN4_direction TRISCbits.TRISC5
     
     
-    
+ extern unsigned int step_nr=0;
+ extern uint16_t supplay_security;
+ extern int flag_on=0;
+ extern int flag_step=0;
 int flag_directie;
+int flag_directie_read;
 void turn_egs(void);
 void command_turn(void);
+void write_eeprom_int32(unsigned char addr, unsigned int data);
+uint32_t read_eeprom_int32(unsigned char addr);
 
 #ifdef	__cplusplus
 }
