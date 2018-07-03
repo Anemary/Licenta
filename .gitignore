@@ -20,3 +20,5 @@ funclist
 nbproject/Makefile-*
 disassembly/
 *.map
+Usart.X/nbproject/Makefile-genesis.properties
+Usart.X/nbproject/Makefile-variables.mk
