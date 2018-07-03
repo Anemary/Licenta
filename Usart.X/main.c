@@ -50,15 +50,14 @@
 #define releu LATDbits.LATD4
 
 
-extern int flag_on;
- 
+int flag_on;
+ int step_nr;
  char val;
   int valoare;
   int test_eeprom;
- uint16_t supplay_security;
+ uint16_t supply_security=0;
 extern char txt_receive[];
-int temp_setata=37;
-int virgula_temp_setata;
+int temp_setata=370;
 char temp_real,temp_virgula,temp_real1,temp_virgula1;
 volatile unsigned char menu_flag=0;
 /*
@@ -66,8 +65,18 @@ volatile unsigned char menu_flag=0;
  */
 
 //FUNCTII PENTRU LCD
+void check_PowerSupply(void)
+{
+                ADC_StartConversion();
+                supply_security=ADC_GetConversion(1); 
+                  if( (supply_security<200)&& (flag_on==0))
+                    { 
+                      eeprom_write(0x00,flag_directie);
+                      write_eeprom_int32(0x01, step_nr);
 
-
+                      flag_on=1;
+                    } 
+}
 void write_eeprom_int32(unsigned char addr, unsigned int data)
 {
     eeprom_write(addr, data & 0xFF);
@@ -192,7 +201,7 @@ void setare_temperatura()
     
     //LCDClear();
      LCD_Init_apdatat();
-    // LCDWriteInt(flag_directie_read,1);
+    // LCDWriteInt(flag_directie,1);
      LCDWriteString(" Temp setat este");
      /*
       LCDWriteString("F dir " );
@@ -217,9 +226,9 @@ void setare_temperatura()
 
     
      LCDWriteString("   ");
-     LCDWriteInt(temp_setata,2);
+     LCDWriteInt(temp_setata/10,2);
      LCDWriteString(".");
-     LCDWriteInt(virgula_temp_setata,1);
+     LCDWriteInt(temp_setata%10,1);
      LCDWriteString("C"); 
      //LCDWriteString(".");
     // LCDWriteInt(temp_virgula1,1);
@@ -230,14 +239,14 @@ void state_of_button()
 {
    if (Check_key(BTN_OK_MASK)==1)
    {
-       flag_directie=eeprom_read(0x00);
+       
        LCD_Init_apdatat();
        LCDWriteString(" Intoarcere oua!");
         LCDCmd(0xC0);
    
      LCDWriteInt(step_nr,3);
        turn_egs();
-       eeprom_write(0x00,flag_directie);
+ 
       //write_eeprom_int32(0x01,350);
 	   menu_flag=~menu_flag;
         
@@ -248,23 +257,16 @@ void state_of_button()
        
       
       //incrementare temp
-		virgula_temp_setata++; 
-        if (virgula_temp_setata==10)
-       {
-           virgula_temp_setata=0;
+		
            temp_setata++;
-       }
+       
         
 	}
 		else if((menu_flag==0)&(Check_key(BTN_DOWN_MASK)==1))
 	{
-            //decrementare temp
-            virgula_temp_setata--; 
-            if (virgula_temp_setata==-1)
-       {
-           virgula_temp_setata=9;
+        
            temp_setata--;
-       }
+       
 		 
       
 	}
@@ -289,10 +291,10 @@ int btn=20;
 void main(void)
 {
     char x=0;
-    int flag_scriere=0,flag_citire=0;
+//    int flag_scriere=0,flag_citire=0;
     // initialize the device
     SYSTEM_Initialize();
-    TRISCbits.TRISC2=0; // set as output for the sourse of heater
+    TRISCbits.TRISC2=0; // set as output for the source of heater
      TRISCbits.TRISC1=0; // set as output for the FAN
     ADC_StartConversion();
     // When using interrupts, you need to set the Global and Peripheral Interrupt Enable bits
@@ -316,103 +318,89 @@ void main(void)
     
     LCDInit(1);
     LCD_Init_apdatat();
-    flag_directie_read=eeprom_read(0x00);
+    flag_directie=eeprom_read(0x00);
     step_nr=read_eeprom_int32(0x01);
     
-    if((flag_directie_read!=0)&&(flag_directie_read!=1))
+    if((flag_directie!=0)&&(flag_directie!=1))
     {
        
         flag_directie=1;
         eeprom_write(0x00,flag_directie);
        
     }
-    else 
-        
-        flag_directie=eeprom_read(0x00);
-   if (step_nr==-1)
-   {
-       step_nr=0;
-   }
-   else 
-       step_nr=read_eeprom_int32(0x01);
-    if (step_nr)
+
+    
+
+    step_nr=read_eeprom_int32(0x01);
+    if (step_nr!=0)
     {
         turn_egs();
     }
    
   //  turn_egs();
     LCDWriteString("   Wait for  ");
-     LCDCmd(0xC0);
+    LCDCmd(0xC0);
      LCDWriteString("   initialize  ");
       int_gsm();
     __delay_ms(3000);
-    // LCDCmd(0xB0);
+     LCDCmd(0xB0);
     
     
     
     while (1)
     {
-        
-         LATCbits.LATC1=1;  //ventilator
        
-        
-         supplay_security=ADC_GetConversion(1); 
-           
-         if( (supplay_security<200)&& (flag_on==0))
-           {
-               flag_on=1;
-               
-             eeprom_write(0x00,flag_directie);
-             //write_eeprom_int32(0x01, step_nr);
-           }     
+        LATCbits.LATC1=1;  //ventilator always working
+        //LATCbits.LATC2=1;    //bec incalzire
+        check_PowerSupply();    
       
         
-         if (flag_1000_ms==1)
+        if (flag_1000_ms==1)
         {
         
-        LCDClear();
-        
-         TMR1_disable();
-         StartSignal();
-         CheckResponse();
-        if(Check == 1)
-        {
-            DHT_result();
-        
-        }
-        ADC_StartConversion();
-       // volt=(rez_conversie*4.887)/0.5;
-        
-       // rez=ADC_conversii();
-          //volt=(ADC_GetConversion(0)*1.97)/0.555;
-        volt=(ADC_conversii()*1.97)/0.555;
-       //  volt=(rez_conversie*1.97)/0.5; 
-       // volt1=(rez_conversie*1.97)/0.5;
-      //  volt2=(rez_conversie*1.97)/0.5;
-       // volt=(rez_conversie*4.7461)/1.533;
-       temp=comparare(volt);//conversie rezistenta->temperatura
-      // temp=temp+comparare(volt1)+comparare(volt2);
-       //temp=temp/3;
-         
-       if (temp<(temp_setata-10))
-       {
-            LATCbits.LATC2=1;
-            //LATCbits.LATC1=1;
-       }
-       else if(temp>(temp_setata+10))
-       {
-           LATCbits.LATC2=0;
-          // LATCbits.LATC1=0;
-       }
-       if (umiditate<50)
-           LATAbits.LATA4=1;
-            
-        else 
-            LATAbits.LATA4=0;
-       
-        flag_1000_ms=0;
-        TMR1_enable(); 
-        state_of_button();
+            LCDClear();
+
+            TMR1_disable();
+            StartSignal();
+            CheckResponse();
+            if(Check == 1)
+            {
+                DHT_result();
+
+            }
+            ADC_StartConversion();
+            // volt=(rez_conversie*4.887)/0.5;
+
+            // rez=ADC_conversii();
+              //volt=(ADC_GetConversion(0)*1.97)/0.555;
+            volt=(ADC_conversii()*1.97)/0.555;
+            //  volt=(rez_conversie*1.97)/0.5; 
+            // volt1=(rez_conversie*1.97)/0.5;
+            //  volt2=(rez_conversie*1.97)/0.5;
+            // volt=(rez_conversie*4.7461)/1.533;
+            temp=comparare(volt);//conversie rezistenta->temperatura
+            // temp=temp+comparare(volt1)+comparare(volt2);
+            //temp=temp/3;
+
+            if (temp<(temp_setata-10))
+            {
+                LATCbits.LATC2=1;    //bec incalzire
+                //LATCbits.LATC1=1;  //ventilator
+            }
+            else if(temp>(temp_setata+10))
+            {
+               LATCbits.LATC2=0;
+              // LATCbits.LATC1=0;
+            }
+            if (umiditate<50)
+               LATAbits.LATA4=1;   // pompa apa
+
+            else 
+                LATAbits.LATA4=0;
+
+            flag_1000_ms=0;
+            TMR1_enable(); 
+            state_of_button();
         }
         
         
@@ -424,11 +412,11 @@ void main(void)
             
             flag_100_ms==0;
          }
-          // flag_directie_read=eeprom_read(0x00);
-     command_turn();
-     check_status_incubator();
+          // flag_directie=eeprom_read(0x00);
+    command_turn();
+    check_status_incubator();
   
-       
+    }   
         
         
         
@@ -437,12 +425,14 @@ void main(void)
     /*
         LCDClear();
         
-        if( (supplay_security<200)&& (flag_on==0))
+        ADC_StartConversion();
+        supply_security=ADC_GetConversion(1); 
+        if( (supply_security<200)&& (flag_on==0))
            {
                flag_on=1;
                
              //eeprom_write(0x00,flag_directie);
-             write_eeprom_int32(0x07, 1112);
+             write_eeprom_int32(0x06, 1112);
            }
         
         
@@ -465,12 +455,12 @@ void main(void)
        LCDWriteInt(test_eeprom,4);
        LCDCmd(0xC0);
         LCDWriteString("VAl eprom");
-         LCDWriteInt(read_eeprom_int32(0x07),4);
+         LCDWriteInt(read_eeprom_int32(0x06),4);
         __delay_ms(1000);
-       */
+       
     }
   
-
+    */
         return;  
 }
 
